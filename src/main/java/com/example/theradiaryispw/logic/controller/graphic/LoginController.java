@@ -11,7 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
-
+//Commento
 public class LoginController extends CommonController{
     public LoginController(Session session) {
         super(session);
