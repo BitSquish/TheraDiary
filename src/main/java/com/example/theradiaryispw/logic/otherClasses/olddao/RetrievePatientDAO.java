@@ -1,4 +1,4 @@
-package com.example.theradiaryispw.logic.otherClasses.dao;
+package com.example.theradiaryispw.logic.otherClasses.olddao;
 
 import com.example.theradiaryispw.logic.otherClasses.bean.login.CredentialsBean;
 import com.example.theradiaryispw.logic.otherClasses.bean.login.LoggedUserBean;

@@ -1,15 +1,8 @@
-package com.example.theradiaryispw.logic.otherClasses.dao;
+package com.example.theradiaryispw.logic.otherClasses.olddao;
 
 import com.example.theradiaryispw.logic.otherClasses.bean.login.CredentialsBean;
 import com.example.theradiaryispw.logic.otherClasses.bean.login.LoggedUserBean;
-import com.example.theradiaryispw.logic.otherClasses.exceptions.DAOException;
-import com.example.theradiaryispw.logic.otherClasses.other.ConnectionFactory;
 import com.example.theradiaryispw.logic.otherClasses.other.Role;
-
-import java.sql.CallableStatement;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Types;
 
 public class RetrievePsychologistDAO {//implements GenericProcedureDAO {
 /*    @Override

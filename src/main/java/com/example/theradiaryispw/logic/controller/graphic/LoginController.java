@@ -30,8 +30,8 @@ public class LoginController extends CommonController{
         System.out.println("Password: " + passwordCred);
         boolean validCredentials = false;
         CredentialsBean credentialsBean = new CredentialsBean(mailCred, passwordCred, null);
-        Login login = new Login(credentialsBean);
-        LoggedUserBean loggedUserBean = login.log();
+        Login login = new Login();
+        LoggedUserBean loggedUserBean = login.log(credentialsBean);
         session.setUser(loggedUserBean);
         goToHomepage(event);
         //passo i parametri di loggedUser alla sessione

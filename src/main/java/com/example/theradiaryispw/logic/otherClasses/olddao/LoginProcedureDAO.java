@@ -1,4 +1,4 @@
-package com.example.theradiaryispw.logic.otherClasses.dao;
+package com.example.theradiaryispw.logic.otherClasses.olddao;
 
 import com.example.theradiaryispw.logic.otherClasses.bean.login.CredentialsBean;
 import com.example.theradiaryispw.logic.otherClasses.exceptions.DAOException;
@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Types;
 
+//Nei DAO devo fare i metodi per chiamare le varie query.
 public class LoginProcedureDAO implements GenericProcedureDAO<CredentialsBean> {
     @Override
     public CredentialsBean execute(Object... params) throws DAOException, SQLException {
