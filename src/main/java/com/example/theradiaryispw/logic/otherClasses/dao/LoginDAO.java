@@ -6,7 +6,6 @@ import com.example.theradiaryispw.logic.otherClasses.other.ConnectionFactory;
 import com.example.theradiaryispw.logic.otherClasses.other.Role;
 import com.example.theradiaryispw.logic.otherClasses.query.LoginQuery;
 
-import javax.security.auth.login.CredentialException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -48,7 +47,7 @@ public class LoginDAO {
                     loggedUserBean.setDescription(rs1.getString("description"));
                     loggedUserBean.setInPerson(rs1.getBoolean("inPerson"));
                     loggedUserBean.setOnline(rs1.getBoolean("online"));
-                    loggedUserBean.setPAG(rs1.getBoolean("pag"));
+                    loggedUserBean.setPag(rs1.getBoolean("pag"));
                     return loggedUserBean;
                 } else {
                     // Handle empty result set for rs1

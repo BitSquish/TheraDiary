@@ -7,6 +7,7 @@ import com.example.theradiaryispw.logic.otherClasses.other.Session;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
@@ -20,7 +21,7 @@ public class LoginController extends CommonController{
     @FXML
     TextField mail;
     @FXML
-    TextField password;
+    PasswordField password;
 
    @FXML
     private void setCredentials(MouseEvent event){

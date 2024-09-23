@@ -2,6 +2,7 @@ package com.example.theradiaryispw.logic.controller.graphic;
 
 import com.example.theradiaryispw.logic.controller.application.Registration;
 import com.example.theradiaryispw.logic.otherClasses.bean.login.CredentialsBean;
+import com.example.theradiaryispw.logic.otherClasses.bean.login.LoggedUserBean;
 import com.example.theradiaryispw.logic.otherClasses.bean.login.PatientBean;
 import com.example.theradiaryispw.logic.otherClasses.other.Role;
 import com.example.theradiaryispw.logic.otherClasses.other.Session;
@@ -34,7 +35,7 @@ public class PatientRegistrationController extends CommonController{
         Boolean isPAG = online.isSelected();
 
         CredentialsBean credentialsBean = new CredentialsBean(mailPt, passwordPt, role);
-        PatientBean patientBean = new PatientBean(credentialsBean, name, surname, city, description, isInPerson, isOnline, isPAG);
+        PatientBean patientBean = new PatientBean(new LoggedUserBean(credentialsBean, name, surname, city, description, isInPerson, isOnline, isPAG));
         Registration registration = new Registration(patientBean);
         System.out.println("Registrato");
     }

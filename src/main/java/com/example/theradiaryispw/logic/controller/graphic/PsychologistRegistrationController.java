@@ -36,7 +36,7 @@ public class PsychologistRegistrationController extends CommonController{
         Boolean isPAG = online.isSelected();
 
         CredentialsBean credentialsBean = new CredentialsBean(mailPs, passwordPs, role);
-        PsychologistBean psychologistBean = new PsychologistBean(credentialsBean, name, surname, city, description, isInPerson, isOnline, isPAG);
+        PsychologistBean psychologistBean = new PsychologistBean(new LoggedUserBean(credentialsBean, name, surname, city, description, isInPerson, isOnline, isPAG));
         Registration registration = new Registration(psychologistBean);
 
 

@@ -15,7 +15,7 @@
          <!-- Menù superiore -->
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9067c6" height="86.0" stroke="#9067c6" strokeType="INSIDE" width="876.0" />
-            <ImageView fitHeight="161.0" fitWidth="254.0" layoutX="622.0" layoutY="-34.0">
+            <ImageView fx:id="logo" fitHeight="161.0" fitWidth="254.0" layoutX="622.0" layoutY="-34.0" onMouseClicked="#goToHomepage">
                <image>
                   <Image url="@images/commonPanel/WhiteLogo.png" />
                </image>
