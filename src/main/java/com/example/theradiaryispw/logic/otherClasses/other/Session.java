@@ -9,13 +9,15 @@ public class Session {
 
     private boolean commandLine;    //seconda interfaccia
 
+
+    //NOTA: Interfaccia per scorso anno, ora non va più bene
     public void setCommandLine(boolean commandLine){ this.commandLine = commandLine; }
     public boolean isCommandLine(){ return commandLine; }
     public Session(boolean commandLine) {
         this.user = null;
         this.commandLine = commandLine;
         if(isCommandLine())
-            this.homepage="/com/example/theradiaryispw/logic/view/HomepageNotLogged.fxml";  //ATTENZIONE: QUI VA LA SECONDA INTERFACCIA
+            this.homepage="/com/example/theradiaryispw/logic/view/HomepageNotLogged.fxml";  //ATTENZIONE: QUI VA LA SECONDA INTERFACCIA, ANCORA DA FARE
         else
             this.homepage = "/com/example/theradiaryispw/logic/view/HomepageNotLogged.fxml"; //homepage con gui
     }

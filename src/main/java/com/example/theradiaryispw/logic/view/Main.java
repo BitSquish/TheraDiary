@@ -21,6 +21,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+        //ATTENZIONE: VA AGGIUNTA LA SCELTA DELLE INTERFACCE A RIGA DI COMANDO
+        //VERSIONE COERENTE CON SCORSO ANNO, VA RIVISTA
         Session session = new Session(false);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/res/view/HomepageNotLogged.fxml"));
         loader.setControllerFactory(c -> new HomepageController(session)); //Controller homepage
