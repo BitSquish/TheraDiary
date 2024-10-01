@@ -2,16 +2,44 @@ package com.example.theradiaryispw.logic.controller.application;
 
 import com.example.theradiaryispw.logic.otherClasses.bean.login.PatientBean;
 import com.example.theradiaryispw.logic.otherClasses.bean.login.PsychologistBean;
+import com.example.theradiaryispw.logic.otherClasses.dao.RegistrationDAO;
+
+import java.sql.SQLException;
 
 public class Registration {
-    PatientBean patientBean = null;
-    PsychologistBean psychologistBean = null;
+    private PatientBean patientBean;
+    private PsychologistBean psychologistBean;
 
-    public Registration(PatientBean patientBean){
+
+    public Registration(PatientBean patientBean) {
         this.patientBean = patientBean;
+        registerPatient();
     }
 
-    public Registration(PsychologistBean psychologistBean) { this.psychologistBean = psychologistBean; }
+    public Registration(PsychologistBean psychologistBean) {//riferimento al bean del psicologo
+        this.psychologistBean = psychologistBean;
+        registerPsychologist();
+    }
 
+    private void registerPatient() {//metodo per registrare un paziente nel database
+        try {
+            RegistrationDAO.registerPatient(patientBean);
+            System.out.println("Patient registered successfully");
+        } catch (SQLException e) {
+            System.out.println("Error:" + e.getMessage());
+            throw new RuntimeException(e);
+        }
+    }
 
+    private void registerPsychologist() {
+        try {
+            RegistrationDAO.registerPsychologist(psychologistBean);
+            System.out.println("Psychologist registered successfully");
+        } catch (SQLException e) {
+            System.out.println("Error:" + e.getMessage());
+            throw new RuntimeException(e);
+        }
+    }
 }
+
+

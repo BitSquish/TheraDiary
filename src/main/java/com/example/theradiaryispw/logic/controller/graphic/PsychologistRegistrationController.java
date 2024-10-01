@@ -38,7 +38,7 @@ public class PsychologistRegistrationController extends CommonController{
         CredentialsBean credentialsBean = new CredentialsBean(mailPs, passwordPs, role);
         PsychologistBean psychologistBean = new PsychologistBean(new LoggedUserBean(credentialsBean, name, surname, city, description, isInPerson, isOnline, isPAG));
         Registration registration = new Registration(psychologistBean);
-
+        //chiamare metodo in registration
 
         System.out.println("Registrato");
     }
