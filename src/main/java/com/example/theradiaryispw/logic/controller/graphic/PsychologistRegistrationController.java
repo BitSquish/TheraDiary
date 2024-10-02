@@ -9,6 +9,7 @@ import com.example.theradiaryispw.logic.otherClasses.other.Role;
 import com.example.theradiaryispw.logic.otherClasses.other.Session;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
@@ -18,7 +19,9 @@ public class PsychologistRegistrationController extends CommonController{
     }
 
     @FXML
-    TextField nome, cognome, citta, mail, password, descrizione;
+    TextField nome, cognome, citta, mail,  descrizione;
+    @FXML
+    PasswordField password;
     @FXML
     CheckBox inPresenza, online, adesionePAG;
 
@@ -37,8 +40,8 @@ public class PsychologistRegistrationController extends CommonController{
 
         CredentialsBean credentialsBean = new CredentialsBean(mailPs, passwordPs, role);
         PsychologistBean psychologistBean = new PsychologistBean(new LoggedUserBean(credentialsBean, name, surname, city, description, isInPerson, isOnline, isPAG));
-        Registration registration = new Registration(psychologistBean);
-        //chiamare metodo in registration
+        //creazione dell'istanza di Registration per lo psicologo essendo i metodi privati
+        new Registration(psychologistBean);
 
         System.out.println("Registrato");
     }

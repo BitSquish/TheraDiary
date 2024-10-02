@@ -10,7 +10,8 @@ public enum Category {
     SCHIZOPHRENIA(5),
     EATING_DISORDERS(6),
     DISSOCIAL_DISORDER(7),
-    NEURODEVELOPMENTAL_DISORDERS(8);
+    NEURODEVELOPMENTAL_DISORDERS(8),
+    OTHER(9);
 
     private final int id;
 

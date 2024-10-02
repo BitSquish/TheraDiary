@@ -8,6 +8,7 @@ import com.example.theradiaryispw.logic.otherClasses.other.Role;
 import com.example.theradiaryispw.logic.otherClasses.other.Session;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
@@ -17,7 +18,9 @@ public class PatientRegistrationController extends CommonController{
     }
 
     @FXML
-    TextField nome, cognome, citta, mail, password, descrizione;
+    TextField nome, cognome, citta, mail,  descrizione;
+    @FXML
+    PasswordField password;
     @FXML
     CheckBox inPresenza, online, adesionePAG;
 
@@ -36,7 +39,7 @@ public class PatientRegistrationController extends CommonController{
 
         CredentialsBean credentialsBean = new CredentialsBean(mailPt, passwordPt, role);
         PatientBean patientBean = new PatientBean(new LoggedUserBean(credentialsBean, name, surname, city, description, isInPerson, isOnline, isPAG));
-        Registration registration = new Registration(patientBean);
+        new Registration(patientBean);//creazione dell'istanza di registration per il paziente
         System.out.println("Registrato");
     }
 }
