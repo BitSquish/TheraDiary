@@ -35,7 +35,7 @@ public class PatientRegistrationController extends CommonController{
         String description = descrizione.getText();
         Boolean isInPerson = inPresenza.isSelected();
         Boolean isOnline = online.isSelected();
-        Boolean isPAG = online.isSelected();
+        Boolean isPAG = adesionePAG.isSelected();
 
         CredentialsBean credentialsBean = new CredentialsBean(mailPt, passwordPt, role);
         PatientBean patientBean = new PatientBean(new LoggedUserBean(credentialsBean, name, surname, city, description, isInPerson, isOnline, isPAG));

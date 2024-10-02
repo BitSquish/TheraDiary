@@ -36,7 +36,7 @@ public class PsychologistRegistrationController extends CommonController{
         String description = descrizione.getText();
         Boolean isInPerson = inPresenza.isSelected();
         Boolean isOnline = online.isSelected();
-        Boolean isPAG = online.isSelected();
+        Boolean isPAG = adesionePAG.isSelected();
 
         CredentialsBean credentialsBean = new CredentialsBean(mailPs, passwordPs, role);
         PsychologistBean psychologistBean = new PsychologistBean(new LoggedUserBean(credentialsBean, name, surname, city, description, isInPerson, isOnline, isPAG));
