@@ -7,10 +7,18 @@ import com.example.theradiaryispw.logic.otherClasses.bean.login.PatientBean;
 import com.example.theradiaryispw.logic.otherClasses.other.Role;
 import com.example.theradiaryispw.logic.otherClasses.other.Session;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class PatientRegistrationController extends CommonController{
     public PatientRegistrationController(Session session) {
@@ -40,6 +48,12 @@ public class PatientRegistrationController extends CommonController{
         CredentialsBean credentialsBean = new CredentialsBean(mailPt, passwordPt, role);
         PatientBean patientBean = new PatientBean(new LoggedUserBean(credentialsBean, name, surname, city, description, isInPerson, isOnline, isPAG));
         new Registration(patientBean);//creazione dell'istanza di registration per il paziente
-        System.out.println("Registrato");
+        Alert alert= new Alert(AlertType.INFORMATION);//pop up alla fine della registrazione
+        alert.setTitle("Registrazione");
+        alert.setHeaderText(null);
+        alert.setContentText("Registrato con successo");
+        alert.showAndWait();
+
+
     }
 }

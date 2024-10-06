@@ -8,6 +8,7 @@ import com.example.theradiaryispw.logic.otherClasses.bean.login.PsychologistBean
 import com.example.theradiaryispw.logic.otherClasses.other.Role;
 import com.example.theradiaryispw.logic.otherClasses.other.Session;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -43,6 +44,10 @@ public class PsychologistRegistrationController extends CommonController{
         //creazione dell'istanza di Registration per lo psicologo essendo i metodi privati
         new Registration(psychologistBean);
 
-        System.out.println("Registrato");
+        Alert alert= new Alert(Alert.AlertType.INFORMATION);//pop up alla fine della registrazione
+        alert.setTitle("Registrazione");
+        alert.setHeaderText(null);
+        alert.setContentText("Registrato con successo");
+        alert.showAndWait();
     }
 }
