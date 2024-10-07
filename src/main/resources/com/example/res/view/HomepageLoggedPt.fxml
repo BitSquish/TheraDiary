@@ -99,7 +99,7 @@
          <Font size="14.0" />
       </font>
    </Text>
-   <Text fill="WHITE" layoutX="404.0" layoutY="382.0" onMouseClicked="#goToSearch" strokeType="OUTSIDE" strokeWidth="0.0" text="Trova studio medico" wrappingWidth="124.53674316406256">
+   <Text fill="WHITE" layoutX="404.0" layoutY="382.0" onMouseClicked="#goToSearch" strokeType="OUTSIDE" strokeWidth="0.0" text="Trova lo psicologo adatto a te" wrappingWidth="124.53674316406256">
       <font>
          <Font name="System Bold" size="14.0" />
       </font>

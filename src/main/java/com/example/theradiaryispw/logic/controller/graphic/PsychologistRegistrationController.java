@@ -44,10 +44,12 @@ public class PsychologistRegistrationController extends CommonController{
         //creazione dell'istanza di Registration per lo psicologo essendo i metodi privati
         new Registration(psychologistBean);
 
+
         Alert alert= new Alert(Alert.AlertType.INFORMATION);//pop up alla fine della registrazione
         alert.setTitle("Registrazione");
         alert.setHeaderText(null);
         alert.setContentText("Registrato con successo");
         alert.showAndWait();
+
     }
 }

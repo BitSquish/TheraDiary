@@ -28,8 +28,6 @@ public class LoginController extends CommonController{
     private void setCredentials(MouseEvent event){
         String mailCred = mail.getText();
         String passwordCred = password.getText();
-        System.out.println("Mail: " + mailCred);
-        System.out.println("Password: " + passwordCred);
         boolean validCredentials = false;
         CredentialsBean credentialsBean = new CredentialsBean(mailCred, passwordCred, null);
         Login login = new Login();
@@ -65,33 +63,4 @@ public class LoginController extends CommonController{
         }
     }
 
-
-
-    //Prendo dati da textfields, li salvo in variabili e istanzio classe Credentials
-        /*
-            LoginController loginController;
-        boolean validCredentials = false;
-
-        do {
-            loginController = new LoginController();
-            loginController.start();
-            credentials = loginController.getCred();
-
-            if(credentials.getRole() == null) {
-                System.out.println("Invalid credentials. Please try again.");
-            } else {
-                validCredentials = true;
-            }
-        } while(!validCredentials);
-
-        switch(credentials.getRole()) {
-            case WAREHOUSEMANAGER -> new WarehouseManagerController().start();
-            case ADMINISTRATOR -> new AdministratorController().                       start();
-            case SALESMANAGER -> new SalesManagerController().start();
-            default -> {
-                start();
-                throw new RuntimeException("Credenziali non valide");
-            }
-        }
-         */
 }

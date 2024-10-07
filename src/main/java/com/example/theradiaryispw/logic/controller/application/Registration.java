@@ -24,7 +24,6 @@ public class Registration {
     private void registerPatient() {//metodo per registrare un paziente nel database
         try {
             RegistrationDAO.registerPatient(patientBean);
-            System.out.println("Patient registered successfully");
         } catch (SQLException e) {
             System.out.println("Error:" + e.getMessage());
             throw new RuntimeException(e);
@@ -34,7 +33,6 @@ public class Registration {
     private void registerPsychologist() {
         try {
             RegistrationDAO.registerPsychologist(psychologistBean);
-            System.out.println("Psychologist registered successfully");
         } catch (SQLException e) {
             System.out.println("Error:" + e.getMessage());
             throw new RuntimeException(e);

@@ -54,7 +54,9 @@ public class RegistrationDAO {
             pstmt.setBoolean(8, patientBean.isPag());
             pstmt.executeUpdate();
         }
+
     }
+
 
     public static void registerPsychologist(PsychologistBean psychologistBean) throws SQLException {//stessa cosa che ho fatto sopra ma per lo psicologo
         if (emailExists(psychologistBean.getCredentialsBean().getMail())) {
