@@ -49,7 +49,7 @@
          <Font name="System Bold" size="14.0" />
       </font>
    </Text>
-   <ImageView fitHeight="57.0" fitWidth="53.0" layoutX="336.0" layoutY="233.0" onMouseClicked="#goToTasks" pickOnBounds="true" preserveRatio="true">
+   <ImageView fitHeight="62.0" fitWidth="58.0" layoutX="339.0" layoutY="230.0" onMouseClicked="#goToTasks" pickOnBounds="true" preserveRatio="true">
       <image>
          <Image url="@images/commonPanel/diarioTask.png" />
       </image>
@@ -64,7 +64,7 @@
          <Font name="System Bold" size="30.0" />
       </font>
    </Text>
-   <Text fill="WHITE" layoutX="142.0" layoutY="225.0" onMouseClicked="#goToAccountPage" strokeType="OUTSIDE" strokeWidth="0.0" text="Account:">
+   <Text fill="WHITE" layoutX="140.0" layoutY="225.0" onMouseClicked="#goToAccountPage" strokeType="OUTSIDE" strokeWidth="0.0" text="Account:">
       <font>
          <Font name="System Bold" size="14.0" />
       </font>
@@ -94,7 +94,7 @@
          <Font size="14.0" />
       </font>
    </Text>
-   <Text fill="WHITE" layoutX="404.0" layoutY="421.0" onMouseClicked="#goToSearch" strokeType="OUTSIDE" strokeWidth="0.0" text="Ricerca per adesione al P.A.G., luogo e altro" wrappingWidth="116.5367431640625">
+   <Text fill="WHITE" layoutX="404.0" layoutY="421.0" onMouseClicked="#goToSearch" strokeType="OUTSIDE" strokeWidth="0.0" text="Ricerca per nome, zona, adesione al P.A.G. o altro" wrappingWidth="116.5367431640625">
       <font>
          <Font size="14.0" />
       </font>
@@ -104,12 +104,12 @@
          <Font name="System Bold" size="14.0" />
       </font>
    </Text>
-   <Text fill="WHITE" layoutX="681.0" layoutY="392.0" onMouseClicked="#goToArticles" strokeType="OUTSIDE" strokeWidth="0.0" text="Articoli">
+   <Text fill="WHITE" layoutX="681.0" layoutY="392.0" onMouseClicked="#goToArticles" strokeType="OUTSIDE" strokeWidth="0.0" text="Appuntamenti">
       <font>
          <Font name="System Bold" size="14.0" />
       </font>
    </Text>
-   <Text fill="WHITE" layoutX="681.0" layoutY="414.0" onMouseClicked="#goToArticles" strokeType="OUTSIDE" strokeWidth="0.0" text="Articoli scientifici e curiosità da fonti esterne" wrappingWidth="134.93685913085938">
+   <Text fill="WHITE" layoutX="681.0" layoutY="414.0" onMouseClicked="#goToArticles" strokeType="OUTSIDE" strokeWidth="0.0" text="Controlla gli orari del tuo psicologo e gli appuntamenti fissati" wrappingWidth="134.93685913085938">
       <font>
          <Font size="14.0" />
       </font>
@@ -119,19 +119,19 @@
          <Image url="@images/commonPanel/bacheca.png" />
       </image>
    </ImageView>
-   <ImageView fitHeight="57.0" fitWidth="53.0" layoutX="74.0" layoutY="396.0" onMouseClicked="#goToPAG" pickOnBounds="true" preserveRatio="true">
+   <ImageView fitHeight="57.0" fitWidth="53.0" layoutX="73.0" layoutY="396.0" onMouseClicked="#goToPAG" pickOnBounds="true" preserveRatio="true">
       <image>
          <Image url="@images/commonPanel/pag.png" />
       </image>
    </ImageView>
-   <ImageView fitHeight="57.0" fitWidth="53.0" layoutX="336.0" layoutY="396.0" onMouseClicked="#goToSearch" pickOnBounds="true" preserveRatio="true">
+   <ImageView fitHeight="53.0" fitWidth="53.0" layoutX="344.0" layoutY="396.0" onMouseClicked="#goToSearch" pickOnBounds="true" preserveRatio="true">
       <image>
          <Image url="@images/commonPanel/office.png" />
       </image>
    </ImageView>
-   <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="616.0" layoutY="393.0" onMouseClicked="#goToArticles" pickOnBounds="true" preserveRatio="true">
+   <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="619.0" layoutY="395.0" onMouseClicked="#goToArticles" pickOnBounds="true" preserveRatio="true">
       <image>
-         <Image url="@images/commonPanel/articoli.png" />
+         <Image url="@images/commonPanel/calendario.png" />
       </image>
    </ImageView>
 

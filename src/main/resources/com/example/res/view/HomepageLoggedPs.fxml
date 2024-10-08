@@ -49,7 +49,7 @@
             <Font name="System Bold" size="14.0" />
         </font>
     </Text>
-    <ImageView fitHeight="57.0" fitWidth="53.0" layoutX="336.0" layoutY="233.0" onMouseClicked="#goToTasks" pickOnBounds="true" preserveRatio="true">
+    <ImageView fitHeight="60.0" fitWidth="58.0" layoutX="336.0" layoutY="229.0" onMouseClicked="#goToTasks" pickOnBounds="true" preserveRatio="true">
         <image>
             <Image url="@images/commonPanel/diarioTask.png" />
         </image>
@@ -99,22 +99,22 @@
             <Font size="14.0" />
         </font>
     </Text>
-    <Text fill="WHITE" layoutX="404.0" layoutY="382.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gestisci studio medico" wrappingWidth="124.53674316406256">
+    <Text fill="WHITE" layoutX="404.0" layoutY="388.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gestisci studio medico" wrappingWidth="124.53674316406256">
         <font>
             <Font name="System Bold" size="14.0" />
         </font>
     </Text>
-    <Text fill="WHITE" layoutX="681.0" layoutY="392.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Articoli">
+    <Text fill="WHITE" layoutX="681.0" layoutY="392.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Appuntamenti">
         <font>
             <Font name="System Bold" size="14.0" />
         </font>
     </Text>
-    <Text fill="WHITE" layoutX="681.0" layoutY="414.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Articoli scientifici e curiosità da fonti esterne" wrappingWidth="134.93685913085938">
+    <Text fill="WHITE" layoutX="681.0" layoutY="414.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aggiorna i tuoi orari e gestisci i tuoi appuntamenti" wrappingWidth="134.93685913085938">
         <font>
             <Font size="14.0" />
         </font>
     </Text>
-    <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="616.0" layoutY="236.0" onMouseClicked="#goToDashboard" pickOnBounds="true" preserveRatio="true">
+    <ImageView fitHeight="48.0" fitWidth="45.0" layoutX="620.0" layoutY="237.0" onMouseClicked="#goToDashboard" pickOnBounds="true" preserveRatio="true">
         <image>
             <Image url="@images/commonPanel/bacheca.png" />
         </image>
@@ -129,9 +129,9 @@
             <Image url="@images/commonPanel/office.png" />
         </image>
     </ImageView>
-    <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="616.0" layoutY="393.0" onMouseClicked="#goToArticles" pickOnBounds="true" preserveRatio="true">
+    <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="617.0" layoutY="397.0" onMouseClicked="#goToArticles" pickOnBounds="true" preserveRatio="true">
         <image>
-            <Image url="@images/commonPanel/articoli.png" />
+            <Image url="@images/commonPanel/calendario.png" />
         </image>
     </ImageView>
 

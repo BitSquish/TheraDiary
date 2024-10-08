@@ -46,7 +46,7 @@ public class RegistrationDAO {
             }
         }
         else
-            throw new RuntimeException(); //DA SOSTITUIRE CON ECCEZIONE SPECIFICA
+            throw new SQLException(); //DA SOSTITUIRE CON ECCEZIONE SPECIFICA (O FORSE NO?)
     }
 
 

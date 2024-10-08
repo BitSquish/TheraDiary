@@ -9,7 +9,7 @@ import com.example.theradiaryispw.logic.otherClasses.query.LoginQuery;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
+
 
 public class LoginDAO {
     private LoginDAO(){};

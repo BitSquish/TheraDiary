@@ -4,16 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c77d5b2c-72bb-41b5-8004-61d1cfae9b40" name="Changes" comment="Sostituito il try del login con un try-with-resources. Modificata una dicitura sull'homepage del paziente per essere concorde con la modifica dello use case diagram. Unite le classi RetrievePatientDao e RetrievePsychologistDAO in un'unica classe RetrieveDao.">
+    <list default="true" id="c77d5b2c-72bb-41b5-8004-61d1cfae9b40" name="Changes" comment="Modificata la classe RegistrationDAO: le query sono state scritte nell'apposita classe LoginQuery.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/application/Registration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/application/Registration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/PatientRegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/PatientRegistrationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/PsychologistRegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/PsychologistRegistrationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/dao/LoginDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/dao/LoginDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/dao/RegistrationDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/dao/RegistrationDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/olddao/GenericProcedureDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/olddao/LoginProcedureDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/olddao/RetrieveDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/query/LoginQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/query/LoginQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/res/view/CommonPanel.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/res/view/CommonPanel.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/res/view/HomepageLoggedPs.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/res/view/HomepageLoggedPs.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/res/view/HomepageLoggedPt.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/res/view/HomepageLoggedPt.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/res/view/PatientRegistration.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/res/view/PatientRegistration.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/res/view/PsychologistRegistration.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/res/view/PsychologistRegistration.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +76,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/emanu/OneDrive/Desktop&quot;,
@@ -219,7 +222,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728335246213</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Modificata la classe RegistrationDAO: le query sono state scritte nell'apposita classe LoginQuery.">
+      <option name="closed" value="true" />
+      <created>1728397709854</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1728397709855</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -245,7 +256,8 @@
     <MESSAGE value="registrazione funziona , password pallini,l'aggiunta di categoria other in category" />
     <MESSAGE value="funziona tutto ora" />
     <MESSAGE value="Sostituito il try del login con un try-with-resources. Modificata una dicitura sull'homepage del paziente per essere concorde con la modifica dello use case diagram. Unite le classi RetrievePatientDao e RetrievePsychologistDAO in un'unica classe RetrieveDao." />
-    <option name="LAST_COMMIT_MESSAGE" value="Sostituito il try del login con un try-with-resources. Modificata una dicitura sull'homepage del paziente per essere concorde con la modifica dello use case diagram. Unite le classi RetrievePatientDao e RetrievePsychologistDAO in un'unica classe RetrieveDao." />
+    <MESSAGE value="Modificata la classe RegistrationDAO: le query sono state scritte nell'apposita classe LoginQuery." />
+    <option name="LAST_COMMIT_MESSAGE" value="Modificata la classe RegistrationDAO: le query sono state scritte nell'apposita classe LoginQuery." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
