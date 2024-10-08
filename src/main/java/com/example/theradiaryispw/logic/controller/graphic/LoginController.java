@@ -30,6 +30,7 @@ public class LoginController extends CommonController{
         String passwordCred = password.getText();
         boolean validCredentials = false;
         CredentialsBean credentialsBean = new CredentialsBean(mailCred, passwordCred, null);
+        //copia questa parte per registrazione
         Login login = new Login();
         LoggedUserBean loggedUserBean = login.log(credentialsBean);
         session.setUser(loggedUserBean);

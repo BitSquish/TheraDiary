@@ -17,8 +17,7 @@ public class LoginDAO {
     public static LoggedUserBean login(CredentialsBean credentialsBean) throws SQLException {
         LoggedUserBean loggedUserBean = new LoggedUserBean();
         try (Connection conn = ConnectionFactory.getConnection();
-             Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-             ResultSet rs = LoginQuery.logQuery(stmt, credentialsBean)) {
+             ResultSet rs = LoginQuery.logQuery(conn, credentialsBean)) {
             if (rs.next()) {
                 String mail = rs.getString("mail");
                 String password = rs.getString("password");
@@ -26,8 +25,8 @@ public class LoginDAO {
                 CredentialsBean cred = new CredentialsBean(mail, password, role);
                 loggedUserBean.setCredentialsBean(cred);
                 try (ResultSet rs1 = role.getId() == 1 ?
-                        LoginQuery.retrievePsychologist(stmt, mail) :
-                        LoginQuery.retrievePatient(stmt, mail)) {
+                        LoginQuery.retrievePsychologist(conn, mail) :
+                        LoginQuery.retrievePatient(conn, mail)) {
                     if (rs1.next()) { //Se nel resultSet c'è almeno una riga
                         loggedUserBean.setName(rs1.getString("name"));
                         loggedUserBean.setSurname(rs1.getString("surname"));
