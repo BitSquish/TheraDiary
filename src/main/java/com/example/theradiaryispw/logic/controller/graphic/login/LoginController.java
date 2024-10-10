@@ -1,6 +1,8 @@
 package com.example.theradiaryispw.logic.controller.graphic.login;
 
+import com.example.theradiaryispw.logic.controller.application.Login;
 import com.example.theradiaryispw.logic.controller.graphic.*;
+import com.example.theradiaryispw.logic.model.Credentials;
 import com.example.theradiaryispw.logic.otherClasses.bean.login.CredentialsBean;
 import com.example.theradiaryispw.logic.model.LoggedUser;
 import com.example.theradiaryispw.logic.otherClasses.exceptions.EmptyFieldException;
@@ -35,7 +37,19 @@ public class LoginController extends CommonController {
     @FXML
     PasswordField password;
 
-    @FXML
+    private void setCredentials(MouseEvent event){
+        CredentialsBean credentialsBean = new CredentialsBean(mail.getText(), password.getText(), null);
+        Credentials credentials = new Credentials(credentialsBean.getMail(), credentialsBean.getPassword(), credentialsBean.getRole());
+        Login login = new Login();
+        Credentials cred = login.log(credentials);
+        if(credentials != null){
+            session.setUser(credentialsBean);
+            goToHomepage(event);
+        }
+        //passo i parametri di loggedUser alla sessione
+    }
+
+    /*@FXML
     private void setCredentials(MouseEvent event) throws LoginDBException,WrongEmailOrPasswordException,SQLException{
             try {
                 validateFields();
@@ -70,7 +84,7 @@ public class LoginController extends CommonController {
                 e.printStackTrace();
                 showAlert("Errore di sistema", "Errore durante il caricamento della homepage.");
             }
-        }
+        }*/
     private Connection getConnection() throws SQLException {
         // Abstracted database connection method
         return ConnectionFactory.getConnection();

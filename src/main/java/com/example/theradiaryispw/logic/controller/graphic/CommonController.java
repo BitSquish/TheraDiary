@@ -55,7 +55,7 @@ public class CommonController {
                 // Imposta il controller per la nuova pagina
                 loader.setControllerFactory(c -> new HomepageController(session));
             }
-            else if(session.getUser().getCredentialsBean().getRole().toString().equals("PATIENT")){
+            else if(session.getUser().getRole().toString().equals("PATIENT")){
                 // Carica la nuova pagina FXML
                 loader = new FXMLLoader(getClass().getResource("/com/example/res/view/HomepageLoggedPt.fxml"));
                 // Imposta il controller per la nuova pagina

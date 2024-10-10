@@ -42,7 +42,7 @@ public class PsychologistRegistrationController extends CommonController {
         infoPAG.setVisible(isVisible);
     }
 
-    @FXML
+    /*@FXML
     private void addPsychologist(MouseEvent event){
         boolean Errore=false;
         //controllo che i campi non siano vuoti
@@ -103,5 +103,5 @@ public class PsychologistRegistrationController extends CommonController {
 
 
 
-    }
+    }*/
 }

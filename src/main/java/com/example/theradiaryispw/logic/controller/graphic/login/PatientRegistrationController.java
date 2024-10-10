@@ -28,7 +28,7 @@ public class PatientRegistrationController extends CommonController {
     @FXML
     CheckBox inPresenza, online;
 
-    @FXML
+    /*@FXML
     private void addPatient(MouseEvent event){
         boolean Errore=false;
         //controllo che i campi non siano vuoti
@@ -75,5 +75,5 @@ public class PatientRegistrationController extends CommonController {
 
 
 
-    }
+    }*/
 }

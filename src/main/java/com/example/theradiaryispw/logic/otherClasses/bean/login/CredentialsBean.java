@@ -4,9 +4,9 @@ import com.example.theradiaryispw.logic.otherClasses.other.Role;
 
 public class CredentialsBean {
     //Le seguenti variabili sono dichiarate come final per garantire l'integrità dei dati dell'ogetto Credentials
-    private final String mail;
-    private final String password;
-    private final Role role;
+    private String mail;
+    private String password;
+    private Role role;
 
     //costruttore
     public CredentialsBean(String mail, String password, Role role){
@@ -24,5 +24,17 @@ public class CredentialsBean {
 
     public Role getRole(){
         return role;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 }

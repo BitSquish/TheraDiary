@@ -1,5 +1,6 @@
 package com.example.theradiaryispw.logic.otherClasses.dao;
 
+import com.example.theradiaryispw.logic.model.Credentials;
 import com.example.theradiaryispw.logic.otherClasses.bean.login.CredentialsBean;
 import com.example.theradiaryispw.logic.model.LoggedUser;
 import com.example.theradiaryispw.logic.otherClasses.exceptions.WrongEmailOrPasswordException;
@@ -15,19 +16,18 @@ import java.sql.SQLException;
 
 
 public class LoginDAO {
-    private LoginDAO(){};
+    public LoginDAO(){};
 
-    public static LoggedUser login(CredentialsBean credentialsBean) throws SQLException, WrongEmailOrPasswordException {
-        LoggedUser loggedUser = new LoggedUser();
+    public static Credentials login(Credentials credentials) throws SQLException, WrongEmailOrPasswordException {
         try (Connection conn = ConnectionFactory.getConnection();
-             ResultSet rs = LoginQuery.logQuery(conn, credentialsBean)) {
+             ResultSet rs = LoginQuery.logQuery(conn, credentials)) {
             if (rs.next()) {
                 String mail = rs.getString("mail");
                 String password = rs.getString("password");
                 Role role = Role.valueOf(rs.getString("role"));
-                CredentialsBean cred = new CredentialsBean(mail, password, role);
-                loggedUser.setCredentialsBean(cred);
-                try (ResultSet rs1 = role.getId() == 1 ?
+                return new Credentials(mail, password, role);
+                //loggedUser.setCredentialsBean(cred);
+                /*try (ResultSet rs1 = role.getId() == 1 ?
                         LoginQuery.retrievePsychologist(conn, mail) :
                         LoginQuery.retrievePatient(conn, mail)) {
                     if (rs1.next()) { //Se nel resultSet c'è almeno una riga
@@ -42,14 +42,11 @@ public class LoginDAO {
                     } else {
                         System.out.println("ResultSet vuoto");
                     }
-                }
-                catch(SQLException e){
-                    //Eccezione: utente trovato ma non vengono passati i dati a loggedUserBean
-                }
+                }*/
             }
         } catch (SQLException e) {
             throw new WrongEmailOrPasswordException("Mail o password errati");
         }
-        return loggedUser;
+        return null;
     }
 }

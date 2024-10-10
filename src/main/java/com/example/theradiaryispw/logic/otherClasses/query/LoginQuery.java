@@ -1,5 +1,6 @@
 package com.example.theradiaryispw.logic.otherClasses.query;
 
+import com.example.theradiaryispw.logic.model.Credentials;
 import com.example.theradiaryispw.logic.otherClasses.bean.login.CredentialsBean;
 import com.example.theradiaryispw.logic.model.Patient;
 import com.example.theradiaryispw.logic.model.Psychologist;
@@ -9,7 +10,7 @@ import java.sql.*;
 //NOTA: conviene usare Statement per query senza input, per query con input si usa PreparedStatement
 
 public class LoginQuery {
-    public static ResultSet logQuery(Connection conn, CredentialsBean credentialsBean) throws SQLException {
+    public static ResultSet logQuery(Connection conn, Credentials credentialsBean) throws SQLException {
         String query = "SELECT mail, password, role FROM users WHERE mail = ? AND password = ?";
         PreparedStatement pstmt = conn.prepareStatement(query);
         pstmt.setString(1, credentialsBean.getMail());
