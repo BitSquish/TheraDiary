@@ -1,7 +1,7 @@
 package com.example.theradiaryispw.logic.otherClasses.query;
 
 import com.example.theradiaryispw.logic.model.Credentials;
-import com.example.theradiaryispw.logic.otherClasses.bean.login.CredentialsBean;
+import com.example.theradiaryispw.logic.model.bean.login.CredentialsBean;
 import com.example.theradiaryispw.logic.model.Patient;
 import com.example.theradiaryispw.logic.model.Psychologist;
 

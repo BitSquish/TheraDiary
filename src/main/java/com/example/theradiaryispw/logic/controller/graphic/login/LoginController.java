@@ -3,15 +3,11 @@ package com.example.theradiaryispw.logic.controller.graphic.login;
 import com.example.theradiaryispw.logic.controller.application.Login;
 import com.example.theradiaryispw.logic.controller.graphic.*;
 import com.example.theradiaryispw.logic.model.Credentials;
-import com.example.theradiaryispw.logic.otherClasses.bean.login.CredentialsBean;
-import com.example.theradiaryispw.logic.model.LoggedUser;
+import com.example.theradiaryispw.logic.model.bean.login.CredentialsBean;
 import com.example.theradiaryispw.logic.otherClasses.exceptions.EmptyFieldException;
-import com.example.theradiaryispw.logic.otherClasses.exceptions.LoginDBException;
-import com.example.theradiaryispw.logic.otherClasses.exceptions.WrongEmailOrPasswordException;
 import com.example.theradiaryispw.logic.otherClasses.other.ConnectionFactory;
 import com.example.theradiaryispw.logic.otherClasses.other.Role;
 import com.example.theradiaryispw.logic.otherClasses.other.Session;
-import com.example.theradiaryispw.logic.otherClasses.query.LoginQuery;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -22,7 +18,6 @@ import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
@@ -37,15 +32,14 @@ public class LoginController extends CommonController {
     @FXML
     PasswordField password;
 
-    private void setCredentials(MouseEvent event){
+    @FXML
+    private void setCredentials(MouseEvent event) throws IOException {
         CredentialsBean credentialsBean = new CredentialsBean(mail.getText(), password.getText(), null);
         Credentials credentials = new Credentials(credentialsBean.getMail(), credentialsBean.getPassword(), credentialsBean.getRole());
         Login login = new Login();
         Credentials cred = login.log(credentials);
-        if(credentials != null){
-            session.setUser(credentialsBean);
-            goToHomepage(event);
-        }
+        session.setUser(credentialsBean);
+        goToHomepage(event, cred.getRole());
         //passo i parametri di loggedUser alla sessione
     }
 

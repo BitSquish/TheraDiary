@@ -1,10 +1,9 @@
 package com.example.theradiaryispw.logic.otherClasses.other;
 
-import com.example.theradiaryispw.logic.model.Credentials;
-import com.example.theradiaryispw.logic.otherClasses.bean.login.CredentialsBean;
+import com.example.theradiaryispw.logic.model.bean.login.CredentialsBean;
 
 public class Session {
-    private CredentialsBean user;  //utente loggato
+    private CredentialsBean user;
     private Role role;
     private String homepage;
 

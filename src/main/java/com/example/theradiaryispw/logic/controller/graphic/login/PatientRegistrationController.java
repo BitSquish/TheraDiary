@@ -1,11 +1,9 @@
 package com.example.theradiaryispw.logic.controller.graphic.login;
 
-import com.example.theradiaryispw.logic.controller.application.Login;
 import com.example.theradiaryispw.logic.controller.application.Registration;
 import com.example.theradiaryispw.logic.controller.graphic.CommonController;
-import com.example.theradiaryispw.logic.otherClasses.bean.login.CredentialsBean;
-import com.example.theradiaryispw.logic.model.LoggedUser;
-import com.example.theradiaryispw.logic.model.Patient;
+import com.example.theradiaryispw.logic.model.bean.generic.PatientBean;
+import com.example.theradiaryispw.logic.model.bean.login.CredentialsBean;
 import com.example.theradiaryispw.logic.otherClasses.other.Role;
 import com.example.theradiaryispw.logic.otherClasses.other.Session;
 import javafx.fxml.FXML;
@@ -13,8 +11,6 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 
 public class PatientRegistrationController extends CommonController {
     public PatientRegistrationController(Session session) {
@@ -27,6 +23,14 @@ public class PatientRegistrationController extends CommonController {
     PasswordField password;
     @FXML
     CheckBox inPresenza, online;
+
+    @FXML
+    private void addPatient(MouseEvent event){
+        CredentialsBean credentialsBean = new CredentialsBean(mail.getText(), password.getText(), Role.convertIntToRole(2));
+        PatientBean patientBean = new PatientBean(credentialsBean, nome.getText(), cognome.getText(), citta.getText(), descrizione.getText(), inPresenza.isSelected(), online.isSelected(), false, null);
+        Registration registration = new Registration(patientBean);
+
+    }
 
     /*@FXML
     private void addPatient(MouseEvent event){

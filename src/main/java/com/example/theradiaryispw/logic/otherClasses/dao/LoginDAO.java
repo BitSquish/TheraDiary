@@ -1,8 +1,6 @@
 package com.example.theradiaryispw.logic.otherClasses.dao;
 
 import com.example.theradiaryispw.logic.model.Credentials;
-import com.example.theradiaryispw.logic.otherClasses.bean.login.CredentialsBean;
-import com.example.theradiaryispw.logic.model.LoggedUser;
 import com.example.theradiaryispw.logic.otherClasses.exceptions.WrongEmailOrPasswordException;
 import com.example.theradiaryispw.logic.otherClasses.other.ConnectionFactory;
 import com.example.theradiaryispw.logic.otherClasses.other.Role;

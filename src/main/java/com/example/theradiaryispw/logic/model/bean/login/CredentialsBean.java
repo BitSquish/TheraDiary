@@ -1,4 +1,4 @@
-package com.example.theradiaryispw.logic.otherClasses.bean.login;
+package com.example.theradiaryispw.logic.model.bean.login;
 
 import com.example.theradiaryispw.logic.otherClasses.other.Role;
 

@@ -1,8 +1,8 @@
 package com.example.theradiaryispw.logic.otherClasses.dao;
 
-import com.example.theradiaryispw.logic.otherClasses.bean.login.CredentialsBean;
+import com.example.theradiaryispw.logic.model.bean.generic.PsychologistBean;
+import com.example.theradiaryispw.logic.model.bean.login.CredentialsBean;
 import com.example.theradiaryispw.logic.model.Patient;
-import com.example.theradiaryispw.logic.model.Psychologist;
 import com.example.theradiaryispw.logic.otherClasses.other.ConnectionFactory;
 import com.example.theradiaryispw.logic.otherClasses.query.LoginQuery;
 
@@ -27,6 +27,10 @@ public class RegistrationDAO {
             return rs != 0;
         }
     }
+
+    //CREI IL BEAN NEL CONTROLLER GRAFICO E LO PASSI ALL'APPLICATIVO
+    //CREI L'ISTANZA NELL'APPLICATIVO COPIANDOLO DAL BEAN E LO PASSI AL DAO
+    //NEL DAO MODIFICHI L'ENTITA'
     public static void registerPatient(Patient patientBean) throws SQLException{
         if(emailExists(patientBean.getCredentialsBean().getMail())) {
             throw new SQLException(("Mail già presente nel database")); //NON VA BENE SQL
@@ -48,7 +52,7 @@ public class RegistrationDAO {
     }
 
 
-    public static void registerPsychologist(Psychologist psychologistBean) throws SQLException {//stessa cosa che ho fatto sopra ma per lo psicologo
+    /*public static void registerPsychologist(PsychologistBean psychologistBean) throws SQLException {//stessa cosa che ho fatto sopra ma per lo psicologo
         if (emailExists(psychologistBean.getCredentialsBean().getMail())) {
             throw new SQLException("Mail già presente nel database");
         }
@@ -66,6 +70,6 @@ public class RegistrationDAO {
         }
         else
             throw new SQLException(); //DA SOSTITUIRE CON ECCEZIONE SPECIFICA PER INSERIMENTO SU UTENTI NON A BUON FINE (O FORSE NO?)
-    }
+    }*/
 }
 

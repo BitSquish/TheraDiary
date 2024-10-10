@@ -1,9 +1,11 @@
-package com.example.theradiaryispw.logic.model;
+package com.example.theradiaryispw.logic.model.bean.generic;
 
 import com.example.theradiaryispw.logic.model.bean.login.CredentialsBean;
-import com.example.theradiaryispw.logic.otherClasses.other.Role;
+import com.example.theradiaryispw.logic.otherClasses.other.Category;
 
-public class LoggedUser {
+import java.util.List;
+
+public abstract class LoggedUserBean {
     private CredentialsBean credentialsBean;
     private String name;
     private String surname;
@@ -12,11 +14,9 @@ public class LoggedUser {
     private boolean inPerson;
     private boolean online;
     private boolean pag;
-    private String mail;
-    private String password;
-    private Role role;
 
-    public LoggedUser(CredentialsBean credentialsBean, String name, String surname, String city, String description, Boolean isInPerson, Boolean isOnline, Boolean isPAG) {
+
+    protected LoggedUserBean(CredentialsBean credentialsBean, String name, String surname, String city, String description, Boolean isInPerson, Boolean isOnline, Boolean isPAG) {
         this.credentialsBean = credentialsBean;
         this.name = name;
         this.surname = surname;
@@ -25,32 +25,6 @@ public class LoggedUser {
         this.inPerson = isInPerson;
         this.online = isOnline;
         this.pag = isPAG;
-    }
-    public LoggedUser() {
-    }
-    //getter e setter per i nuovi campi
-    public String getMail() {
-        return mail;
-    }
-
-    public void setMail(String mail) {
-        this.mail = mail;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
     }
 
     public CredentialsBean getCredentialsBean() {
@@ -116,6 +90,5 @@ public class LoggedUser {
     public void setPag(boolean pag) {
         this.pag = pag;
     }
-
 
 }

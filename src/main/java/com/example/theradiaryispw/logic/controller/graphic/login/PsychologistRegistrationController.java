@@ -1,17 +1,10 @@
 package com.example.theradiaryispw.logic.controller.graphic.login;
 
-import com.example.theradiaryispw.logic.controller.application.Login;
-import com.example.theradiaryispw.logic.controller.application.Registration;
 import com.example.theradiaryispw.logic.controller.graphic.CommonController;
-import com.example.theradiaryispw.logic.otherClasses.bean.login.CredentialsBean;
-import com.example.theradiaryispw.logic.model.LoggedUser;
-import com.example.theradiaryispw.logic.model.Psychologist;
-import com.example.theradiaryispw.logic.otherClasses.other.Role;
 import com.example.theradiaryispw.logic.otherClasses.other.Session;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 
 public class PsychologistRegistrationController extends CommonController {
     public PsychologistRegistrationController(Session session) {
