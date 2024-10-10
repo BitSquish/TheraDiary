@@ -4,7 +4,7 @@ import com.example.theradiaryispw.logic.model.bean.login.CredentialsBean;
 import com.example.theradiaryispw.logic.otherClasses.other.Role;
 
 public class LoggedUser {
-    private CredentialsBean credentialsBean;
+    private Credentials credentials;
     private String name;
     private String surname;
     private String city;
@@ -16,8 +16,8 @@ public class LoggedUser {
     private String password;
     private Role role;
 
-    public LoggedUser(CredentialsBean credentialsBean, String name, String surname, String city, String description, Boolean isInPerson, Boolean isOnline, Boolean isPAG) {
-        this.credentialsBean = credentialsBean;
+    public LoggedUser(Credentials credentials, String name, String surname, String city, String description, Boolean isInPerson, Boolean isOnline, Boolean isPAG) {
+        this.credentials = credentials;
         this.name = name;
         this.surname = surname;
         this.city = city;
@@ -53,12 +53,13 @@ public class LoggedUser {
         this.role = role;
     }
 
-    public CredentialsBean getCredentialsBean() {
-        return credentialsBean;
+    public Credentials getCredentials() {
+        return credentials;
     }
 
-    public void setCredentialsBean(CredentialsBean credentialsBean) {
-        this.credentialsBean = credentialsBean;
+    //FORSE DA TOGLIERE
+    public void setCredentials(Credentials credentials) {
+        this.credentials = credentials;
     }
 
     public String getName() {

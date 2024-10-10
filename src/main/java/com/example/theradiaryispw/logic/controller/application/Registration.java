@@ -1,10 +1,12 @@
 package com.example.theradiaryispw.logic.controller.application;
 
+import com.example.theradiaryispw.logic.model.Credentials;
 import com.example.theradiaryispw.logic.model.Patient;
 import com.example.theradiaryispw.logic.model.Psychologist;
 import com.example.theradiaryispw.logic.model.bean.generic.PatientBean;
 import com.example.theradiaryispw.logic.model.bean.generic.PsychologistBean;
 import com.example.theradiaryispw.logic.otherClasses.dao.RegistrationDAO;
+import com.example.theradiaryispw.logic.otherClasses.other.Role;
 
 import java.sql.SQLException;
 
@@ -18,13 +20,14 @@ public class Registration {
         registerPatient(patientBean);
     }
 
-    public Registration(PsychologistBean psychologistBean) {//riferimento al bean del psicologo
+    public Registration(PsychologistBean psychologistBean) {//riferimento al bean dello psicologo
         this.psychologistBean = psychologistBean;
         registerPsychologist(psychologistBean);
     }
 
     private void registerPatient(PatientBean patientBean) {//metodo per registrare un paziente nel database
-        Patient patient = new Patient(patientBean.getCredentialsBean(), patientBean.getName(), patientBean.getSurname(), patientBean.getCity(), patientBean.getDescription(), patientBean.isInPerson(), patientBean.isOnline(), false, null);
+        Credentials credentials = new Credentials(patientBean.getCredentialsBean().getMail(), patientBean.getCredentialsBean().getPassword(), Role.PATIENT);
+        Patient patient = new Patient(credentials, patientBean.getName(), patientBean.getSurname(), patientBean.getCity(), patientBean.getDescription(), patientBean.isInPerson(), patientBean.isOnline(), false, null);
         try {
             RegistrationDAO.registerPatient(patient);
         } catch (SQLException e) {

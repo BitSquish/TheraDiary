@@ -1,5 +1,6 @@
 package com.example.theradiaryispw.logic.otherClasses.dao;
 
+import com.example.theradiaryispw.logic.model.Credentials;
 import com.example.theradiaryispw.logic.model.bean.generic.PsychologistBean;
 import com.example.theradiaryispw.logic.model.bean.login.CredentialsBean;
 import com.example.theradiaryispw.logic.model.Patient;
@@ -21,9 +22,9 @@ public class RegistrationDAO {
         return false;
     }
     //inserisco l'utente (credenziali) nel database
-    public static boolean insertUser(CredentialsBean credentialsBean) throws SQLException {
+    public static boolean insertUser(Credentials credentials) throws SQLException {
         try (Connection conn = ConnectionFactory.getConnection()) {
-            int rs = LoginQuery.registerUser(conn, credentialsBean);
+            int rs = LoginQuery.registerUser(conn, credentials);
             return rs != 0;
         }
     }
@@ -31,14 +32,14 @@ public class RegistrationDAO {
     //CREI IL BEAN NEL CONTROLLER GRAFICO E LO PASSI ALL'APPLICATIVO
     //CREI L'ISTANZA NELL'APPLICATIVO COPIANDOLO DAL BEAN E LO PASSI AL DAO
     //NEL DAO MODIFICHI L'ENTITA'
-    public static void registerPatient(Patient patientBean) throws SQLException{
-        if(emailExists(patientBean.getCredentialsBean().getMail())) {
+    public static void registerPatient(Patient patient) throws SQLException{
+        if(emailExists(patient.getCredentials().getMail())) {
             throw new SQLException(("Mail già presente nel database")); //NON VA BENE SQL
         }//inserisco la password e l'email in user
-        boolean flag = insertUser(patientBean.getCredentialsBean());
+        boolean flag = insertUser(patient.getCredentials());
         if(flag){
             try (Connection conn = ConnectionFactory.getConnection()){
-                int rs = LoginQuery.registerPatient(conn, patientBean);
+                int rs = LoginQuery.registerPatient(conn, patient);
                 if(rs != 0){
                     System.out.println("Registrato con successo");
                     //QUALCOSA  PER ANDARE AL LOGIN

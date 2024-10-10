@@ -9,8 +9,8 @@ import java.util.List;
 
 public class Patient extends LoggedUser {
     private ArrayList<Category> categories;
-    public Patient(CredentialsBean credentialsBean, String name, String surname, String city, String description, Boolean isInPerson, Boolean isOnline, Boolean isPAG, ArrayList<Category> categories) {
-        super(credentialsBean, name, surname, city, description, isInPerson, isOnline, false);
+    public Patient(Credentials credentials, String name, String surname, String city, String description, Boolean isInPerson, Boolean isOnline, Boolean isPAG, ArrayList<Category> categories) {
+        super(credentials, name, surname, city, description, isInPerson, isOnline, false);
         this.categories = (categories != null) ? categories : new ArrayList<>();
     }
     public List<Category> getCategories() {

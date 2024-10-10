@@ -1,7 +1,6 @@
 package com.example.theradiaryispw.logic.otherClasses.query;
 
 import com.example.theradiaryispw.logic.model.Credentials;
-import com.example.theradiaryispw.logic.model.bean.login.CredentialsBean;
 import com.example.theradiaryispw.logic.model.Patient;
 import com.example.theradiaryispw.logic.model.Psychologist;
 
@@ -34,7 +33,7 @@ public class LoginQuery {
     }
 
     //QUERY REGISTRAZIONE
-    public static int registerUser(Connection conn, CredentialsBean credentialsBean) throws SQLException{
+    public static int registerUser(Connection conn, Credentials credentialsBean) throws SQLException{
         String query = "INSERT INTO users (mail, password, role) VALUES (?, ?, ?)";
         PreparedStatement pstmt = conn.prepareStatement(query);
         pstmt.setString(1, credentialsBean.getMail());
