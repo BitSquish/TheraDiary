@@ -31,7 +31,7 @@ public class RegistrationDAO {
     }
     public static void registerPatient(PatientBean patientBean) throws SQLException{
         if(emailExists(patientBean.getCredentialsBean().getMail())) {
-            throw new SQLException(("Mail già presente nel database"));
+            throw new SQLException(("Mail già presente nel database")); //NON VA BENE SQL
         }//inserisco la password e l'email in user
         boolean flag = insertUser(patientBean.getCredentialsBean());
         if(flag){

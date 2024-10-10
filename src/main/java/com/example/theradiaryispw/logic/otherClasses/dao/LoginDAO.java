@@ -2,6 +2,7 @@ package com.example.theradiaryispw.logic.otherClasses.dao;
 
 import com.example.theradiaryispw.logic.otherClasses.bean.login.CredentialsBean;
 import com.example.theradiaryispw.logic.otherClasses.bean.login.LoggedUserBean;
+import com.example.theradiaryispw.logic.otherClasses.exceptions.WrongEmailOrPasswordException;
 import com.example.theradiaryispw.logic.otherClasses.other.ConnectionFactory;
 import com.example.theradiaryispw.logic.otherClasses.other.Role;
 import com.example.theradiaryispw.logic.otherClasses.query.LoginQuery;
@@ -10,11 +11,13 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+//I BEAN NON VANNO PASSATI NEL DAO
+
 
 public class LoginDAO {
     private LoginDAO(){};
 
-    public static LoggedUserBean login(CredentialsBean credentialsBean) throws SQLException {
+    public static LoggedUserBean login(CredentialsBean credentialsBean) throws SQLException, WrongEmailOrPasswordException {
         LoggedUserBean loggedUserBean = new LoggedUserBean();
         try (Connection conn = ConnectionFactory.getConnection();
              ResultSet rs = LoginQuery.logQuery(conn, credentialsBean)) {
@@ -40,11 +43,12 @@ public class LoginDAO {
                         System.out.println("ResultSet vuoto");
                     }
                 }
-            } else {
-                //throw new InvalidCredentialsException("Username o password errati");
+                catch(SQLException e){
+                    //Eccezione: utente trovato ma non vengono passati i dati a loggedUserBean
+                }
             }
         } catch (SQLException e) {
-            // handle exception
+            throw new WrongEmailOrPasswordException("Mail o password errati");
         }
         return loggedUserBean;
     }

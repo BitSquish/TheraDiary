@@ -9,9 +9,9 @@ public class WrongEmailOrPasswordException extends Exception {
 
     public void showAlert() {
         Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Errore di login");
+        alert.setTitle("Errore nel login");
         alert.setHeaderText(null);
-        alert.setContentText(getMessage());
+        alert.setContentText("Mail o password errate");
         alert.showAndWait();
     }
 }

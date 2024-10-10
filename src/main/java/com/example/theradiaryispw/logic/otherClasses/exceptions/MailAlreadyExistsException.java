@@ -2,16 +2,14 @@ package com.example.theradiaryispw.logic.otherClasses.exceptions;
 
 import javafx.scene.control.Alert;
 
-public class EmptyFieldException extends Exception {
-    public EmptyFieldException(String message) {
-        super(message);
-    }
+public class MailAlreadyExistsException extends Exception{
+    public MailAlreadyExistsException(String message){super(message);}
 
     public void showAlert() {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Errore");
         alert.setHeaderText(null);
-        alert.setContentText("Compila tutti i campi");
+        alert.setContentText("Mail già in uso");
         alert.showAndWait();
-    }
+    } //SPOSTARE ALERT SU GRAFICO
 }

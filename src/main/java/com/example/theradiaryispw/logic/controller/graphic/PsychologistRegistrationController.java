@@ -69,7 +69,7 @@ public class PsychologistRegistrationController extends CommonController{
             Alert alert= new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Errore di registrazione");
             alert.setHeaderText(null);
-            alert.setContentText("Per favore, compila tutti i campi obbligatori.");
+            alert.setContentText("Per favore, compila tutti i campi.");
             alert.showAndWait();
             return; //esco dal metodo
         }

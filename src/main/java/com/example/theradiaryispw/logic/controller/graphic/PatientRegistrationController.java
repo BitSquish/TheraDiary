@@ -37,24 +37,11 @@ public class PatientRegistrationController extends CommonController{
     private void addPatient(MouseEvent event){
         boolean Errore=false;
         //controllo che i campi non siano vuoti
-        if(mail.getText().isEmpty()){
+        if(mail.getText().isEmpty() || password.getText().isEmpty() || nome.getText().isEmpty() || cognome.getText().isEmpty()
+        || citta.getText().isEmpty() || descrizione.getText().isEmpty()){
             Errore=true;
         }
-        if(password.getText().isEmpty()){
-            Errore=true;
-        }
-        if(nome.getText().isEmpty()){
-            Errore=true;
-        }
-        if(cognome.getText().isEmpty()){
-            Errore=true;
-        }
-        if(citta.getText().isEmpty()){
-            Errore=true;
-        }
-        if(descrizione.getText().isEmpty()){
-            Errore=true;
-        }
+
         //Se ci sono errori, mostro un pop up di errore
         if(Errore){
             Alert alert= new Alert(AlertType.ERROR);
