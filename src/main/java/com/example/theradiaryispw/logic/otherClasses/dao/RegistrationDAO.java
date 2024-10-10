@@ -1,9 +1,8 @@
 package com.example.theradiaryispw.logic.otherClasses.dao;
 
 import com.example.theradiaryispw.logic.model.Credentials;
-import com.example.theradiaryispw.logic.model.bean.generic.PsychologistBean;
-import com.example.theradiaryispw.logic.model.bean.login.CredentialsBean;
 import com.example.theradiaryispw.logic.model.Patient;
+import com.example.theradiaryispw.logic.otherClasses.exceptions.MailAlreadyExistsException;
 import com.example.theradiaryispw.logic.otherClasses.other.ConnectionFactory;
 import com.example.theradiaryispw.logic.otherClasses.query.LoginQuery;
 
@@ -32,27 +31,24 @@ public class RegistrationDAO {
     //CREI IL BEAN NEL CONTROLLER GRAFICO E LO PASSI ALL'APPLICATIVO
     //CREI L'ISTANZA NELL'APPLICATIVO COPIANDOLO DAL BEAN E LO PASSI AL DAO
     //NEL DAO MODIFICHI L'ENTITA'
-    public static void registerPatient(Patient patient) throws SQLException{
+    public static void registerPatient(Patient patient) throws SQLException, MailAlreadyExistsException {
         if(emailExists(patient.getCredentials().getMail())) {
-            throw new SQLException(("Mail già presente nel database")); //NON VA BENE SQL
+            throw new MailAlreadyExistsException(("Mail già presente nel database"));
         }//inserisco la password e l'email in user
         boolean flag = insertUser(patient.getCredentials());
         if(flag){
             try (Connection conn = ConnectionFactory.getConnection()){
-                int rs = LoginQuery.registerPatient(conn, patient);
-                if(rs != 0){
-                    System.out.println("Registrato con successo");
-                    //QUALCOSA  PER ANDARE AL LOGIN
-                }
-                else
-                    throw new SQLException(); //DA SOSTITUIRE CON ECCEZIONE SPECIFICA PER INSERIMENTO SU PSICOLOGI NON A BUON FINE (O FORSE NO?)
+                LoginQuery.registerPatient(conn, patient);
+            }
+            catch(SQLException e){
+                throw new SQLException(e.getMessage());
             }
         }
         else
             throw new SQLException(); //DA SOSTITUIRE CON ECCEZIONE SPECIFICA (O FORSE NO?)
     }
 
-
+    //DA CORREGGERE COME SOPRA
     /*public static void registerPsychologist(PsychologistBean psychologistBean) throws SQLException {//stessa cosa che ho fatto sopra ma per lo psicologo
         if (emailExists(psychologistBean.getCredentialsBean().getMail())) {
             throw new SQLException("Mail già presente nel database");

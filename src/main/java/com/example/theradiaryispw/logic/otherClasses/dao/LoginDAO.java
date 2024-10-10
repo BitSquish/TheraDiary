@@ -14,17 +14,12 @@ import java.sql.SQLException;
 
 
 public class LoginDAO {
-    public LoginDAO(){};
 
-    public static Credentials login(Credentials credentials) throws SQLException, WrongEmailOrPasswordException {
+    public static void login(Credentials credentials) throws SQLException, WrongEmailOrPasswordException {
         try (Connection conn = ConnectionFactory.getConnection();
              ResultSet rs = LoginQuery.logQuery(conn, credentials)) {
             if (rs.next()) {
-                String mail = rs.getString("mail");
-                String password = rs.getString("password");
-                Role role = Role.valueOf(rs.getString("role"));
-                return new Credentials(mail, password, role);
-                //loggedUser.setCredentialsBean(cred);
+                credentials.setRole(Role.valueOf(rs.getString("role")));
                 /*try (ResultSet rs1 = role.getId() == 1 ?
                         LoginQuery.retrievePsychologist(conn, mail) :
                         LoginQuery.retrievePatient(conn, mail)) {
@@ -45,6 +40,5 @@ public class LoginDAO {
         } catch (SQLException e) {
             throw new WrongEmailOrPasswordException("Mail o password errati");
         }
-        return null;
     }
 }

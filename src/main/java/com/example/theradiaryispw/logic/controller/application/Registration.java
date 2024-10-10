@@ -6,6 +6,7 @@ import com.example.theradiaryispw.logic.model.Psychologist;
 import com.example.theradiaryispw.logic.model.bean.generic.PatientBean;
 import com.example.theradiaryispw.logic.model.bean.generic.PsychologistBean;
 import com.example.theradiaryispw.logic.otherClasses.dao.RegistrationDAO;
+import com.example.theradiaryispw.logic.otherClasses.exceptions.MailAlreadyExistsException;
 import com.example.theradiaryispw.logic.otherClasses.other.Role;
 
 import java.sql.SQLException;
@@ -14,6 +15,8 @@ public class Registration {
     private PatientBean patientBean;
     private PsychologistBean psychologistBean;
 
+    //NOTA: Su registrazione il metodo è privato e viene chiamato dal costruttore. Su login il metodo è statico e non serve istanziare la classe.
+    //VEDERE QUALE DELLE DUE SOLUZIONI È MIGLIORE
 
     public Registration(PatientBean patientBean) {
         this.patientBean = patientBean;
@@ -32,6 +35,8 @@ public class Registration {
             RegistrationDAO.registerPatient(patient);
         } catch (SQLException e) {
             System.out.println("Error:" + e.getMessage());
+            throw new RuntimeException(e);
+        } catch (MailAlreadyExistsException e) {
             throw new RuntimeException(e);
         }
     }

@@ -5,6 +5,7 @@ import com.example.theradiaryispw.logic.controller.graphic.*;
 import com.example.theradiaryispw.logic.model.Credentials;
 import com.example.theradiaryispw.logic.model.bean.login.CredentialsBean;
 import com.example.theradiaryispw.logic.otherClasses.exceptions.EmptyFieldException;
+import com.example.theradiaryispw.logic.otherClasses.exceptions.WrongEmailOrPasswordException;
 import com.example.theradiaryispw.logic.otherClasses.other.ConnectionFactory;
 import com.example.theradiaryispw.logic.otherClasses.other.Role;
 import com.example.theradiaryispw.logic.otherClasses.other.Session;
@@ -34,52 +35,30 @@ public class LoginController extends CommonController {
 
     @FXML
     private void setCredentials(MouseEvent event) throws IOException {
-        CredentialsBean credentialsBean = new CredentialsBean(mail.getText(), password.getText(), null);
-        Credentials credentials = new Credentials(credentialsBean.getMail(), credentialsBean.getPassword(), credentialsBean.getRole());
-        Login login = new Login();
-        Credentials cred = login.log(credentials);
-        session.setUser(credentialsBean);
-        goToHomepage(event, cred.getRole());
-        //passo i parametri di loggedUser alla sessione
+        try{
+            validateFields();
+            CredentialsBean credentialsBean = new CredentialsBean(mail.getText(), password.getText(), null);
+            Login login = new Login();
+            login.log(credentialsBean);
+            if(credentialsBean.getRole() != null){
+                session.setUser(credentialsBean);
+                goToHomepage(event, credentialsBean.getRole());
+                System.out.println("mail: " + credentialsBean.getMail());
+            }
+            else{
+                throw new WrongEmailOrPasswordException("Mail o password errati");
+
+            }
+        }catch(WrongEmailOrPasswordException exception){
+            showAlert("Mail o password errati");  //Si può sfruttare exception.getMessage()?
+        } catch (EmptyFieldException exception) {
+            showAlert("Compila tutti i campi"); //idem
+        }
+
+
     }
 
-    /*@FXML
-    private void setCredentials(MouseEvent event) throws LoginDBException,WrongEmailOrPasswordException,SQLException{
-            try {
-                validateFields();
-                String mailCred = mail.getText();
-                String passwordCred = password.getText();
-                CredentialsBean credentialsBean = new CredentialsBean(mailCred, passwordCred, null);
-
-                try (Connection conn = getConnection()) {
-                    ResultSet rs = LoginQuery.logQuery(conn, credentialsBean);
-                    if (rs.next()) {
-                        String mail = rs.getString("mail");
-                        String password = rs.getString("password");
-                        Role role = Role.valueOf(rs.getString("role").toUpperCase());
-
-                        LoggedUser logged = new LoggedUser(mail, password, role);
-                        session.setUser(logged);
-                        goToHomepage(event, role);
-                    } else {
-                        throw new LoginDBException("Email o password errate");
-                    }
-                }
-            } catch (EmptyFieldException e) {
-                showAlert("Errore di login", e.getMessage());
-            } catch (LoginDBException dbe) {
-                WrongEmailOrPasswordException weope = new WrongEmailOrPasswordException("Email o password errate");
-                weope.showAlert();
-                throw weope;
-            } catch (SQLException e) {
-                e.printStackTrace();
-                throw new SQLException("Per piacere ritenta");
-            } catch (IOException e) {
-                e.printStackTrace();
-                showAlert("Errore di sistema", "Errore durante il caricamento della homepage.");
-            }
-        }*/
-    private Connection getConnection() throws SQLException {
+    private Connection getConnection() throws SQLException { //Mai usato???
         // Abstracted database connection method
         return ConnectionFactory.getConnection();
     }
@@ -88,9 +67,9 @@ public class LoginController extends CommonController {
             throw new EmptyFieldException("Per favore compila tutti campi.");
         }
     }
-    private void showAlert(String title, String content) {
+    private void showAlert(String content) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle(title);
+        alert.setTitle("Errore nel login");
         alert.setHeaderText(null);
         alert.setContentText(content);
         alert.showAndWait();

@@ -3,6 +3,7 @@ package com.example.theradiaryispw.logic.otherClasses.query;
 import com.example.theradiaryispw.logic.model.Credentials;
 import com.example.theradiaryispw.logic.model.Patient;
 import com.example.theradiaryispw.logic.model.Psychologist;
+import com.example.theradiaryispw.logic.otherClasses.exceptions.MailAlreadyExistsException;
 
 import java.sql.*;
 
@@ -42,32 +43,35 @@ public class LoginQuery {
         return pstmt.executeUpdate(); //restituisce il numero di righe influenzate dalla query
     }
 
-    public static int registerPsychologist(Connection conn, Psychologist psychologistBean) throws SQLException {
+    public static int registerPsychologist(Connection conn, Psychologist psychologist) throws SQLException {
         String query = "INSERT INTO psychologist (mail, name, surname, city, description, inPerson, online, pag) VALUES (?,?,?,?,?,?,?,?)";
         PreparedStatement pstmt = conn.prepareStatement(query);
-        pstmt.setString(1, psychologistBean.getCredentialsBean().getMail());
-        pstmt.setString(2, psychologistBean.getName());
-        pstmt.setString(3, psychologistBean.getSurname());
-        pstmt.setString(4, psychologistBean.getCity());
-        pstmt.setString(5, psychologistBean.getDescription());
-        pstmt.setBoolean(6, psychologistBean.isInPerson());
-        pstmt.setBoolean(7, psychologistBean.isOnline());
-        pstmt.setBoolean(8, psychologistBean.isPag());
+        pstmt.setString(1, psychologist.getCredentials().getMail());
+        pstmt.setString(2, psychologist.getName());
+        pstmt.setString(3, psychologist.getSurname());
+        pstmt.setString(4, psychologist.getCity());
+        pstmt.setString(5, psychologist.getDescription());
+        pstmt.setBoolean(6, psychologist.isInPerson());
+        pstmt.setBoolean(7, psychologist.isOnline());
+        pstmt.setBoolean(8, psychologist.isPag());
         return pstmt.executeUpdate();
     }
 
-    public static int registerPatient(Connection conn, Patient patientBean) throws SQLException {
+    public static void registerPatient(Connection conn, Patient patient) throws SQLException, MailAlreadyExistsException {
         String query = "INSERT INTO patient (mail, name, surname, city, description, inPerson, online, pag) VALUES (?,?,?,?,?,?,?,?)";
         PreparedStatement pstmt = conn.prepareStatement(query);
-        pstmt.setString(1, patientBean.getCredentialsBean().getMail());
-        pstmt.setString(2, patientBean.getName());
-        pstmt.setString(3, patientBean.getSurname());
-        pstmt.setString(4, patientBean.getCity());
-        pstmt.setString(5, patientBean.getDescription());
-        pstmt.setBoolean(6, patientBean.isInPerson());
-        pstmt.setBoolean(7, patientBean.isOnline());
-        pstmt.setBoolean(8, patientBean.isPag());
-        return pstmt.executeUpdate();
+        pstmt.setString(1, patient.getCredentials().getMail());
+        pstmt.setString(2, patient.getName());
+        pstmt.setString(3, patient.getSurname());
+        pstmt.setString(4, patient.getCity());
+        pstmt.setString(5, patient.getDescription());
+        pstmt.setBoolean(6, patient.isInPerson());
+        pstmt.setBoolean(7, patient.isOnline());
+        pstmt.setBoolean(8, patient.isPag());
+        int rs = pstmt.executeUpdate();
+        if(rs == 0){
+            throw new MailAlreadyExistsException("Mail già esistente");
+        }
     }
 
     public static int checkMail(Connection conn, String mail) throws SQLException {

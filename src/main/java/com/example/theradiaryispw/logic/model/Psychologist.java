@@ -12,7 +12,7 @@ public class Psychologist extends LoggedUser {
     private List <Category> categories;
 
     public Psychologist(LoggedUser lb) {
-        super(lb.getCredentialsBean(), lb.getName(), lb.getSurname(), lb.getCity(), lb.getDescription(), lb.isInPerson(), lb.isOnline(), lb.isPag());
+        super(lb.getCredentials(), lb.getName(), lb.getSurname(), lb.getCity(), lb.getDescription(), lb.isInPerson(), lb.isOnline(), lb.isPag());
         this.categories = new ArrayList<Category>();
         this.patients = new ArrayList<Patient>();
     }
