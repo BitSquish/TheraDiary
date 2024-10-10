@@ -1,9 +1,9 @@
 package com.example.theradiaryispw.logic.otherClasses.other;
 
-import com.example.theradiaryispw.logic.otherClasses.bean.login.LoggedUserBean;
+import com.example.theradiaryispw.logic.model.LoggedUser;
 
 public class Session {
-    private LoggedUserBean user;  //utente loggato
+    private LoggedUser user;  //utente loggato
     private Role role;
     private String homepage;
 
@@ -30,11 +30,11 @@ public class Session {
         //Assegna homepage a seconda del ruolo
     }
 
-    public LoggedUserBean getUser(){
+    public LoggedUser getUser(){
         return this.user;
     }
 
-    public void setUser(LoggedUserBean user){
+    public void setUser(LoggedUser user){
         this.user = user;
     }
 

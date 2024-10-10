@@ -1,11 +1,11 @@
-package com.example.theradiaryispw.logic.controller.graphic;
+package com.example.theradiaryispw.logic.controller.graphic.login;
 
 import com.example.theradiaryispw.logic.controller.application.Login;
 import com.example.theradiaryispw.logic.controller.application.Registration;
+import com.example.theradiaryispw.logic.controller.graphic.CommonController;
 import com.example.theradiaryispw.logic.otherClasses.bean.login.CredentialsBean;
-import com.example.theradiaryispw.logic.otherClasses.bean.login.LoggedUserBean;
-import com.example.theradiaryispw.logic.otherClasses.bean.login.PatientBean;
-import com.example.theradiaryispw.logic.otherClasses.bean.login.PsychologistBean;
+import com.example.theradiaryispw.logic.model.LoggedUser;
+import com.example.theradiaryispw.logic.model.Psychologist;
 import com.example.theradiaryispw.logic.otherClasses.other.Role;
 import com.example.theradiaryispw.logic.otherClasses.other.Session;
 import javafx.fxml.FXML;
@@ -13,7 +13,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
-public class PsychologistRegistrationController extends CommonController{
+public class PsychologistRegistrationController extends CommonController {
     public PsychologistRegistrationController(Session session) {
         super(session);
     }
@@ -85,7 +85,7 @@ public class PsychologistRegistrationController extends CommonController{
         Boolean isPAG = adesionePAG.isSelected();
 
         CredentialsBean credentialsBean = new CredentialsBean(mailPs, passwordPs, role);
-        PsychologistBean psychologistBean = new PsychologistBean(new LoggedUserBean(credentialsBean, name, surname, city, description, isInPerson, isOnline, isPAG));
+        Psychologist psychologistBean = new Psychologist(new LoggedUser(credentialsBean, name, surname, city, description, isInPerson, isOnline, isPAG));
         //creazione dell'istanza di Registration per lo psicologo essendo i metodi privati
         new Registration(psychologistBean);
         //Pop-up che segnala successo registrazione
@@ -96,8 +96,8 @@ public class PsychologistRegistrationController extends CommonController{
         alert.showAndWait();
         //Se la registrazione va a buon fine, effettua automaticamente il login
         Login login = new Login();
-        LoggedUserBean loggedUserBean = login.log(credentialsBean);
-        session.setUser(loggedUserBean);
+        LoggedUser loggedUser = login.log(credentialsBean);
+        session.setUser(loggedUser);
         goToHomepage(event);
 
 

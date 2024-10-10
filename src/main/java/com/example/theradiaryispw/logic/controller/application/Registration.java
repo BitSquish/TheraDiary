@@ -1,22 +1,22 @@
 package com.example.theradiaryispw.logic.controller.application;
 
-import com.example.theradiaryispw.logic.otherClasses.bean.login.PatientBean;
-import com.example.theradiaryispw.logic.otherClasses.bean.login.PsychologistBean;
+import com.example.theradiaryispw.logic.model.Patient;
+import com.example.theradiaryispw.logic.model.Psychologist;
 import com.example.theradiaryispw.logic.otherClasses.dao.RegistrationDAO;
 
 import java.sql.SQLException;
 
 public class Registration {
-    private PatientBean patientBean;
-    private PsychologistBean psychologistBean;
+    private Patient patientBean;
+    private Psychologist psychologistBean;
 
 
-    public Registration(PatientBean patientBean) {
+    public Registration(Patient patientBean) {
         this.patientBean = patientBean;
         registerPatient();
     }
 
-    public Registration(PsychologistBean psychologistBean) {//riferimento al bean del psicologo
+    public Registration(Psychologist psychologistBean) {//riferimento al bean del psicologo
         this.psychologistBean = psychologistBean;
         registerPsychologist();
     }

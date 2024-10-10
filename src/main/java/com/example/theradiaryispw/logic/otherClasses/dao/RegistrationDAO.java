@@ -1,14 +1,12 @@
 package com.example.theradiaryispw.logic.otherClasses.dao;
 
 import com.example.theradiaryispw.logic.otherClasses.bean.login.CredentialsBean;
-import com.example.theradiaryispw.logic.otherClasses.bean.login.PatientBean;
-import com.example.theradiaryispw.logic.otherClasses.bean.login.PsychologistBean;
+import com.example.theradiaryispw.logic.model.Patient;
+import com.example.theradiaryispw.logic.model.Psychologist;
 import com.example.theradiaryispw.logic.otherClasses.other.ConnectionFactory;
 import com.example.theradiaryispw.logic.otherClasses.query.LoginQuery;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class RegistrationDAO {
@@ -29,7 +27,7 @@ public class RegistrationDAO {
             return rs != 0;
         }
     }
-    public static void registerPatient(PatientBean patientBean) throws SQLException{
+    public static void registerPatient(Patient patientBean) throws SQLException{
         if(emailExists(patientBean.getCredentialsBean().getMail())) {
             throw new SQLException(("Mail già presente nel database")); //NON VA BENE SQL
         }//inserisco la password e l'email in user
@@ -50,7 +48,7 @@ public class RegistrationDAO {
     }
 
 
-    public static void registerPsychologist(PsychologistBean psychologistBean) throws SQLException {//stessa cosa che ho fatto sopra ma per lo psicologo
+    public static void registerPsychologist(Psychologist psychologistBean) throws SQLException {//stessa cosa che ho fatto sopra ma per lo psicologo
         if (emailExists(psychologistBean.getCredentialsBean().getMail())) {
             throw new SQLException("Mail già presente nel database");
         }

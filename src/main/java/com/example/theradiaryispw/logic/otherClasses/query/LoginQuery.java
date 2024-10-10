@@ -1,8 +1,8 @@
 package com.example.theradiaryispw.logic.otherClasses.query;
 
 import com.example.theradiaryispw.logic.otherClasses.bean.login.CredentialsBean;
-import com.example.theradiaryispw.logic.otherClasses.bean.login.PatientBean;
-import com.example.theradiaryispw.logic.otherClasses.bean.login.PsychologistBean;
+import com.example.theradiaryispw.logic.model.Patient;
+import com.example.theradiaryispw.logic.model.Psychologist;
 
 import java.sql.*;
 
@@ -42,7 +42,7 @@ public class LoginQuery {
         return pstmt.executeUpdate(); //restituisce il numero di righe influenzate dalla query
     }
 
-    public static int registerPsychologist(Connection conn, PsychologistBean psychologistBean) throws SQLException {
+    public static int registerPsychologist(Connection conn, Psychologist psychologistBean) throws SQLException {
         String query = "INSERT INTO psychologist (mail, name, surname, city, description, inPerson, online, pag) VALUES (?,?,?,?,?,?,?,?)";
         PreparedStatement pstmt = conn.prepareStatement(query);
         pstmt.setString(1, psychologistBean.getCredentialsBean().getMail());
@@ -56,7 +56,7 @@ public class LoginQuery {
         return pstmt.executeUpdate();
     }
 
-    public static int registerPatient(Connection conn, PatientBean patientBean) throws SQLException {
+    public static int registerPatient(Connection conn, Patient patientBean) throws SQLException {
         String query = "INSERT INTO patient (mail, name, surname, city, description, inPerson, online, pag) VALUES (?,?,?,?,?,?,?,?)";
         PreparedStatement pstmt = conn.prepareStatement(query);
         pstmt.setString(1, patientBean.getCredentialsBean().getMail());

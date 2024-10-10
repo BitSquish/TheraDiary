@@ -1,7 +1,8 @@
-package com.example.theradiaryispw.logic.controller.graphic;
+package com.example.theradiaryispw.logic.controller.graphic.login;
 
+import com.example.theradiaryispw.logic.controller.graphic.*;
 import com.example.theradiaryispw.logic.otherClasses.bean.login.CredentialsBean;
-import com.example.theradiaryispw.logic.otherClasses.bean.login.LoggedUserBean;
+import com.example.theradiaryispw.logic.model.LoggedUser;
 import com.example.theradiaryispw.logic.otherClasses.exceptions.EmptyFieldException;
 import com.example.theradiaryispw.logic.otherClasses.exceptions.LoginDBException;
 import com.example.theradiaryispw.logic.otherClasses.exceptions.WrongEmailOrPasswordException;
@@ -19,7 +20,6 @@ import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -50,7 +50,7 @@ public class LoginController extends CommonController {
                         String password = rs.getString("password");
                         Role role = Role.valueOf(rs.getString("role").toUpperCase());
 
-                        LoggedUserBean logged = new LoggedUserBean(mail, password, role);
+                        LoggedUser logged = new LoggedUser(mail, password, role);
                         session.setUser(logged);
                         goToHomepage(event, role);
                     } else {

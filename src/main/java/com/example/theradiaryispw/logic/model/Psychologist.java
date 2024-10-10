@@ -1,18 +1,20 @@
-package com.example.theradiaryispw.logic.otherClasses.bean.login;
+package com.example.theradiaryispw.logic.model;
 
-import com.example.theradiaryispw.logic.otherClasses.bean.generic.Category;
+import com.example.theradiaryispw.logic.model.LoggedUser;
+import com.example.theradiaryispw.logic.model.Patient;
+import com.example.theradiaryispw.logic.otherClasses.other.Category;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PsychologistBean extends LoggedUserBean {
-    private List <PatientBean> patients;
+public class Psychologist extends LoggedUser {
+    private List <Patient> patients;
     private List <Category> categories;
 
-    public PsychologistBean(LoggedUserBean lb) {
+    public Psychologist(LoggedUser lb) {
         super(lb.getCredentialsBean(), lb.getName(), lb.getSurname(), lb.getCity(), lb.getDescription(), lb.isInPerson(), lb.isOnline(), lb.isPag());
         this.categories = new ArrayList<Category>();
-        this.patients = new ArrayList<PatientBean>();
+        this.patients = new ArrayList<Patient>();
     }
 
     /*public CredentialsBean getCredentialsBean() {
@@ -55,11 +57,11 @@ public class PsychologistBean extends LoggedUserBean {
     }*/
 
 
-    public List<PatientBean> getPatients() {
+    public List<Patient> getPatients() {
         return patients;
     }
 
-    public void addPatients(PatientBean patient){
+    public void addPatients(Patient patient){
             this.patients.add(patient);
     }
 

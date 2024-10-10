@@ -1,6 +1,4 @@
-package com.example.theradiaryispw.logic.otherClasses.bean.generic;
-
-import com.example.theradiaryispw.logic.otherClasses.other.Role;
+package com.example.theradiaryispw.logic.otherClasses.other;
 
 public enum Category {
     ANXIETY_DISORDER(1),

@@ -1,8 +1,9 @@
-package com.example.theradiaryispw.logic.otherClasses.bean.login;
+package com.example.theradiaryispw.logic.model;
 
+import com.example.theradiaryispw.logic.otherClasses.bean.login.CredentialsBean;
 import com.example.theradiaryispw.logic.otherClasses.other.Role;
 
-public class LoggedUserBean {
+public class LoggedUser {
     private CredentialsBean credentialsBean;
     private String name;
     private String surname;
@@ -15,7 +16,7 @@ public class LoggedUserBean {
     private String password;
     private Role role;
 
-    public LoggedUserBean(CredentialsBean credentialsBean, String name, String surname, String city, String description, Boolean isInPerson, Boolean isOnline, Boolean isPAG) {
+    public LoggedUser(CredentialsBean credentialsBean, String name, String surname, String city, String description, Boolean isInPerson, Boolean isOnline, Boolean isPAG) {
         this.credentialsBean = credentialsBean;
         this.name = name;
         this.surname = surname;
@@ -25,12 +26,12 @@ public class LoggedUserBean {
         this.online = isOnline;
         this.pag = isPAG;
     }
-    public LoggedUserBean(String mail, String password, Role role){
+    public LoggedUser(String mail, String password, Role role){
         this.mail = mail;
         this.password = password;
         this.role = role;
     }
-    public LoggedUserBean() {
+    public LoggedUser() {
     }
     //getter e setter per i nuovi campi
     public String getMail() {
