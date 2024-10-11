@@ -9,7 +9,7 @@ public class PsychologistBean extends LoggedUserBean{
     private ArrayList<PatientBean> patientsBean;
     public PsychologistBean(CredentialsBean credentialsBean, String name, String surname, String city, String description, Boolean isInPerson, Boolean isOnline, Boolean isPAG, ArrayList<PatientBean> patientsBean) {
         super(credentialsBean, name, surname, city, description, isInPerson, isOnline, isPAG);
-        this.patientsBean=new ArrayList<>();
+        this.patientsBean = patientsBean != null ? patientsBean : new ArrayList<PatientBean>();
     }
     public ArrayList<PatientBean> getPatientsBean() {
         return patientsBean;

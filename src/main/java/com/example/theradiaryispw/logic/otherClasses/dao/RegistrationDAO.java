@@ -12,9 +12,8 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 public class RegistrationDAO {
-    private RegistrationDAO(){}
     //controllo se l'email è presente o meno
-    public static boolean emailExists(String mail) throws SQLException {
+    private static boolean emailExists(String mail) throws SQLException {
         try (Connection conn = ConnectionFactory.getConnection()){
             int rs = LoginQuery.checkMail(conn, mail);
              if (rs != 0)
@@ -51,9 +50,9 @@ public class RegistrationDAO {
     }
 
 
-    public static void registerPsychologist(Psychologist psychologist) throws SQLException {//stessa cosa che ho fatto sopra ma per lo psicologo
+    public static void registerPsychologist(Psychologist psychologist) throws SQLException, MailAlreadyExistsException {//stessa cosa che ho fatto sopra ma per lo psicologo
         if (emailExists(psychologist.getCredentials().getMail())) {
-            throw new SQLException("Mail già presente nel database");
+            throw new MailAlreadyExistsException("Mail già presente nel database");
         }
         boolean flag = insertUser(psychologist.getCredentials());
         if(flag){

@@ -1,7 +1,4 @@
 package com.example.theradiaryispw.logic.model;
-
-import com.example.theradiaryispw.logic.model.LoggedUser;
-import com.example.theradiaryispw.logic.model.bean.login.CredentialsBean;
 import com.example.theradiaryispw.logic.otherClasses.other.Category;
 
 import java.util.ArrayList;
@@ -9,9 +6,11 @@ import java.util.List;
 
 public class Patient extends LoggedUser {
     private ArrayList<Category> categories;
-    public Patient(Credentials credentials, String name, String surname, String city, String description, Boolean isInPerson, Boolean isOnline, Boolean isPAG, ArrayList<Category> categories, Psychologist psychologist) {
+    private Psychologist psychologist;
+    public Patient(Credentials credentials, String name, String surname, String city, String description, boolean isInPerson, boolean isOnline, boolean isPAG) {
         super(credentials, name, surname, city, description, isInPerson, isOnline, false);
-        this.categories = (categories != null) ? categories : new ArrayList<>();
+        this.categories = new ArrayList<>();
+        this.psychologist = null;
     }
     public List<Category> getCategories() {
         return categories;

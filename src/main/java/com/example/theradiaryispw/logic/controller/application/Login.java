@@ -10,7 +10,7 @@ import java.sql.SQLException;
 public class Login {
 
 
-    public void log(CredentialsBean credentialsBean) {
+    public void log(CredentialsBean credentialsBean) throws WrongEmailOrPasswordException {
 
         try {
             Credentials credentials = new Credentials(credentialsBean.getMail(), credentialsBean.getPassword(), credentialsBean.getRole());
@@ -21,7 +21,7 @@ public class Login {
             System.out.println("Errore: " + e.getMessage());
             throw new RuntimeException(e);
         } catch (WrongEmailOrPasswordException e) {
-            throw new RuntimeException(e);
+            throw new WrongEmailOrPasswordException(e.getMessage());
         }
     }
 

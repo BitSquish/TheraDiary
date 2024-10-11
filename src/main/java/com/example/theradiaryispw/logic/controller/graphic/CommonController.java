@@ -16,10 +16,10 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class CommonController {
+public abstract class CommonController {
     protected Session session;
 
-    public CommonController(Session session){
+    protected CommonController(Session session){
         this.session = session;
     }
 

@@ -12,42 +12,48 @@ import com.example.theradiaryispw.logic.otherClasses.other.Role;
 import java.sql.SQLException;
 
 public class Registration {
-    private PatientBean patientBean;
-    private PsychologistBean psychologistBean;
 
     //NOTA: Su registrazione il metodo è privato e viene chiamato dal costruttore. Su login il metodo è statico e non serve istanziare la classe.
     //VEDERE QUALE DELLE DUE SOLUZIONI È MIGLIORE
 
-    public Registration(PatientBean patientBean) {
-        this.patientBean = patientBean;
+   /* public Registration(PatientBean patientBean) throws MailAlreadyExistsException {
         registerPatient(patientBean);
     }
 
-    public Registration(PsychologistBean psychologistBean) {//riferimento al bean dello psicologo
-        this.psychologistBean = psychologistBean;
+    public Registration(PsychologistBean psychologistBean) throws MailAlreadyExistsException {//riferimento al bean dello psicologo
         registerPsychologist(psychologistBean);
+    }*/
+    public Registration(Object bean) throws MailAlreadyExistsException {
+        if(bean instanceof PatientBean)
+            registerPatient((PatientBean) bean);
+        else
+            registerPsychologist((PsychologistBean) bean);
     }
 
-    private void registerPatient(PatientBean patientBean) {//metodo per registrare un paziente nel database
+    private void registerPatient(PatientBean patientBean) throws MailAlreadyExistsException {//metodo per registrare un paziente nel database
         Credentials credentials = new Credentials(patientBean.getCredentialsBean().getMail(), patientBean.getCredentialsBean().getPassword(), Role.PATIENT);
-        Patient patient = new Patient(credentials, patientBean.getName(), patientBean.getSurname(), patientBean.getCity(), patientBean.getDescription(), patientBean.isInPerson(), patientBean.isOnline(), false, null,null);
+        Patient patient = new Patient(credentials, patientBean.getName(), patientBean.getSurname(), patientBean.getCity(), patientBean.getDescription(), patientBean.isInPerson(), patientBean.isOnline(), false);
         try {
             RegistrationDAO.registerPatient(patient);
-        } catch (SQLException e) {
-            System.out.println("Error:" + e.getMessage());
-            throw new RuntimeException(e);
-        } catch (MailAlreadyExistsException e) {
-            throw new RuntimeException(e);
+        } catch (SQLException exception) {
+            System.out.println("Error:" + exception.getMessage()); //DA MODIFICARE
+            throw new RuntimeException(exception);  //DA VERIFICARE IL TIPO DI ECCEZIONE
+        } catch (MailAlreadyExistsException exception) {
+            throw new MailAlreadyExistsException(exception.getMessage());
         }
     }
 
-    private void registerPsychologist(PsychologistBean psychologistBean) {
-        /*try {
+    private void registerPsychologist(PsychologistBean psychologistBean) throws MailAlreadyExistsException {
+        Credentials credentials = new Credentials(psychologistBean.getCredentialsBean().getMail(), psychologistBean.getCredentialsBean().getPassword(), Role.PSYCHOLOGIST);
+        Psychologist psychologist = new Psychologist(credentials, psychologistBean.getName(), psychologistBean.getSurname(), psychologistBean.getCity(), psychologistBean.getDescription(), psychologistBean.isInPerson(), psychologistBean.isOnline(), psychologistBean.isPag(), null);
+        try {
             RegistrationDAO.registerPsychologist(psychologist);
-        } catch (SQLException e) {
-            System.out.println("Error:" + e.getMessage());
-            throw new RuntimeException(e);
-        }*/
+        } catch (SQLException exception) {
+            System.out.println("Error:" + exception.getMessage());
+            throw new RuntimeException(exception);
+        } catch (MailAlreadyExistsException exception){
+            throw new MailAlreadyExistsException(exception.getMessage());
+        }
     }
 }
 

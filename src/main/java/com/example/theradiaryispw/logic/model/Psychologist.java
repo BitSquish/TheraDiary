@@ -1,25 +1,17 @@
 package com.example.theradiaryispw.logic.model;
 
-import com.example.theradiaryispw.logic.model.LoggedUser;
-import com.example.theradiaryispw.logic.model.Patient;
-import com.example.theradiaryispw.logic.otherClasses.other.Category;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class Psychologist extends LoggedUser {
-    private List <Patient> patients;
+    private ArrayList<Patient> patients;
 
-
-    public Psychologist(LoggedUser lb) {
-        super(lb.getCredentials(), lb.getName(), lb.getSurname(), lb.getCity(), lb.getDescription(), lb.isInPerson(), lb.isOnline(), lb.isPag());
-        this.patients = new ArrayList<Patient>();
+    public Psychologist(Credentials credentials, String name, String surname, String city, String description, boolean isInPerson, boolean isOnline, boolean isPag, ArrayList<Patient> patients) {
+        super(credentials, name, surname, city, description, isInPerson, isOnline, isPag);
+        this.patients = patients != null ? patients : new ArrayList<Patient>();
     }
 
-
-
-
-    public List<Patient> getPatient() {
+    public List<Patient> getPatients() {
         return patients;
     }
 
