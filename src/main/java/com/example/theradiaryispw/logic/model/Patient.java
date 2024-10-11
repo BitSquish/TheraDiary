@@ -9,7 +9,7 @@ import java.util.List;
 
 public class Patient extends LoggedUser {
     private ArrayList<Category> categories;
-    public Patient(Credentials credentials, String name, String surname, String city, String description, Boolean isInPerson, Boolean isOnline, Boolean isPAG, ArrayList<Category> categories) {
+    public Patient(Credentials credentials, String name, String surname, String city, String description, Boolean isInPerson, Boolean isOnline, Boolean isPAG, ArrayList<Category> categories, Psychologist psychologist) {
         super(credentials, name, surname, city, description, isInPerson, isOnline, false);
         this.categories = (categories != null) ? categories : new ArrayList<>();
     }

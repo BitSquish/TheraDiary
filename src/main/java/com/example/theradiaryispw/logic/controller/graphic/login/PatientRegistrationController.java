@@ -3,7 +3,6 @@ package com.example.theradiaryispw.logic.controller.graphic.login;
 import com.example.theradiaryispw.logic.controller.application.Login;
 import com.example.theradiaryispw.logic.controller.application.Registration;
 import com.example.theradiaryispw.logic.controller.graphic.CommonController;
-import com.example.theradiaryispw.logic.model.bean.generic.LoggedUserBean;
 import com.example.theradiaryispw.logic.model.bean.generic.PatientBean;
 import com.example.theradiaryispw.logic.model.bean.login.CredentialsBean;
 import com.example.theradiaryispw.logic.otherClasses.exceptions.EmptyFieldException;
@@ -47,12 +46,12 @@ public class PatientRegistrationController extends CommonController {
     }
 
     @FXML
-    private void addPatient(MouseEvent event) throws EmptyFieldException {
+    private void registerPatient(MouseEvent event) throws EmptyFieldException {
         try{
             if(checkFields())
                 throw new EmptyFieldException("Compila tutti i campi");
             CredentialsBean credentialsBean = new CredentialsBean(mail.getText(), password.getText(), Role.convertIntToRole(2));
-            PatientBean patientBean = new PatientBean(credentialsBean, nome.getText(), cognome.getText(), citta.getText(), descrizione.getText(), inPresenza.isSelected(), online.isSelected(), false, null);
+            PatientBean patientBean = new PatientBean(credentialsBean, nome.getText(), cognome.getText(), citta.getText(), descrizione.getText(), inPresenza.isSelected(), online.isSelected(), false, null, null);
             Registration registration = new Registration(patientBean);
             //Pop-up che segnala successo registrazione
             Alert alert= new Alert(Alert.AlertType.INFORMATION);//pop up alla fine della registrazione

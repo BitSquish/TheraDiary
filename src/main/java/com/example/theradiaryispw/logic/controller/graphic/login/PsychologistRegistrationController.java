@@ -1,10 +1,21 @@
 package com.example.theradiaryispw.logic.controller.graphic.login;
 
+import com.example.theradiaryispw.logic.controller.application.Login;
+import com.example.theradiaryispw.logic.controller.application.Registration;
 import com.example.theradiaryispw.logic.controller.graphic.CommonController;
+
+import com.example.theradiaryispw.logic.model.LoggedUser;
+import com.example.theradiaryispw.logic.model.Psychologist;
+import com.example.theradiaryispw.logic.model.bean.generic.PsychologistBean;
+import com.example.theradiaryispw.logic.model.bean.login.CredentialsBean;
+import com.example.theradiaryispw.logic.otherClasses.bean.login.LoggedUserBean;
+import com.example.theradiaryispw.logic.otherClasses.exceptions.EmptyFieldException;
+import com.example.theradiaryispw.logic.otherClasses.other.Role;
 import com.example.theradiaryispw.logic.otherClasses.other.Session;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 
 public class PsychologistRegistrationController extends CommonController {
     public PsychologistRegistrationController(Session session) {
@@ -34,67 +45,44 @@ public class PsychologistRegistrationController extends CommonController {
         isVisible = !isVisible;
         infoPAG.setVisible(isVisible);
     }
-
-    /*@FXML
-    private void addPsychologist(MouseEvent event){
-        boolean Errore=false;
+    @FXML
+    private boolean checkFields(){
         //controllo che i campi non siano vuoti
-        if(mail.getText().isEmpty()){
-            Errore=true;
+        if(mail.getText().isEmpty() || password.getText().isEmpty() || nome.getText().isEmpty() || cognome.getText().isEmpty()
+                || citta.getText().isEmpty() || descrizione.getText().isEmpty()){
+            return true;
         }
-        if(password.getText().isEmpty()){
-            Errore=true;
-        }
-        if(nome.getText().isEmpty()){
-            Errore=true;
-        }
-        if(cognome.getText().isEmpty()){
-            Errore=true;
-        }
-        if(citta.getText().isEmpty()){
-            Errore=true;
-        }
-        if(descrizione.getText().isEmpty()){
-            Errore=true;
-        }
-        //Se ci sono errori, mostro un pop up di errore
-        if(Errore){
-            Alert alert= new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Errore di registrazione");
-            alert.setHeaderText(null);
-            alert.setContentText("Per favore, compila tutti i campi.");
-            alert.showAndWait();
-            return; //esco dal metodo
-        }
-        String mailPs = mail.getText();
-        String passwordPs = password.getText();
-        Role role = Role.valueOf("PSYCHOLOGIST");
-        String name = nome.getText();
-        String surname = cognome.getText();
-        String city = citta.getText();
-        String description = descrizione.getText();
-        Boolean isInPerson = inPresenza.isSelected();
-        Boolean isOnline = online.isSelected();
-        Boolean isPAG = adesionePAG.isSelected();
+        return false;
+    }
 
-        CredentialsBean credentialsBean = new CredentialsBean(mailPs, passwordPs, role);
-        Psychologist psychologistBean = new Psychologist(new LoggedUser(credentialsBean, name, surname, city, description, isInPerson, isOnline, isPAG));
-        //creazione dell'istanza di Registration per lo psicologo essendo i metodi privati
-        new Registration(psychologistBean);
-        //Pop-up che segnala successo registrazione
-        Alert alert= new Alert(Alert.AlertType.INFORMATION);//pop up alla fine della registrazione
-        alert.setTitle("Registrazione");
+    private void showAlert(String message){
+        Alert alert= new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Errore di registrazione");
         alert.setHeaderText(null);
-        alert.setContentText("Registrato con successo. Ricorda di completare il tuo profilo nella sezione account!");
+        alert.setContentText(message);
         alert.showAndWait();
-        //Se la registrazione va a buon fine, effettua automaticamente il login
-        Login login = new Login();
-        LoggedUser loggedUser = login.log(credentialsBean);
-        session.setUser(loggedUser);
-        goToHomepage(event);
+    }
+    @FXML
+    private void addPsychologist(MouseEvent event) throws EmptyFieldException{
+        try{
+            if(checkFields())
+                throw new EmptyFieldException("Compila tutti i campi");
+                CredentialsBean credentialsBean = new CredentialsBean(mail.getText(), password.getText(), Role.convertIntToRole(1));
+                PsychologistBean psychologistBean = new PsychologistBean(credentialsBean, nome.getText(), cognome.getText(), citta.getText(), descrizione.getText(), inPresenza.isSelected(), online.isSelected(), adesionePAG.isSelected(), null);
+                Registration registration = new Registration(psychologistBean);
+          //Pop-up che segnala successo registrazione
+            Alert alert= new Alert(Alert.AlertType.INFORMATION);//pop up alla fine della registrazione
+            alert.setTitle("Registrazione");
+            alert.setHeaderText(null);
+            alert.setContentText("Registrazione avvenuta con successo");
+            alert.showAndWait();
+            //Login
+            Login login =new Login();
+            login.log(credentialsBean);
+            goToHomepage(event);
+        }catch(EmptyFieldException exception){
+            showAlert("Per favore, compila tutti i campi");
+        }
 
-
-
-
-    }*/
+    }
 }

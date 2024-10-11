@@ -78,7 +78,7 @@
       </font>
    </Text>
    <CheckBox fx:id="online" layoutX="690.0" layoutY="398.0" mnemonicParsing="false" />
-   <Button fx:id="registratiPt" layoutX="593.0" layoutY="448.0" mnemonicParsing="false" onMouseClicked="#addPatient" prefHeight="48.0" prefWidth="136.0" style="-fx-background-color: #9067C6;" text="Registrati" textFill="WHITE">
+   <Button fx:id="registratiPt" layoutX="593.0" layoutY="448.0" mnemonicParsing="false" onMouseClicked="#registerPatient" prefHeight="48.0" prefWidth="136.0" style="-fx-background-color: #9067C6;" text="Registrati" textFill="WHITE">
       <font>
          <Font size="18.0" />
       </font>

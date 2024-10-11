@@ -1,0 +1,393 @@
+Index: src/main/java/com/example/theradiaryispw/logic/controller/graphic/login/PatientRegistrationController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.theradiaryispw.logic.controller.graphic.login;\r\n\r\nimport com.example.theradiaryispw.logic.controller.application.Registration;\r\nimport com.example.theradiaryispw.logic.controller.graphic.CommonController;\r\nimport com.example.theradiaryispw.logic.model.bean.generic.PatientBean;\r\nimport com.example.theradiaryispw.logic.model.bean.login.CredentialsBean;\r\nimport com.example.theradiaryispw.logic.otherClasses.other.Role;\r\nimport com.example.theradiaryispw.logic.otherClasses.other.Session;\r\nimport javafx.fxml.FXML;\r\nimport javafx.scene.control.CheckBox;\r\nimport javafx.scene.control.PasswordField;\r\nimport javafx.scene.control.TextField;\r\nimport javafx.scene.input.MouseEvent;\r\n\r\npublic class PatientRegistrationController extends CommonController {\r\n    public PatientRegistrationController(Session session) {\r\n        super(session);\r\n    }\r\n\r\n    @FXML\r\n    TextField nome, cognome, citta, mail,  descrizione;\r\n    @FXML\r\n    PasswordField password;\r\n    @FXML\r\n    CheckBox inPresenza, online;\r\n\r\n    @FXML\r\n    private void addPatient(MouseEvent event){\r\n        CredentialsBean credentialsBean = new CredentialsBean(mail.getText(), password.getText(), Role.convertIntToRole(2));\r\n        PatientBean patientBean = new PatientBean(credentialsBean, nome.getText(), cognome.getText(), citta.getText(), descrizione.getText(), inPresenza.isSelected(), online.isSelected(), false, null);\r\n        Registration registration = new Registration(patientBean);\r\n\r\n    }\r\n\r\n    /*@FXML\r\n    private void addPatient(MouseEvent event){\r\n        boolean Errore=false;\r\n        //controllo che i campi non siano vuoti\r\n        if(mail.getText().isEmpty() || password.getText().isEmpty() || nome.getText().isEmpty() || cognome.getText().isEmpty()\r\n        || citta.getText().isEmpty() || descrizione.getText().isEmpty()){\r\n            Errore=true;\r\n        }\r\n\r\n        //Se ci sono errori, mostro un pop up di errore\r\n        if(Errore){\r\n            Alert alert= new Alert(AlertType.ERROR);\r\n            alert.setTitle(\"Errore di registrazione\");\r\n            alert.setHeaderText(null);\r\n            alert.setContentText(\"Per favore, compila tutti i campi.\");\r\n            alert.showAndWait();\r\n            return; //esco dal metodo\r\n        }\r\n        String mailPt = mail.getText();\r\n        String passwordPt = password.getText();\r\n        Role role = Role.valueOf(\"PATIENT\");\r\n        String name = nome.getText();\r\n        String surname = cognome.getText();\r\n        String city = citta.getText();\r\n        String description = descrizione.getText();\r\n        Boolean isInPerson = inPresenza.isSelected();\r\n        Boolean isOnline = online.isSelected();\r\n        Boolean isPAG = false;\r\n\r\n        CredentialsBean credentialsBean = new CredentialsBean(mailPt, passwordPt, role);\r\n        Patient patientBean = new Patient(new LoggedUser(credentialsBean, name, surname, city, description, isInPerson, isOnline, isPAG));\r\n        new Registration(patientBean);//creazione dell'istanza di registration per il paziente\r\n        //Pop-up che segnala successo registrazione\r\n        Alert alert= new Alert(AlertType.INFORMATION);//pop up alla fine della registrazione\r\n        alert.setTitle(\"Registrazione\");\r\n        alert.setHeaderText(null);\r\n        alert.setContentText(\"Registrato con successo. Ricorda di completare il tuo profilo nella sezione account!\");\r\n        alert.showAndWait();\r\n        //Se la registrazione va a buon fine, effettua automaticamente il login\r\n        Login login = new Login();\r\n        LoggedUser loggedUser = login.log(credentialsBean);\r\n        session.setUser(loggedUser);\r\n        goToHomepage(event);\r\n\r\n\r\n\r\n\r\n    }*/\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/theradiaryispw/logic/controller/graphic/login/PatientRegistrationController.java b/src/main/java/com/example/theradiaryispw/logic/controller/graphic/login/PatientRegistrationController.java
+--- a/src/main/java/com/example/theradiaryispw/logic/controller/graphic/login/PatientRegistrationController.java	(revision a6acc2f70e29ef82c6d18110f34cf33ffb385e66)
++++ b/src/main/java/com/example/theradiaryispw/logic/controller/graphic/login/PatientRegistrationController.java	(date 1728572580965)
+@@ -34,32 +34,17 @@
+ 
+     /*@FXML
+     private void addPatient(MouseEvent event){
+-        boolean Errore=false;
+-        //controllo che i campi non siano vuoti
+-        if(mail.getText().isEmpty() || password.getText().isEmpty() || nome.getText().isEmpty() || cognome.getText().isEmpty()
+-        || citta.getText().isEmpty() || descrizione.getText().isEmpty()){
+-            Errore=true;
+-        }
+ 
+-        //Se ci sono errori, mostro un pop up di errore
+-        if(Errore){
+-            Alert alert= new Alert(AlertType.ERROR);
+-            alert.setTitle("Errore di registrazione");
+-            alert.setHeaderText(null);
+-            alert.setContentText("Per favore, compila tutti i campi.");
+-            alert.showAndWait();
+-            return; //esco dal metodo
+-        }
+-        String mailPt = mail.getText();
+-        String passwordPt = password.getText();
+-        Role role = Role.valueOf("PATIENT");
+-        String name = nome.getText();
+-        String surname = cognome.getText();
+-        String city = citta.getText();
+-        String description = descrizione.getText();
+-        Boolean isInPerson = inPresenza.isSelected();
+-        Boolean isOnline = online.isSelected();
+-        Boolean isPAG = false;
++                String mailPt = mail.getText();
++                String passwordPt = password.getText();
++                Role role = Role.valueOf("PATIENT");
++                String name = nome.getText();
++                String surname = cognome.getText();
++                String city = citta.getText();
++                String description = descrizione.getText();
++                Boolean isInPerson = inPresenza.isSelected();
++                Boolean isOnline = online.isSelected();
++                Boolean isPAG = false;
+ 
+         CredentialsBean credentialsBean = new CredentialsBean(mailPt, passwordPt, role);
+         Patient patientBean = new Patient(new LoggedUser(credentialsBean, name, surname, city, description, isInPerson, isOnline, isPAG));
+Index: src/main/java/com/example/theradiaryispw/logic/controller/graphic/login/PsychologistRegistrationController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.theradiaryispw.logic.controller.graphic.login;\r\n\r\nimport com.example.theradiaryispw.logic.controller.graphic.CommonController;\r\nimport com.example.theradiaryispw.logic.otherClasses.other.Session;\r\nimport javafx.fxml.FXML;\r\nimport javafx.scene.control.*;\r\nimport javafx.scene.image.ImageView;\r\n\r\npublic class PsychologistRegistrationController extends CommonController {\r\n    public PsychologistRegistrationController(Session session) {\r\n        super(session);\r\n    }\r\n\r\n    @FXML\r\n    TextField nome, cognome, citta, mail,  descrizione;\r\n    @FXML\r\n    PasswordField password;\r\n    @FXML\r\n    CheckBox inPresenza, online, adesionePAG;\r\n    @FXML\r\n    ImageView infoButton;\r\n    @FXML\r\n    Label infoPAG;\r\n    private boolean isVisible = false;\r\n\r\n    @FXML\r\n    public void clickInfoButton() {\r\n        // Event handler al clic sull'ImageView\r\n        infoButton.setOnMouseClicked(event -> showInfoLabel());\r\n    }\r\n\r\n    private void showInfoLabel() {\r\n        // Alterna la visibilità della label\r\n        isVisible = !isVisible;\r\n        infoPAG.setVisible(isVisible);\r\n    }\r\n\r\n    /*@FXML\r\n    private void addPsychologist(MouseEvent event){\r\n        boolean Errore=false;\r\n        //controllo che i campi non siano vuoti\r\n        if(mail.getText().isEmpty()){\r\n            Errore=true;\r\n        }\r\n        if(password.getText().isEmpty()){\r\n            Errore=true;\r\n        }\r\n        if(nome.getText().isEmpty()){\r\n            Errore=true;\r\n        }\r\n        if(cognome.getText().isEmpty()){\r\n            Errore=true;\r\n        }\r\n        if(citta.getText().isEmpty()){\r\n            Errore=true;\r\n        }\r\n        if(descrizione.getText().isEmpty()){\r\n            Errore=true;\r\n        }\r\n        //Se ci sono errori, mostro un pop up di errore\r\n        if(Errore){\r\n            Alert alert= new Alert(Alert.AlertType.ERROR);\r\n            alert.setTitle(\"Errore di registrazione\");\r\n            alert.setHeaderText(null);\r\n            alert.setContentText(\"Per favore, compila tutti i campi.\");\r\n            alert.showAndWait();\r\n            return; //esco dal metodo\r\n        }\r\n        String mailPs = mail.getText();\r\n        String passwordPs = password.getText();\r\n        Role role = Role.valueOf(\"PSYCHOLOGIST\");\r\n        String name = nome.getText();\r\n        String surname = cognome.getText();\r\n        String city = citta.getText();\r\n        String description = descrizione.getText();\r\n        Boolean isInPerson = inPresenza.isSelected();\r\n        Boolean isOnline = online.isSelected();\r\n        Boolean isPAG = adesionePAG.isSelected();\r\n\r\n        CredentialsBean credentialsBean = new CredentialsBean(mailPs, passwordPs, role);\r\n        Psychologist psychologistBean = new Psychologist(new LoggedUser(credentialsBean, name, surname, city, description, isInPerson, isOnline, isPAG));\r\n        //creazione dell'istanza di Registration per lo psicologo essendo i metodi privati\r\n        new Registration(psychologistBean);\r\n        //Pop-up che segnala successo registrazione\r\n        Alert alert= new Alert(Alert.AlertType.INFORMATION);//pop up alla fine della registrazione\r\n        alert.setTitle(\"Registrazione\");\r\n        alert.setHeaderText(null);\r\n        alert.setContentText(\"Registrato con successo. Ricorda di completare il tuo profilo nella sezione account!\");\r\n        alert.showAndWait();\r\n        //Se la registrazione va a buon fine, effettua automaticamente il login\r\n        Login login = new Login();\r\n        LoggedUser loggedUser = login.log(credentialsBean);\r\n        session.setUser(loggedUser);\r\n        goToHomepage(event);\r\n\r\n\r\n\r\n\r\n    }*/\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/theradiaryispw/logic/controller/graphic/login/PsychologistRegistrationController.java b/src/main/java/com/example/theradiaryispw/logic/controller/graphic/login/PsychologistRegistrationController.java
+--- a/src/main/java/com/example/theradiaryispw/logic/controller/graphic/login/PsychologistRegistrationController.java	(revision a6acc2f70e29ef82c6d18110f34cf33ffb385e66)
++++ b/src/main/java/com/example/theradiaryispw/logic/controller/graphic/login/PsychologistRegistrationController.java	(date 1728572422922)
+@@ -1,10 +1,16 @@
+ package com.example.theradiaryispw.logic.controller.graphic.login;
+ 
+ import com.example.theradiaryispw.logic.controller.graphic.CommonController;
++import com.example.theradiaryispw.logic.otherClasses.bean.login.CredentialsBean;
++import com.example.theradiaryispw.logic.model.LoggedUser;
++import com.example.theradiaryispw.logic.model.Psychologist;
++import com.example.theradiaryispw.logic.otherClasses.bean.login.LoggedUserBean;
++import com.example.theradiaryispw.logic.otherClasses.other.Role;
+ import com.example.theradiaryispw.logic.otherClasses.other.Session;
+ import javafx.fxml.FXML;
+ import javafx.scene.control.*;
+ import javafx.scene.image.ImageView;
++import javafx.scene.input.MouseEvent;
+ 
+ public class PsychologistRegistrationController extends CommonController {
+     public PsychologistRegistrationController(Session session) {
+@@ -35,37 +41,11 @@
+         infoPAG.setVisible(isVisible);
+     }
+ 
+-    /*@FXML
++    @FXML
+     private void addPsychologist(MouseEvent event){
+-        boolean Errore=false;
+-        //controllo che i campi non siano vuoti
+-        if(mail.getText().isEmpty()){
+-            Errore=true;
+-        }
+-        if(password.getText().isEmpty()){
+-            Errore=true;
+-        }
+-        if(nome.getText().isEmpty()){
+-            Errore=true;
+-        }
+-        if(cognome.getText().isEmpty()){
+-            Errore=true;
+-        }
+-        if(citta.getText().isEmpty()){
+-            Errore=true;
+-        }
+-        if(descrizione.getText().isEmpty()){
+-            Errore=true;
+-        }
+-        //Se ci sono errori, mostro un pop up di errore
+-        if(Errore){
+-            Alert alert= new Alert(Alert.AlertType.ERROR);
+-            alert.setTitle("Errore di registrazione");
+-            alert.setHeaderText(null);
+-            alert.setContentText("Per favore, compila tutti i campi.");
+-            alert.showAndWait();
+-            return; //esco dal metodo
+-        }
++        LoggedUserBean loggedUserBean = new LoggedUserBean();
++
++
+         String mailPs = mail.getText();
+         String passwordPs = password.getText();
+         Role role = Role.valueOf("PSYCHOLOGIST");
+@@ -90,7 +70,7 @@
+         //Se la registrazione va a buon fine, effettua automaticamente il login
+         Login login = new Login();
+         LoggedUser loggedUser = login.log(credentialsBean);
+-        session.setUser(loggedUser);
++        session.setUser(loggedUser.getCredentialsBean());
+         goToHomepage(event);
+ 
+ 
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"c77d5b2c-72bb-41b5-8004-61d1cfae9b40\" name=\"Changes\" comment=\"AIUTO\">\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/model/bean/generic/LoggedUserBean.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/model/bean/generic/PatientBean.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/model/bean/generic/PsychologistBean.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/application/Registration.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/application/Registration.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/login/LoginController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/login/LoginController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/login/PatientRegistrationController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/login/PatientRegistrationController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/login/PsychologistRegistrationController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/login/PsychologistRegistrationController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/model/LoggedUser.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/model/LoggedUser.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/model/Patient.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/model/Patient.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/bean/Appoggio.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/model/bean/Appoggio.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/bean/generic/APPOGGIO.java\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/bean/login/CredentialsBean.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/model/bean/login/CredentialsBean.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/dao/LoginDAO.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/dao/LoginDAO.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/dao/RegistrationDAO.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/dao/RegistrationDAO.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/other/Session.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/other/Session.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/query/LoginQuery.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/query/LoginQuery.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/module-info.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/module-info.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Interface\" />\r\n        <option value=\"FxmlFile\" />\r\n        <option value=\"Enum\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;BitSquish&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">\r\n    <option name=\"selectedUrlAndAccountId\">\r\n      <UrlAndAccount>\r\n        <option name=\"accountId\" value=\"78a7dfc6-471e-40cd-8415-5c8e752db00a\" />\r\n        <option name=\"url\" value=\"https://github.com/BitSquish/ISPW_Project.git\" />\r\n      </UrlAndAccount>\r\n    </option>\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"MavenImportPreferences\">\r\n    <option name=\"generalSettings\">\r\n      <MavenGeneralSettings>\r\n        <option name=\"mavenHome\" value=\"Use Maven wrapper\" />\r\n      </MavenGeneralSettings>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProblemsViewState\">\r\n    <option name=\"selectedTabId\" value=\"CurrentFile\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;customColor&quot;: &quot;&quot;,\r\n  &quot;associatedIndex&quot;: 8\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2eoHmjC1cK7Fg5zNX2UENTPCNbo\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,\r\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;main&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/pc/IdeaProjects/TheraDiaryISPW/target/classes/com/example/res/view/images/commonPanel&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,\r\n    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,\r\n    &quot;project.structure.side.proportion&quot;: &quot;0.43908045&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;sonarlint&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  },\r\n  &quot;keyToStringList&quot;: {\r\n    &quot;DatabaseDriversLRU&quot;: [\r\n      &quot;mysql&quot;\r\n    ]\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CreateClassDialog.RecentsKey\">\r\n      <recent name=\"com.example.theradiaryispw.logic.otherClasses.dao\" />\r\n    </key>\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\pc\\IdeaProjects\\TheraDiaryISPW\\target\\classes\\com\\example\\res\\view\\images\\commonPanel\" />\r\n      <recent name=\"C:\\Users\\emanu\\IdeaProjects\\TheraDiaryISPW\\src\\main\\resources\" />\r\n      <recent name=\"C:\\Users\\emanu\\IdeaProjects\\TheraDiaryISPW\\src\\main\\resources\\com\\example\\res\\view\\images\\commonPanel\" />\r\n      <recent name=\"C:\\Users\\emanu\\IdeaProjects\\TheraDiaryISPW\\src\\main\\resources\\com\\example\\res\\view\\images\\homepage\" />\r\n      <recent name=\"C:\\Users\\emanu\\IdeaProjects\\TheraDiaryISPW\\src\\main\\resources\\com\\example\\res\\view\\images\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\emanu\\IdeaProjects\\TheraDiaryISPW\\src\\main\\resources\\com\\example\\res\\view\" />\r\n      <recent name=\"C:\\Users\\emanu\\IdeaProjects\\TheraDiaryISPW\\src\\main\\resources\\com\\example\\res\\view\\images\\commonPanel\" />\r\n      <recent name=\"C:\\Users\\emanu\\IdeaProjects\\TheraDiaryISPW\\src\\main\\resources\\com\\example\\res\\view\\images\" />\r\n      <recent name=\"C:\\Users\\emanu\\IdeaProjects\\TheraDiaryISPW\\src\\main\\resources\\com\\example\\theradiaryispw\" />\r\n      <recent name=\"C:\\Users\\emanu\\IdeaProjects\\TheraDiaryISPW\\src\\main\\java\\com\\example\\theradiaryispw\\logic\\view\" />\r\n    </key>\r\n    <key name=\"MoveClassesOrPackagesDialog.RECENTS_KEY\">\r\n      <recent name=\"com.example.theradiaryispw.logic.otherClasses.bean.login\" />\r\n      <recent name=\"com.example.theradiaryispw.logic.view\" />\r\n      <recent name=\"com.example.theradiaryispw.logic.otherClasses.other\" />\r\n      <recent name=\"com.example.theradiaryispw.logic\" />\r\n      <recent name=\"com.example.theradiaryispw.test\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"c77d5b2c-72bb-41b5-8004-61d1cfae9b40\" name=\"Changes\" comment=\"\" />\r\n      <created>1712563803743</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1712563803743</updated>\r\n      <workItem from=\"1727607292655\" duration=\"138000\" />\r\n      <workItem from=\"1727607469652\" duration=\"343000\" />\r\n      <workItem from=\"1727607848860\" duration=\"275000\" />\r\n      <workItem from=\"1727785505180\" duration=\"3263000\" />\r\n      <workItem from=\"1727861231209\" duration=\"8284000\" />\r\n      <workItem from=\"1727871237630\" duration=\"367000\" />\r\n      <workItem from=\"1727871656557\" duration=\"72000\" />\r\n      <workItem from=\"1727875731618\" duration=\"624000\" />\r\n      <workItem from=\"1727877251248\" duration=\"826000\" />\r\n      <workItem from=\"1727879826447\" duration=\"1921000\" />\r\n      <workItem from=\"1728206312013\" duration=\"1251000\" />\r\n      <workItem from=\"1728476200062\" duration=\"13142000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Versione con stored procedure, no prepared statement\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1713868281738</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1713868281740</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Login e recupero dati funzionante\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1713967892578</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1713967892578</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"prova\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1713968740386</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1713968740387</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"prova 1\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1727086938960</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1727086938960</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"prova 1\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1727172856226</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1727172856226</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"registrazione\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1727788748336</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1727788748336</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"registrazione funziona , password pallini,l'aggiunta di categoria other in category\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1727869569522</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1727869569522</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"registrazione funziona , password pallini,l'aggiunta di categoria other in category\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1727877419337</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1727877419337</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"funziona tutto ora\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1727878065661</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1727878065662</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"Sostituito il try del login con un try-with-resources. Modificata una dicitura sull'homepage del paziente per essere concorde con la modifica dello use case diagram. Unite le classi RetrievePatientDao e RetrievePsychologistDAO in un'unica classe RetrieveDao.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1728335246213</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1728335246213</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"Modificata la classe RegistrationDAO: le query sono state scritte nell'apposita classe LoginQuery.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1728397709854</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1728397709855</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00012\" summary=\"Commit per exception da rifare tutto\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1728483885067</created>\r\n      <option name=\"number\" value=\"00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1728483885069</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00013\" summary=\"Cambiamenti minori + commenti\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1728555216646</created>\r\n      <option name=\"number\" value=\"00013\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1728555216646</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00014\" summary=\"Cambiata struttura dei package. Bisogna adattare il codice alla nuova logica.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1728556107055</created>\r\n      <option name=\"number\" value=\"00014\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00014\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1728556107055</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00015\" summary=\"AIUTO\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1728560077033</created>\r\n      <option name=\"number\" value=\"00015\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00015\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1728560077033</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"16\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Versione con stored procedure, no prepared statement\" />\r\n    <MESSAGE value=\"Login e recupero dati funzionante\" />\r\n    <MESSAGE value=\"prova\" />\r\n    <MESSAGE value=\"prova 1\" />\r\n    <MESSAGE value=\"registrazione\" />\r\n    <MESSAGE value=\"registrazione funziona , password pallini,l'aggiunta di categoria other in category\" />\r\n    <MESSAGE value=\"funziona tutto ora\" />\r\n    <MESSAGE value=\"Sostituito il try del login con un try-with-resources. Modificata una dicitura sull'homepage del paziente per essere concorde con la modifica dello use case diagram. Unite le classi RetrievePatientDao e RetrievePsychologistDAO in un'unica classe RetrieveDao.\" />\r\n    <MESSAGE value=\"Modificata la classe RegistrationDAO: le query sono state scritte nell'apposita classe LoginQuery.\" />\r\n    <MESSAGE value=\"Ho aggiunto i pop up alla fine della registrazione sono da migliorare\" />\r\n    <MESSAGE value=\"Commit per exception da rifare tutto\" />\r\n    <MESSAGE value=\"Cambiamenti minori + commenti\" />\r\n    <MESSAGE value=\"Cambiata struttura dei package. Bisogna adattare il codice alla nuova logica.\" />\r\n    <MESSAGE value=\"AIUTO\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"AIUTO\" />\r\n  </component>\r\n  <component name=\"XSLT-Support.FileAssociations.UIState\">\r\n    <expand />\r\n    <select />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision a6acc2f70e29ef82c6d18110f34cf33ffb385e66)
++++ b/.idea/workspace.xml	(date 1728573098968)
+@@ -5,24 +5,12 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="c77d5b2c-72bb-41b5-8004-61d1cfae9b40" name="Changes" comment="AIUTO">
+-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/model/bean/generic/LoggedUserBean.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/model/bean/generic/PatientBean.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/model/bean/generic/PsychologistBean.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/bean/login/LoggedUserBean.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/application/Registration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/application/Registration.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/login/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/login/LoginController.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/login/PatientRegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/login/PatientRegistrationController.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/login/PsychologistRegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/login/PsychologistRegistrationController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/model/LoggedUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/model/LoggedUser.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/model/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/model/Patient.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/bean/Appoggio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/model/bean/Appoggio.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/bean/generic/APPOGGIO.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/bean/login/CredentialsBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/model/bean/login/CredentialsBean.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/dao/LoginDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/dao/LoginDAO.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/model/Psychologist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/model/Psychologist.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/dao/RegistrationDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/dao/RegistrationDAO.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/other/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/other/Session.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/query/LoginQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/query/LoginQuery.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+Index: src/main/java/com/example/theradiaryispw/logic/otherClasses/bean/login/LoggedUserBean.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/theradiaryispw/logic/otherClasses/bean/login/LoggedUserBean.java b/src/main/java/com/example/theradiaryispw/logic/otherClasses/bean/login/LoggedUserBean.java
+new file mode 100644
+--- /dev/null	(date 1728572581004)
++++ b/src/main/java/com/example/theradiaryispw/logic/otherClasses/bean/login/LoggedUserBean.java	(date 1728572581004)
+@@ -0,0 +1,97 @@
++package com.example.theradiaryispw.logic.otherClasses.bean.login;
++
++import com.example.theradiaryispw.logic.otherClasses.other.Role;
++
++public class LoggedUserBean {
++    private CredentialsBean credentialsBean;
++    private String name;
++    private String surname;
++    private String city;
++    private String description;
++    private boolean inPerson;
++    private boolean online;
++    private boolean pag;
++
++
++    public LoggedUserBean(CredentialsBean credentialsBean, String name, String surname, String city, String description, Boolean isInPerson, Boolean isOnline, Boolean isPAG) {
++        this.credentialsBean = credentialsBean;
++        this.name = name;
++        this.surname = surname;
++        this.city = city;
++        this.description = description;
++        this.inPerson = isInPerson;
++        this.online = isOnline;
++        this.pag = isPAG;
++    }
++
++    public LoggedUserBean() {
++    }
++    //getter e setter per i nuovi campi
++
++
++
++    public CredentialsBean getCredentialsBean() {
++        return credentialsBean;
++    }
++
++    public void setCredentialsBean(CredentialsBean credentialsBean) {
++        this.credentialsBean = credentialsBean;
++    }
++
++    public String getName() {
++        return name;
++    }
++
++    public void setName(String name) {
++        this.name = name;
++    }
++
++    public String getSurname() {
++        return surname;
++    }
++
++    public void setSurname(String surname) {
++        this.surname = surname;
++    }
++
++    public String getCity() {
++        return city;
++    }
++
++    public void setCity(String city) {
++        this.city = city;
++    }
++
++    public String getDescription() {
++        return description;
++    }
++
++    public void setDescription(String description) {
++        this.description = description;
++    }
++
++    public boolean isInPerson() {
++        return inPerson;
++    }
++
++    public void setInPerson(boolean inPerson) {
++        this.inPerson = inPerson;
++    }
++
++    public boolean isOnline() {
++        return online;
++    }
++
++    public void setOnline(boolean online) {
++        this.online = online;
++    }
++
++    public boolean isPag() {
++        return pag;
++    }
++
++    public void setPag(boolean pag) {
++        this.pag = pag;
++    }
++}
++
+Index: src/main/java/com/example/theradiaryispw/logic/otherClasses/dao/RegistrationDAO.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.theradiaryispw.logic.otherClasses.dao;\r\n\r\nimport com.example.theradiaryispw.logic.model.bean.generic.PsychologistBean;\r\nimport com.example.theradiaryispw.logic.model.bean.login.CredentialsBean;\r\nimport com.example.theradiaryispw.logic.model.Patient;\r\nimport com.example.theradiaryispw.logic.otherClasses.other.ConnectionFactory;\r\nimport com.example.theradiaryispw.logic.otherClasses.query.LoginQuery;\r\n\r\nimport java.sql.Connection;\r\nimport java.sql.SQLException;\r\n\r\npublic class RegistrationDAO {\r\n    private RegistrationDAO(){}\r\n    //controllo se l'email è presente o meno\r\n    public static boolean emailExists(String mail) throws SQLException {\r\n        try (Connection conn = ConnectionFactory.getConnection()){\r\n            int rs = LoginQuery.checkMail(conn, mail);\r\n             if (rs != 0)\r\n                    return true;\r\n        }\r\n        return false;\r\n    }\r\n    //inserisco l'utente (credenziali) nel database\r\n    public static boolean insertUser(CredentialsBean credentialsBean) throws SQLException {\r\n        try (Connection conn = ConnectionFactory.getConnection()) {\r\n            int rs = LoginQuery.registerUser(conn, credentialsBean);\r\n            return rs != 0;\r\n        }\r\n    }\r\n\r\n    //CREI IL BEAN NEL CONTROLLER GRAFICO E LO PASSI ALL'APPLICATIVO\r\n    //CREI L'ISTANZA NELL'APPLICATIVO COPIANDOLO DAL BEAN E LO PASSI AL DAO\r\n    //NEL DAO MODIFICHI L'ENTITA'\r\n    public static void registerPatient(Patient patientBean) throws SQLException{\r\n        if(emailExists(patientBean.getCredentialsBean().getMail())) {\r\n            throw new SQLException((\"Mail già presente nel database\")); //NON VA BENE SQL\r\n        }//inserisco la password e l'email in user\r\n        boolean flag = insertUser(patientBean.getCredentialsBean());\r\n        if(flag){\r\n            try (Connection conn = ConnectionFactory.getConnection()){\r\n                int rs = LoginQuery.registerPatient(conn, patientBean);\r\n                if(rs != 0){\r\n                    System.out.println(\"Registrato con successo\");\r\n                    //QUALCOSA  PER ANDARE AL LOGIN\r\n                }\r\n                else\r\n                    throw new SQLException(); //DA SOSTITUIRE CON ECCEZIONE SPECIFICA PER INSERIMENTO SU PSICOLOGI NON A BUON FINE (O FORSE NO?)\r\n            }\r\n        }\r\n        else\r\n            throw new SQLException(); //DA SOSTITUIRE CON ECCEZIONE SPECIFICA (O FORSE NO?)\r\n    }\r\n\r\n\r\n    /*public static void registerPsychologist(PsychologistBean psychologistBean) throws SQLException {//stessa cosa che ho fatto sopra ma per lo psicologo\r\n        if (emailExists(psychologistBean.getCredentialsBean().getMail())) {\r\n            throw new SQLException(\"Mail già presente nel database\");\r\n        }\r\n        boolean flag = insertUser(psychologistBean.getCredentialsBean());\r\n        if(flag){\r\n            try (Connection conn = ConnectionFactory.getConnection()){\r\n                int rs = LoginQuery.registerPsychologist(conn, psychologistBean);\r\n                if(rs != 0){\r\n                    System.out.println(\"Registrato con successo\");\r\n                    //QUALCOSA PER ANDARE AL LOGIN\r\n                }\r\n                else\r\n                    throw new SQLException(); //DA SOSTITUIRE CON ECCEZIONE SPECIFICA PER INSERIMENTO SU PSICOLOGI NON A BUON FINE (O FORSE NO?)\r\n            }\r\n        }\r\n        else\r\n            throw new SQLException(); //DA SOSTITUIRE CON ECCEZIONE SPECIFICA PER INSERIMENTO SU UTENTI NON A BUON FINE (O FORSE NO?)\r\n    }*/\r\n}\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/theradiaryispw/logic/otherClasses/dao/RegistrationDAO.java b/src/main/java/com/example/theradiaryispw/logic/otherClasses/dao/RegistrationDAO.java
+--- a/src/main/java/com/example/theradiaryispw/logic/otherClasses/dao/RegistrationDAO.java	(revision a6acc2f70e29ef82c6d18110f34cf33ffb385e66)
++++ b/src/main/java/com/example/theradiaryispw/logic/otherClasses/dao/RegistrationDAO.java	(date 1728572890688)
+@@ -1,5 +1,6 @@
+ package com.example.theradiaryispw.logic.otherClasses.dao;
+ 
++import com.example.theradiaryispw.logic.model.Psychologist;
+ import com.example.theradiaryispw.logic.model.bean.generic.PsychologistBean;
+ import com.example.theradiaryispw.logic.model.bean.login.CredentialsBean;
+ import com.example.theradiaryispw.logic.model.Patient;
+@@ -31,14 +32,14 @@
+     //CREI IL BEAN NEL CONTROLLER GRAFICO E LO PASSI ALL'APPLICATIVO
+     //CREI L'ISTANZA NELL'APPLICATIVO COPIANDOLO DAL BEAN E LO PASSI AL DAO
+     //NEL DAO MODIFICHI L'ENTITA'
+-    public static void registerPatient(Patient patientBean) throws SQLException{
+-        if(emailExists(patientBean.getCredentialsBean().getMail())) {
++    public static void registerPatient(Patient patient) throws SQLException{
++        if(emailExists(patient.getCredentialsBean().getMail())) {
+             throw new SQLException(("Mail già presente nel database")); //NON VA BENE SQL
+         }//inserisco la password e l'email in user
+-        boolean flag = insertUser(patientBean.getCredentialsBean());
++        boolean flag = insertUser(patient.getCredentialsBean());
+         if(flag){
+             try (Connection conn = ConnectionFactory.getConnection()){
+-                int rs = LoginQuery.registerPatient(conn, patientBean);
++                int rs = LoginQuery.registerPatient(conn, patient);
+                 if(rs != 0){
+                     System.out.println("Registrato con successo");
+                     //QUALCOSA  PER ANDARE AL LOGIN
+@@ -52,14 +53,14 @@
+     }
+ 
+ 
+-    /*public static void registerPsychologist(PsychologistBean psychologistBean) throws SQLException {//stessa cosa che ho fatto sopra ma per lo psicologo
+-        if (emailExists(psychologistBean.getCredentialsBean().getMail())) {
++    public static void registerPsychologist(Psychologist psychologist) throws SQLException {//stessa cosa che ho fatto sopra ma per lo psicologo
++        if (emailExists(psychologist.getCredentialsBean().getMail())) {
+             throw new SQLException("Mail già presente nel database");
+         }
+-        boolean flag = insertUser(psychologistBean.getCredentialsBean());
++        boolean flag = insertUser(psychologist.getCredentialsBean());
+         if(flag){
+             try (Connection conn = ConnectionFactory.getConnection()){
+-                int rs = LoginQuery.registerPsychologist(conn, psychologistBean);
++                int rs = LoginQuery.registerPsychologist(conn, psychologist);
+                 if(rs != 0){
+                     System.out.println("Registrato con successo");
+                     //QUALCOSA PER ANDARE AL LOGIN
+@@ -70,6 +71,6 @@
+         }
+         else
+             throw new SQLException(); //DA SOSTITUIRE CON ECCEZIONE SPECIFICA PER INSERIMENTO SU UTENTI NON A BUON FINE (O FORSE NO?)
+-    }*/
++    }
+ }
+ 
+Index: src/main/java/com/example/theradiaryispw/logic/model/Psychologist.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.theradiaryispw.logic.model;\r\n\r\nimport com.example.theradiaryispw.logic.model.LoggedUser;\r\nimport com.example.theradiaryispw.logic.model.Patient;\r\nimport com.example.theradiaryispw.logic.otherClasses.other.Category;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\n\r\npublic class Psychologist extends LoggedUser {\r\n    private List <Patient> patients;\r\n    private List <Category> categories;\r\n\r\n    public Psychologist(LoggedUser lb) {\r\n        super(lb.getCredentialsBean(), lb.getName(), lb.getSurname(), lb.getCity(), lb.getDescription(), lb.isInPerson(), lb.isOnline(), lb.isPag());\r\n        this.categories = new ArrayList<Category>();\r\n        this.patients = new ArrayList<Patient>();\r\n    }\r\n\r\n    /*public CredentialsBean getCredentialsBean() {\r\n        return super.getCredentialsBean();\r\n    }\r\n\r\n    public void setCredentialsBean(CredentialsBean credentialsBean) {\r\n        super.setCredentialsBean(credentialsBean);\r\n    }\r\n\r\n    public String getName() {\r\n        return super.getName();\r\n    }\r\n\r\n    public String getSurname() {\r\n        return super.getSurname();\r\n    }\r\n\r\n\r\n    public String getCity() {\r\n        return super.getCity();\r\n    }\r\n\r\n\r\n    public String getDescription() {\r\n        return super.getDescription();\r\n    }\r\n\r\n    public boolean isInPerson() {\r\n        return super.isInPerson();\r\n    }\r\n\r\n\r\n    public boolean isOnline() {\r\n        return super.isOnline();\r\n    }\r\n\r\n    public boolean isPag() {\r\n        return super.isPag();\r\n    }*/\r\n\r\n\r\n    public List<Patient> getPatients() {\r\n        return patients;\r\n    }\r\n\r\n    public void addPatients(Patient patient){\r\n            this.patients.add(patient);\r\n    }\r\n\r\n    public List<Category> getCategories() {\r\n        return categories;\r\n    }\r\n\r\n    public void addCategory(Category category){\r\n            this.categories.add(category);\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/theradiaryispw/logic/model/Psychologist.java b/src/main/java/com/example/theradiaryispw/logic/model/Psychologist.java
+--- a/src/main/java/com/example/theradiaryispw/logic/model/Psychologist.java	(revision a6acc2f70e29ef82c6d18110f34cf33ffb385e66)
++++ b/src/main/java/com/example/theradiaryispw/logic/model/Psychologist.java	(date 1728572508603)
+@@ -17,44 +17,7 @@
+         this.patients = new ArrayList<Patient>();
+     }
+ 
+-    /*public CredentialsBean getCredentialsBean() {
+-        return super.getCredentialsBean();
+-    }
+-
+-    public void setCredentialsBean(CredentialsBean credentialsBean) {
+-        super.setCredentialsBean(credentialsBean);
+-    }
+-
+-    public String getName() {
+-        return super.getName();
+-    }
+-
+-    public String getSurname() {
+-        return super.getSurname();
+-    }
+-
+-
+-    public String getCity() {
+-        return super.getCity();
+-    }
+-
+ 
+-    public String getDescription() {
+-        return super.getDescription();
+-    }
+-
+-    public boolean isInPerson() {
+-        return super.isInPerson();
+-    }
+-
+-
+-    public boolean isOnline() {
+-        return super.isOnline();
+-    }
+-
+-    public boolean isPag() {
+-        return super.isPag();
+-    }*/
+ 
+ 
+     public List<Patient> getPatients() {

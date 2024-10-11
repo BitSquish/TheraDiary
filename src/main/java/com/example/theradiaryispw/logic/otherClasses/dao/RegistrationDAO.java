@@ -2,6 +2,8 @@ package com.example.theradiaryispw.logic.otherClasses.dao;
 
 import com.example.theradiaryispw.logic.model.Credentials;
 import com.example.theradiaryispw.logic.model.Patient;
+import com.example.theradiaryispw.logic.model.Psychologist;
+import com.example.theradiaryispw.logic.model.bean.generic.PsychologistBean;
 import com.example.theradiaryispw.logic.otherClasses.exceptions.MailAlreadyExistsException;
 import com.example.theradiaryispw.logic.otherClasses.other.ConnectionFactory;
 import com.example.theradiaryispw.logic.otherClasses.query.LoginQuery;
@@ -48,25 +50,22 @@ public class RegistrationDAO {
             throw new SQLException(); //DA SOSTITUIRE CON ECCEZIONE SPECIFICA (O FORSE NO?)
     }
 
-    //DA CORREGGERE COME SOPRA
-    /*public static void registerPsychologist(PsychologistBean psychologistBean) throws SQLException {//stessa cosa che ho fatto sopra ma per lo psicologo
-        if (emailExists(psychologistBean.getCredentialsBean().getMail())) {
+
+    public static void registerPsychologist(Psychologist psychologist) throws SQLException {//stessa cosa che ho fatto sopra ma per lo psicologo
+        if (emailExists(psychologist.getCredentials().getMail())) {
             throw new SQLException("Mail già presente nel database");
         }
-        boolean flag = insertUser(psychologistBean.getCredentialsBean());
+        boolean flag = insertUser(psychologist.getCredentials());
         if(flag){
-            try (Connection conn = ConnectionFactory.getConnection()){
-                int rs = LoginQuery.registerPsychologist(conn, psychologistBean);
-                if(rs != 0){
-                    System.out.println("Registrato con successo");
-                    //QUALCOSA PER ANDARE AL LOGIN
-                }
-                else
-                    throw new SQLException(); //DA SOSTITUIRE CON ECCEZIONE SPECIFICA PER INSERIMENTO SU PSICOLOGI NON A BUON FINE (O FORSE NO?)
+            try (Connection conn = ConnectionFactory.getConnection()) {
+                LoginQuery.registerPsychologist(conn, psychologist);
+            }
+            catch(SQLException e){
+                    throw new SQLException(e.getMessage()); //DA SOSTITUIRE CON ECCEZIONE SPECIFICA PER INSERIMENTO SU PSICOLOGI NON A BUON FINE (O FORSE NO?)
             }
         }
         else
             throw new SQLException(); //DA SOSTITUIRE CON ECCEZIONE SPECIFICA PER INSERIMENTO SU UTENTI NON A BUON FINE (O FORSE NO?)
-    }*/
+    }
 }
 

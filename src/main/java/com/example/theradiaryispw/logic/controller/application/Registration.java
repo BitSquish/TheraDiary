@@ -30,7 +30,7 @@ public class Registration {
 
     private void registerPatient(PatientBean patientBean) {//metodo per registrare un paziente nel database
         Credentials credentials = new Credentials(patientBean.getCredentialsBean().getMail(), patientBean.getCredentialsBean().getPassword(), Role.PATIENT);
-        Patient patient = new Patient(credentials, patientBean.getName(), patientBean.getSurname(), patientBean.getCity(), patientBean.getDescription(), patientBean.isInPerson(), patientBean.isOnline(), false, null);
+        Patient patient = new Patient(credentials, patientBean.getName(), patientBean.getSurname(), patientBean.getCity(), patientBean.getDescription(), patientBean.isInPerson(), patientBean.isOnline(), false, null,null);
         try {
             RegistrationDAO.registerPatient(patient);
         } catch (SQLException e) {
