@@ -4,26 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c77d5b2c-72bb-41b5-8004-61d1cfae9b40" name="Changes" comment="Ridefinita la logica del login e della registrazione del paziente. Ora dovrebbe essere concorde allo standard MVC. C'è da fare la registrazione dello psicologo. Fare attenzione ai commenti">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/login/UserRegistrationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_10_2024_12_03__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_10_2024_12_03__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_09_10_2024_13_22__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_09_10_2024_13_22__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_10_2024_12_17__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_10_2024_12_17__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_10_2024_13_35__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_10_2024_13_35__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_10_2024_13_35__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_10_2024_13_35__Changes_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_10_2024_16_59__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_10_2024_16_59__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_10_2024_09_30__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_10_2024_09_30__Changes_.xml" afterDir="false" />
+    <list default="true" id="c77d5b2c-72bb-41b5-8004-61d1cfae9b40" name="Changes" comment="  Modifiche di psicologo e registrazione">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/ModifyController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/res/view/Modify.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/res/view/images/commonPanel/calendario.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/res/view/images/commonPanel/diario.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/res/view/images/commonPanel/pc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/res/view/images/commonPanel/post.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/res/view/images/commonPanel/psicologo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/res/view/images/commonPanel/todo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/application/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/application/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/application/Registration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/application/Registration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/CommonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/CommonController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/login/PatientRegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/login/PatientRegistrationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/login/PsychologistRegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/login/PsychologistRegistrationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/model/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/model/Patient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/model/Psychologist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/model/Psychologist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/model/bean/generic/PsychologistBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/model/bean/generic/PsychologistBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/dao/RegistrationDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/dao/RegistrationDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/res/view/PsychologistRegistration.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/res/view/PsychologistRegistration.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/res/view/Account.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/res/view/Account.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/res/view/DiaryAndTasks.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/res/view/DiaryAndTasks.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/res/view/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/res/view/Login.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,8 +27,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="FxmlFile" />
         <option value="Enum" />
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -87,7 +80,7 @@
     &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/pc/IdeaProjects/TheraDiaryISPW/target/classes/com/example/res/view/images/commonPanel&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/pc/IdeaProjects/TheraDiaryISPW/src/main/resources/com/example/res/view/images/commonPanel&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -109,18 +102,18 @@
       <recent name="com.example.theradiaryispw.logic.otherClasses.dao" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\pc\IdeaProjects\TheraDiaryISPW\src\main\resources\com\example\res\view\images\commonPanel" />
       <recent name="C:\Users\pc\IdeaProjects\TheraDiaryISPW\target\classes\com\example\res\view\images\commonPanel" />
       <recent name="C:\Users\emanu\IdeaProjects\TheraDiaryISPW\src\main\resources" />
       <recent name="C:\Users\emanu\IdeaProjects\TheraDiaryISPW\src\main\resources\com\example\res\view\images\commonPanel" />
       <recent name="C:\Users\emanu\IdeaProjects\TheraDiaryISPW\src\main\resources\com\example\res\view\images\homepage" />
-      <recent name="C:\Users\emanu\IdeaProjects\TheraDiaryISPW\src\main\resources\com\example\res\view\images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\pc\IdeaProjects\TheraDiaryISPW\src\main\java\com\example\theradiaryispw\logic\view" />
+      <recent name="C:\Users\pc\IdeaProjects\TheraDiaryISPW\src\main\java\com.example.theradiaryispw\logic\view" />
+      <recent name="C:\Users\pc\IdeaProjects\TheraDiaryISPW\src\main\view" />
       <recent name="C:\Users\emanu\IdeaProjects\TheraDiaryISPW\src\main\resources\com\example\res\view" />
       <recent name="C:\Users\emanu\IdeaProjects\TheraDiaryISPW\src\main\resources\com\example\res\view\images\commonPanel" />
-      <recent name="C:\Users\emanu\IdeaProjects\TheraDiaryISPW\src\main\resources\com\example\res\view\images" />
-      <recent name="C:\Users\emanu\IdeaProjects\TheraDiaryISPW\src\main\resources\com\example\theradiaryispw" />
-      <recent name="C:\Users\emanu\IdeaProjects\TheraDiaryISPW\src\main\java\com\example\theradiaryispw\logic\view" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.example.theradiaryispw.logic.otherClasses.bean.login" />
@@ -153,6 +146,12 @@
       <workItem from="1728635562203" duration="14000" />
       <workItem from="1728635930590" duration="76000" />
       <workItem from="1728639230390" duration="5208000" />
+      <workItem from="1728671255368" duration="199000" />
+      <workItem from="1728671789949" duration="322000" />
+      <workItem from="1728672802014" duration="199000" />
+      <workItem from="1728673843969" duration="2682000" />
+      <workItem from="1728727900164" duration="405000" />
+      <workItem from="1728816468726" duration="4812000" />
     </task>
     <task id="LOCAL-00001" summary="Versione con stored procedure, no prepared statement">
       <option name="closed" value="true" />
@@ -324,7 +323,8 @@
     <MESSAGE value="AIUTO" />
     <MESSAGE value="Vedi PatientRegistrationController, Registration, le entity e i bean" />
     <MESSAGE value="Altri progressi su RegistrationDAO, cambiate alcune incongurenze su Patient e LoggedUser" />
-    <option name="LAST_COMMIT_MESSAGE" value="Altri progressi su RegistrationDAO, cambiate alcune incongurenze su Patient e LoggedUser" />
+    <MESSAGE value="  Modifiche di psicologo e registrazione" />
+    <option name="LAST_COMMIT_MESSAGE" value="  Modifiche di psicologo e registrazione" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
