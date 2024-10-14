@@ -10,6 +10,10 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class SearchController extends CommonController{
     public SearchController(Session session) {
         super(session);
@@ -18,19 +22,28 @@ public class SearchController extends CommonController{
     @FXML
     TextField nomeP, cognomeP, cittaP;
     @FXML
-    CheckBox inPresenza, online, pag, includiCategorie;
+    CheckBox inPresenza, online, pag;
 
     @FXML
     private void search(MouseEvent event){
         try{
-            TextField[] fields = {nomeP, cognomeP, cittaP};
+            TextField[] fields = {cognomeP, cittaP};
             checkFields(fields);
-            PsychologistBean psychologistBean = null;
+            List<PsychologistBean> psychologistBeans = new ArrayList<>();
             Search searchClass = new Search();
-            searchClass.search(nomeP, cognomeP, cittaP, inPresenza, online, pag, includiCategorie);
-
+            searchClass.search(psychologistBeans,nomeP, cognomeP, cittaP, inPresenza, online, pag);
+            for(PsychologistBean psychologistBean:psychologistBeans){
+                System.out.println("Mail: " + psychologistBean.getCredentialsBean().getMail());
+                System.out.println("Nome: " + psychologistBean.getName());
+                System.out.println("Cognome: " + psychologistBean.getSurname());
+                System.out.println("Città: " + psychologistBean.getCity());
+                System.out.println("Descrizione: " + psychologistBean.getDescription());
+                System.out.println("In presenza: " + psychologistBean.isInPerson());
+                System.out.println("Online: " + psychologistBean.isOnline());
+                System.out.println("Adesione PAG: " + psychologistBean.isPag());
+            }
         } catch (EmptyFieldException exception){
-            showAlert("Inserisci il nome dello psicologo.");
+            showAlert(exception.getMessage());
         }
     }
 
@@ -42,7 +55,7 @@ public class SearchController extends CommonController{
             if (!(field.getText().isEmpty()))
                 return;
         }
-        throw new EmptyFieldException("Inserisci almeno un campo tra nome, cognome o città");
+        throw new EmptyFieldException("Inserisci almeno almeno un campo tra cognome e città");
 
     }
 

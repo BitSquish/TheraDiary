@@ -59,14 +59,8 @@
             <Font size="14.0" />
         </font>
     </Text>
-    <CheckBox fx:id="pag" layoutX="639.0" layoutY="391.0" mnemonicParsing="false" />
-    <Text fill="#242038" layoutX="101.0" layoutY="395.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Includi specializzazioni nei disturbi inseriti nel tuo profilo:" wrappingWidth="291.19989013671875">
-        <font>
-            <Font size="14.0" />
-        </font>
-    </Text>
-    <CheckBox fx:id="includiCategorie" layoutX="412.0" layoutY="391.0" mnemonicParsing="false" />
-   <Text fill="#242038" layoutX="482.0" layoutY="405.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adesione P.A.G." wrappingWidth="136.0">
+    <CheckBox fx:id="pag" layoutX="229.0" layoutY="390.0" mnemonicParsing="false" />
+   <Text fill="#242038" layoutX="101.0" layoutY="405.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adesione P.A.G." wrappingWidth="136.0">
       <font>
          <Font size="14.0" />
       </font>
