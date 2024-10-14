@@ -60,10 +60,8 @@ public abstract class UserRegistrationController extends CommonController {
             login.log(credentialsBean);
             session.setUser(credentialsBean);
             goToHomepage(event);
-        } catch (MailAlreadyExistsException exception){
-            showAlert("Questa mail è già associata ad un account");
-        } catch (WrongEmailOrPasswordException e) { //Non accadrà mai
-            throw new RuntimeException(e);
+        } catch (MailAlreadyExistsException | WrongEmailOrPasswordException exception){
+            showAlert(exception.getMessage());
         }
 
     }

@@ -2,7 +2,6 @@ package com.example.theradiaryispw.logic.controller.graphic.login;
 
 import com.example.theradiaryispw.logic.controller.application.Login;
 import com.example.theradiaryispw.logic.controller.graphic.*;
-import com.example.theradiaryispw.logic.model.Credentials;
 import com.example.theradiaryispw.logic.model.bean.login.CredentialsBean;
 import com.example.theradiaryispw.logic.otherClasses.exceptions.EmptyFieldException;
 import com.example.theradiaryispw.logic.otherClasses.exceptions.WrongEmailOrPasswordException;
@@ -43,7 +42,6 @@ public class LoginController extends CommonController {
             if(credentialsBean.getRole() != null){
                 session.setUser(credentialsBean);
                 goToHomepage(event, credentialsBean.getRole());
-                System.out.println("mail: " + credentialsBean.getMail());
             }
             else{
                 throw new WrongEmailOrPasswordException("Mail o password errati");
@@ -95,8 +93,8 @@ public class LoginController extends CommonController {
             loader.setControllerFactory(c -> new PatientRegistrationController(session));
             Parent root = loader.load();
             changeScene(root, event);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        } catch (IOException exception) {
+            throw new RuntimeException(exception.getMessage());
         }
     }
 
@@ -108,7 +106,7 @@ public class LoginController extends CommonController {
             Parent root = loader.load();
             changeScene(root, event);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException(e.getMessage());
         }
     }
 }

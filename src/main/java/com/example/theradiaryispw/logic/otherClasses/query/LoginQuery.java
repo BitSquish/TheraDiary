@@ -43,7 +43,7 @@ public class LoginQuery {
         return pstmt.executeUpdate(); //restituisce il numero di righe influenzate dalla query
     }
 
-    public static int registerPsychologist(Connection conn, Psychologist psychologist) throws SQLException {
+    public static void registerPsychologist(Connection conn, Psychologist psychologist) throws SQLException, MailAlreadyExistsException {
         String query = "INSERT INTO psychologist (mail, name, surname, city, description, inPerson, online, pag) VALUES (?,?,?,?,?,?,?,?)";
         PreparedStatement pstmt = conn.prepareStatement(query);
         pstmt.setString(1, psychologist.getCredentials().getMail());
@@ -54,7 +54,10 @@ public class LoginQuery {
         pstmt.setBoolean(6, psychologist.isInPerson());
         pstmt.setBoolean(7, psychologist.isOnline());
         pstmt.setBoolean(8, psychologist.isPag());
-        return pstmt.executeUpdate();
+        int rs = pstmt.executeUpdate();
+        if(rs == 0){
+            throw new MailAlreadyExistsException("Mail già esistente");
+        }
     }
 
     public static void registerPatient(Connection conn, Patient patient) throws SQLException, MailAlreadyExistsException {

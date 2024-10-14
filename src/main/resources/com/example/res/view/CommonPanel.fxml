@@ -45,7 +45,7 @@
                <Image url="@images/commonPanel/pag.png" />
             </image>
          </ImageView>
-         <ImageView fx:id="Appointment" fitHeight="40.0" fitWidth="40.0" layoutX="550.0" layoutY="23.0" onMouseClicked="#goToArticles" pickOnBounds="true" preserveRatio="true">
+         <ImageView fx:id="Appointment" fitHeight="40.0" fitWidth="40.0" layoutX="550.0" layoutY="23.0" onMouseClicked="#goToAppointment" pickOnBounds="true" preserveRatio="true">
             <image>
                <Image url="@images/commonPanel/calendario.png" />
             </image>
@@ -75,7 +75,7 @@
                <Font name="System Bold" size="12.0" />
             </font>
          </Text>
-         <Text fill="WHITE" layoutX="529.0" layoutY="76.0" onMouseClicked="#goToArticles" strokeType="OUTSIDE" strokeWidth="0.0" text="Appuntamenti">
+         <Text fill="WHITE" layoutX="529.0" layoutY="76.0" onMouseClicked="#goToAppointment" strokeType="OUTSIDE" strokeWidth="0.0" text="Appuntamenti">
             <font>
                <Font name="System Bold" size="12.0" />
             </font>

@@ -169,7 +169,7 @@ public abstract class CommonController {
     }
 
     @FXML
-    private void goToArticles(MouseEvent event) {
+    private void goToAppointment(MouseEvent event) {
         try {
             FXMLLoader loader;
 
@@ -185,9 +185,9 @@ public abstract class CommonController {
                 // Se l'utente è loggato, lo reindirizzo alla pagina degli articoli
 
                 // Carico il file FXML per la pagina degli articoli
-                loader = new FXMLLoader(getClass().getResource("/com/example/res/view/Articles.fxml"));
+                loader = new FXMLLoader(getClass().getResource("/com/example/res/view/Appointment.fxml"));
                 // Specifico il controller per gestire gli elementi della pagina degli articoli
-                loader.setControllerFactory(c -> new ArticlesController(session));
+                loader.setControllerFactory(c -> new AppointmentController(session));
             }
 
             // Carico gli elementi grafici dalla radice del file FXML

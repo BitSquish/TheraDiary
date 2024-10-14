@@ -12,14 +12,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.theradiaryispw.logic.controller.graphic.AccountController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.theradiaryispw.logic.controller.graphic.AccountController">
    <children>
       <fx:include source="CommonPanel.fxml" />
-      <ImageView fx:id="image" fitHeight="110.0" fitWidth="111.0" layoutX="37.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="image" fitHeight="94.0" fitWidth="94.0" layoutX="31.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/commonPanel/account.png" />
          </image></ImageView>
-      <VBox layoutX="444.0" layoutY="193.0" prefHeight="318.0" prefWidth="306.0">
+      <VBox layoutX="477.0" layoutY="204.0" prefHeight="318.0" prefWidth="306.0">
          <children>
             <CheckBox fx:id="neuro" mnemonicParsing="false" text="Disturbo del neurosviluppo" textFill="#231f36">
                <padding>
@@ -69,32 +69,27 @@
                   <Insets bottom="7.0" left="6.0" top="10.0" />
                </padding>
             </CheckBox>
-            <Button fx:id="save" mnemonicParsing="false" prefHeight="38.0" prefWidth="146.0" style="-fx-background-color: #9067C6; -fx-background-radius: 20px;" text="Salva" textFill="WHITE">
+            <Button fx:id="save" mnemonicParsing="false" prefHeight="45.0" prefWidth="146.0" style="-fx-background-color: #9067C6; -fx-background-radius: 20px;" text="Salva" textFill="WHITE">
                <VBox.margin>
                   <Insets bottom="5.0" left="90.0" />
                </VBox.margin>
             </Button>
          </children>
       </VBox>
-      <Text fill="#231f36" layoutX="444.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categorie:" wrappingWidth="283.20001220703125">
+      <Text fill="#231f36" layoutX="477.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categorie:" wrappingWidth="283.20001220703125">
          <font>
             <Font name="System Italic" size="16.0" />
          </font>
       </Text>
-      <Text layoutX="78.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Il tuo psicologo:" wrappingWidth="152.79999999999995">
+      <Text layoutX="144.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Il tuo psicologo:" wrappingWidth="152.79999999999995">
          <font>
             <Font name="System Italic" size="16.0" />
          </font>
       </Text>
-      <Button fx:id="pag" layoutX="110.0" layoutY="403.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="195.0" style="-fx-background-color: #9067C6; -fx-background-radius: 20px;" text="Aderisci al P.A.G." textFill="WHITE" />
-      <Line endX="99.99996948242188" endY="-95.00001525878906" layoutX="310.0" layoutY="289.0" startX="99.99996948242188" startY="221.79998779296875" stroke="#242038" />
-      <VBox layoutX="78.0" layoutY="279.0" prefHeight="94.0" prefWidth="260.0" spacing="10.0">
+      <Button fx:id="pag" layoutX="122.0" layoutY="351.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="195.0" style="-fx-background-color: #9067C6; -fx-background-radius: 20px;" text="Aderisci al P.A.G." textFill="WHITE" />
+      <Line endX="99.99996948242188" endY="-95.00001525878906" layoutX="336.0" layoutY="288.0" startX="99.99996948242188" startY="221.79998779296875" stroke="#242038" />
+      <VBox layoutX="125.0" layoutY="146.0" prefHeight="94.0" prefWidth="260.0" spacing="10.0">
          <children>
-            <Label fx:id="psychologist" prefHeight="40.0" prefWidth="254.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #9067C6; -fx-background-radius: 20px; -fx-border-radius: 20px;" textFill="#231f36">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </Label>
             <Button fx:id="searchPsychologist" mnemonicParsing="false" prefHeight="45.0" prefWidth="101.0" style="-fx-background-color: #9067C6; -fx-background-radius: 20px;" text="Cerca" textFill="WHITE" visible="false">
                <opaqueInsets>
                   <Insets top="20.0" />
@@ -108,15 +103,21 @@
             <Insets top="5.0" />
          </padding>
       </VBox>
-      <Text layoutX="334.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account" wrappingWidth="152.7999999999999">
+      <Text layoutX="359.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account" wrappingWidth="152.7999999999999">
          <font>
             <Font name="System Bold" size="35.0" />
          </font>
       </Text>
-      <Button layoutX="180.0" layoutY="175.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="195.0" style="-fx-background-color: #9067C6; -fx-background-radius: 20px;" text="Modifica i tuoi dati personali" textAlignment="CENTER" textFill="WHITE" />
-      <Text fx:id="schermatapag" fill="#9067c6" layoutX="137.0" layoutY="475.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Scopri di più sul P.A.G." wrappingWidth="167.20000000000005">
+      <Button layoutX="122.0" layoutY="273.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="195.0" style="-fx-background-color: #9067C6; -fx-background-radius: 20px;" text="Modifica i tuoi dati personali" textAlignment="CENTER" textFill="WHITE" />
+      <Text fx:id="schermatapag" fill="#9067c6" layoutX="136.0" layoutY="424.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Scopri di più sul P.A.G." textAlignment="CENTER" wrappingWidth="167.20000000000005">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Text>
+      <Label fx:id="psychologist" layoutX="137.0" layoutY="193.0" prefHeight="40.0" prefWidth="226.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #9067C6; -fx-background-radius: 20px; -fx-border-radius: 20px;" textFill="#231f36">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Label>
+      <Button fx:id="pag1" layoutX="146.0" layoutY="460.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="146.0" style="-fx-background-color: #9067C6; -fx-background-radius: 20px;" text="Logout" textFill="WHITE" />
    </children>
 </AnchorPane>

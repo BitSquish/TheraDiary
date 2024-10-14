@@ -129,7 +129,7 @@
             <Image url="@images/commonPanel/office.png" />
         </image>
     </ImageView>
-    <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="617.0" layoutY="397.0" onMouseClicked="#goToArticles" pickOnBounds="true" preserveRatio="true">
+    <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="617.0" layoutY="397.0" onMouseClicked="#goToAppointment" pickOnBounds="true" preserveRatio="true">
         <image>
             <Image url="@images/commonPanel/calendario.png" />
         </image>

@@ -34,7 +34,7 @@
          <Font size="18.0" />
       </font>
    </Button>
-   <Button fx:id="iniziamo12" layoutX="606.0" layoutY="357.0" mnemonicParsing="false" onMouseClicked="#goToArticles" prefHeight="130.0" prefWidth="219.0" style="-fx-background-color: #9067C6; -fx-background-radius: 15px;" textFill="WHITE">
+   <Button fx:id="iniziamo12" layoutX="606.0" layoutY="357.0" mnemonicParsing="false" onMouseClicked="#goToAppointment" prefHeight="130.0" prefWidth="219.0" style="-fx-background-color: #9067C6; -fx-background-radius: 15px;" textFill="WHITE">
       <font>
          <Font size="18.0" />
       </font>
@@ -104,12 +104,12 @@
          <Font name="System Bold" size="14.0" />
       </font>
    </Text>
-   <Text fill="WHITE" layoutX="681.0" layoutY="392.0" onMouseClicked="#goToArticles" strokeType="OUTSIDE" strokeWidth="0.0" text="Appuntamenti">
+   <Text fill="WHITE" layoutX="681.0" layoutY="392.0" onMouseClicked="#goToAppointment" strokeType="OUTSIDE" strokeWidth="0.0" text="Appuntamenti">
       <font>
          <Font name="System Bold" size="14.0" />
       </font>
    </Text>
-   <Text fill="WHITE" layoutX="681.0" layoutY="414.0" onMouseClicked="#goToArticles" strokeType="OUTSIDE" strokeWidth="0.0" text="Controlla gli orari del tuo psicologo e gli appuntamenti fissati" wrappingWidth="134.93685913085938">
+   <Text fill="WHITE" layoutX="681.0" layoutY="414.0" onMouseClicked="#goToAppointment" strokeType="OUTSIDE" strokeWidth="0.0" text="Controlla gli orari del tuo psicologo e gli appuntamenti fissati" wrappingWidth="134.93685913085938">
       <font>
          <Font size="14.0" />
       </font>
@@ -129,7 +129,7 @@
          <Image url="@images/commonPanel/office.png" />
       </image>
    </ImageView>
-   <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="619.0" layoutY="395.0" onMouseClicked="#goToArticles" pickOnBounds="true" preserveRatio="true">
+   <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="619.0" layoutY="395.0" onMouseClicked="#goToAppointment" pickOnBounds="true" preserveRatio="true">
       <image>
          <Image url="@images/commonPanel/calendario.png" />
       </image>

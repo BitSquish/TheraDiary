@@ -25,7 +25,7 @@ public class PatientRegistrationController extends UserRegistrationController {
             PatientBean patientBean = new PatientBean(credentialsBean, nome.getText(), cognome.getText(), citta.getText(), descrizione.getText(), inPresenza.isSelected(), online.isSelected(), false, null, null);
             registerGenericUser(event, credentialsBean, patientBean);
         } catch (EmptyFieldException exception){
-            showAlert("Compila tutti i campi");
+            showAlert(exception.getMessage());
         }
 
     }

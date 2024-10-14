@@ -45,7 +45,7 @@ public class PsychologistRegistrationController extends UserRegistrationControll
             PsychologistBean psychologistBean = new PsychologistBean(credentialsBean, nome.getText(), cognome.getText(), citta.getText(), descrizione.getText(), inPresenza.isSelected(), online.isSelected(), pag.isSelected(), null);
             registerGenericUser(event, credentialsBean, psychologistBean);
         } catch (EmptyFieldException exception){
-            showAlert("Compila tutti i campi");
+            showAlert(exception.getMessage());
         }
 
     }
