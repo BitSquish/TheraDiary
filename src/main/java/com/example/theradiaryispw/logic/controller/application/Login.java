@@ -21,6 +21,7 @@ public class Login {
             System.out.println("Errore: " + e.getMessage());
             throw new RuntimeException(e);
         } catch (WrongEmailOrPasswordException e) {
+            System.out.println("Errore: " + e.getMessage());
             throw new WrongEmailOrPasswordException(e.getMessage());
         }
     }
