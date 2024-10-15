@@ -86,7 +86,7 @@
             <Font name="System Italic" size="16.0" />
          </font>
       </Text>
-      <Button fx:id="pag" layoutX="150.0" layoutY="363.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="195.0" style="-fx-background-color: #9067C6; -fx-background-radius: 20px;" text="Aderisci al P.A.G." textFill="WHITE" />
+      <Button fx:id="pag" layoutX="150.0" layoutY="363.0" mnemonicParsing="false" onMouseClicked="#joinPag" prefHeight="45.0" prefWidth="195.0" style="-fx-background-color: #9067C6; -fx-background-radius: 20px;" text="Aderisci al P.A.G." textFill="WHITE" />
       <Line endX="99.99996948242188" endY="-95.00001525878906" layoutX="336.0" layoutY="288.0" startX="99.99996948242188" startY="221.79998779296875" stroke="#242038" />
       <Text layoutX="359.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account" wrappingWidth="152.7999999999999">
          <font>
@@ -114,7 +114,7 @@
          </padding>
       </VBox>
       <Button fx:id="modify" layoutX="150.0" layoutY="169.0" mnemonicParsing="false" onMouseClicked="#goToModify" prefHeight="45.0" prefWidth="195.0" style="-fx-background-color: #9067C6; -fx-background-radius: 20px;" text="Modifica dati personali" textAlignment="CENTER" textFill="WHITE" />
-      <Text fx:id="schermatapag" fill="#9067c6" layoutX="163.0" layoutY="434.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Scopri di più sul P.A.G." textAlignment="CENTER" wrappingWidth="167.20000000000005">
+      <Text fx:id="schermatapag" fill="#9067c6" layoutX="163.0" layoutY="434.0" onMouseClicked="#goToPAG" strokeType="OUTSIDE" strokeWidth="0.0" text="Scopri di più sul P.A.G." textAlignment="CENTER" wrappingWidth="167.20000000000005">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Text>

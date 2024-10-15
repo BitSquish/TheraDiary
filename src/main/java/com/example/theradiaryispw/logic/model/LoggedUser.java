@@ -114,7 +114,7 @@ public class LoggedUser {
         return pag;
     }
 
-    public void setPag(boolean pag) {
+    public  void setPag(boolean pag) {
         this.pag = pag;
     }
 

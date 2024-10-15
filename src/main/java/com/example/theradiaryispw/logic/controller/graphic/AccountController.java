@@ -2,6 +2,7 @@ package com.example.theradiaryispw.logic.controller.graphic;
 
 import com.example.theradiaryispw.logic.controller.graphic.login.LoginController;
 import com.example.theradiaryispw.logic.controller.graphic.login.PatientRegistrationController;
+import com.example.theradiaryispw.logic.model.LoggedUser;
 import com.example.theradiaryispw.logic.otherClasses.other.Session;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -28,5 +29,16 @@ public class AccountController extends CommonController{
             throw new RuntimeException(exception.getMessage());
         }
     }
+    //da migliorare e rivedere con ema
+    /*@FXML
+    private void joinPag(MouseEvent event){
+        LoggedUser.setPag(true);
+    }
+    @FXML
+    private void goToPAG(MouseEvent event ){
+        super.goToPAG(event);
+    }*/
+
+
 }
 
