@@ -45,7 +45,6 @@ public class LoginController extends CommonController {
             }
             else{
                 throw new WrongEmailOrPasswordException("Mail o password errati");
-
             }
         }catch(WrongEmailOrPasswordException exception){
             showAlert("Mail o password errati");  //Si può sfruttare exception.getMessage()?
