@@ -1,5 +1,8 @@
 package com.example.theradiaryispw.logic.controller.graphic;
 
+import com.example.theradiaryispw.logic.controller.graphic.account.AccountController;
+import com.example.theradiaryispw.logic.controller.graphic.account.PatientAccountController;
+import com.example.theradiaryispw.logic.controller.graphic.account.PsychologistAccountController;
 import com.example.theradiaryispw.logic.controller.graphic.login.LoginController;
 import com.example.theradiaryispw.logic.otherClasses.other.Session;
 import javafx.fxml.FXML;
@@ -76,20 +79,28 @@ public abstract class CommonController {
     @FXML
     protected void goToAccountPage(MouseEvent event) {
         try {
-            FXMLLoader loader;
+            FXMLLoader loader=null;
             if (session.getUser() == null) {
                 loader = new FXMLLoader(getClass().getResource("/com/example/res/view/Login.fxml"));
                 loader.setControllerFactory(c -> new LoginController(session));
-            } else {
-                loader = new FXMLLoader(getClass().getResource("/com/example/res/view/Account.fxml"));
-                loader.setControllerFactory(c -> new AccountController(session));
+            } else if (session.getUser().getRole().toString().equals("PATIENT")) {
+                loader = new FXMLLoader(getClass().getResource("/com/example/res/view/PatientAccount.fxml"));
+                loader.setControllerFactory(c -> new PatientAccountController(session));
+            } else if (session.getUser().getRole().toString().equals("PSYCHOLOGIST")) {
+                loader = new FXMLLoader(getClass().getResource("/com/example/res/view/PsychologistAccount.fxml"));
+                loader.setControllerFactory(c -> new PsychologistAccountController(session));
             }
-            Parent root = loader.load();
-            changeScene(root, event);
+            if (loader != null) { // Ensure loader is not null before using it
+                Parent root = loader.load();
+                changeScene(root, event);
+            } else {
+                throw new RuntimeException("Loader not initialized. User role might be undefined.");
+            }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
+
 
     @FXML
     private void goToTasks(MouseEvent event){

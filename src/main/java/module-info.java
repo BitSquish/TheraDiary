@@ -20,5 +20,7 @@ module com.example.theradiaryispw {
     opens com.example.theradiaryispw.logic.model.bean to javafx.fxml;
     exports com.example.theradiaryispw.logic.controller.graphic.login;
     opens com.example.theradiaryispw.logic.controller.graphic.login to javafx.fxml;
+    exports com.example.theradiaryispw.logic.controller.graphic.account;
+    opens com.example.theradiaryispw.logic.controller.graphic.account to javafx.fxml;
 
 }
