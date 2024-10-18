@@ -34,7 +34,7 @@ public class RegistrationDAO {
     //NEL DAO MODIFICHI L'ENTITA'
     public static void registerPatient(Patient patient) throws SQLException, MailAlreadyExistsException {
         if(emailExists(patient.getCredentials().getMail())) {
-            throw new MailAlreadyExistsException(("Mail già presente nel database"));
+            throw new MailAlreadyExistsException(("Mail già registrata"));
         }//inserisco la password e l'email in user
         boolean flag = insertUser(patient.getCredentials());
         if(flag){
@@ -52,7 +52,7 @@ public class RegistrationDAO {
 
     public static void registerPsychologist(Psychologist psychologist) throws SQLException, MailAlreadyExistsException {//stessa cosa che ho fatto sopra ma per lo psicologo
         if (emailExists(psychologist.getCredentials().getMail())) {
-            throw new MailAlreadyExistsException("Mail già presente nel database");
+            throw new MailAlreadyExistsException("Mail già presente");
         }
         boolean flag = insertUser(psychologist.getCredentials());
         if(flag){

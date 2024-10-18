@@ -1,12 +1,15 @@
 package com.example.theradiaryispw.logic.controller.graphic;
 
 import com.example.theradiaryispw.logic.controller.application.Search;
+import com.example.theradiaryispw.logic.controller.graphic.login.LoginController;
 import com.example.theradiaryispw.logic.model.bean.generic.PsychologistBean;
 import com.example.theradiaryispw.logic.otherClasses.exceptions.EmptyFieldException;
 import com.example.theradiaryispw.logic.otherClasses.other.Session;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
@@ -23,6 +26,8 @@ public class SearchController extends CommonController{
     TextField nomeP, cognomeP, cittaP;
     @FXML
     CheckBox inPresenza, online, pag;
+    @FXML
+    Label errorMessage;
 
     @FXML
     private void search(MouseEvent event){
@@ -43,7 +48,8 @@ public class SearchController extends CommonController{
                 System.out.println("Adesione PAG: " + psychologistBean.isPag());
             }
         } catch (EmptyFieldException exception){
-            showAlert(exception.getMessage());
+            errorMessage.setText(exception.getMessage());
+            errorMessage.setVisible(true);
         }
     }
 
@@ -59,11 +65,4 @@ public class SearchController extends CommonController{
 
     }
 
-    private void showAlert(String content) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Errore");
-        alert.setHeaderText(null);
-        alert.setContentText(content);
-        alert.showAndWait();
-    }
 }
