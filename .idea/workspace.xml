@@ -4,6 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+    <list default="true" id="c77d5b2c-72bb-41b5-8004-61d1cfae9b40" name="Changes" comment="Gestione messaggi di errore: invece degli alert, si usano delle label che vengono rese visibili al momento opportuno. Modifica fatta per il login, le registrazioni e la ricerca">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/exceptions/NoResultException.java" afterDir="false" />
     <list default="true" id="c77d5b2c-72bb-41b5-8004-61d1cfae9b40" name="Changes" comment="Implementata la parte logica della ricerca dello psicologo.">
       <change afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/account/PatientAccountController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/account/PsychologistAccountController.java" afterDir="false" />
@@ -14,6 +16,10 @@
       <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/res/view/PsychologistAccount.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/application/Search.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/application/Search.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/SearchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/SearchController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/dao/SearchDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/dao/SearchDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/exceptions/MailAlreadyExistsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/exceptions/MailAlreadyExistsException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/account/AccountController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/CommonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/CommonController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
@@ -373,6 +379,8 @@
     <MESSAGE value="sistemato le versioni, ora il pulsante modifica di account porta a modifica" />
     <MESSAGE value="pulsati di account controller comentati" />
     <option name="LAST_COMMIT_MESSAGE" value="pulsati di account controller comentati" />
+    <MESSAGE value="Gestione messaggi di errore: invece degli alert, si usano delle label che vengono rese visibili al momento opportuno. Modifica fatta per il login, le registrazioni e la ricerca" />
+    <option name="LAST_COMMIT_MESSAGE" value="Gestione messaggi di errore: invece degli alert, si usano delle label che vengono rese visibili al momento opportuno. Modifica fatta per il login, le registrazioni e la ricerca" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

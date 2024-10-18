@@ -4,6 +4,7 @@ import com.example.theradiaryispw.logic.controller.application.Search;
 import com.example.theradiaryispw.logic.controller.graphic.login.LoginController;
 import com.example.theradiaryispw.logic.model.bean.generic.PsychologistBean;
 import com.example.theradiaryispw.logic.otherClasses.exceptions.EmptyFieldException;
+import com.example.theradiaryispw.logic.otherClasses.exceptions.NoResultException;
 import com.example.theradiaryispw.logic.otherClasses.other.Session;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -31,6 +32,7 @@ public class SearchController extends CommonController{
 
     @FXML
     private void search(MouseEvent event){
+        errorMessage.setVisible(false);
         try{
             TextField[] fields = {cognomeP, cittaP};
             checkFields(fields);
@@ -47,7 +49,7 @@ public class SearchController extends CommonController{
                 System.out.println("Online: " + psychologistBean.isOnline());
                 System.out.println("Adesione PAG: " + psychologistBean.isPag());
             }
-        } catch (EmptyFieldException exception){
+        } catch (EmptyFieldException |NoResultException exception){
             errorMessage.setText(exception.getMessage());
             errorMessage.setVisible(true);
         }
