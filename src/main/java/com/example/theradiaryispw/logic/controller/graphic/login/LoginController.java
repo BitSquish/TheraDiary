@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -31,9 +32,12 @@ public class LoginController extends CommonController {
     TextField mail;
     @FXML
     PasswordField password;
+    @FXML
+    Label errorMessage;
 
     @FXML
     private void setCredentials(MouseEvent event) throws IOException {
+        errorMessage.setVisible(false);
         try{
             validateFields();
             CredentialsBean credentialsBean = new CredentialsBean(mail.getText(), password.getText(), null);
@@ -46,10 +50,9 @@ public class LoginController extends CommonController {
             else{
                 throw new WrongEmailOrPasswordException("Mail o password errati");
             }
-        }catch(WrongEmailOrPasswordException exception){
-            showAlert("Mail o password errati");  //Si può sfruttare exception.getMessage()?
-        } catch (EmptyFieldException exception) {
-            showAlert("Compila tutti i campi"); //idem
+        }catch(WrongEmailOrPasswordException | EmptyFieldException exception){
+            errorMessage.setText(exception.getMessage());
+            errorMessage.setVisible(true);
         }
 
 
@@ -61,16 +64,10 @@ public class LoginController extends CommonController {
     }
     private void validateFields() throws  EmptyFieldException {
         if (mail.getText().isEmpty() || password.getText().isEmpty()) {
-            throw new EmptyFieldException("Per favore compila tutti campi.");
+            throw new EmptyFieldException("Compila tutti campi.");
         }
     }
-    private void showAlert(String content) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Errore nel login");
-        alert.setHeaderText(null);
-        alert.setContentText(content);
-        alert.showAndWait();
-    }
+
     private void goToHomepage(MouseEvent event, Role role) throws IOException {
         FXMLLoader loader;
         if (role.equals(Role.PATIENT)) {

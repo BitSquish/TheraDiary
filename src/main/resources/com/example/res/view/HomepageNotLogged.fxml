@@ -39,7 +39,7 @@
          <Font name="System Italic" size="18.0" />
       </font>
    </Text>
-   <Text layoutX="611.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Assistenza, articoli scientifici e molto altro" textAlignment="CENTER" wrappingWidth="198.6292724609375">
+   <Text layoutX="611.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Assistenza, planner e molto altro" textAlignment="CENTER" wrappingWidth="198.6292724609375">
       <font>
          <Font name="System Italic" size="18.0" />
       </font>
@@ -54,7 +54,7 @@
          <Font size="14.0" />
       </font>
    </Text>
-   <Text layoutX="616.0" layoutY="397.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Scopri il mondo di TheraDiary cliccando su &quot;Iniziamo&quot;!" textAlignment="CENTER" wrappingWidth="187.50381469726562">
+   <Text layoutX="616.0" layoutY="405.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Scopri il mondo di TheraDiary cliccando su &quot;Iniziamo&quot;!" textAlignment="CENTER" wrappingWidth="187.50381469726562">
       <font>
          <Font size="14.0" />
       </font>

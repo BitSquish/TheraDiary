@@ -9,10 +9,7 @@ import com.example.theradiaryispw.logic.otherClasses.exceptions.*;
 import com.example.theradiaryispw.logic.otherClasses.other.Role;
 import com.example.theradiaryispw.logic.otherClasses.other.Session;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 
 public abstract class UserRegistrationController extends CommonController {
@@ -26,6 +23,8 @@ public abstract class UserRegistrationController extends CommonController {
     PasswordField password;
     @FXML
     CheckBox inPresenza, online;
+    @FXML
+    Label errorMessage;
 
     @FXML
     protected void checkFields(TextField[] fields) throws EmptyFieldException {
@@ -36,17 +35,12 @@ public abstract class UserRegistrationController extends CommonController {
         }
     }
 
-    protected void showAlert(String message) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Errore di registrazione");
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();
-    }
 
     @FXML
     protected void registerGenericUser(MouseEvent event,CredentialsBean credentialsBean, Object bean) {
         try{
+            TextField[] fields = {nome, cognome, citta, mail, descrizione};
+            checkFields(fields);
             Registration registration = new Registration(bean);
             // Pop-up che segnala successo registrazione
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -60,8 +54,9 @@ public abstract class UserRegistrationController extends CommonController {
             login.log(credentialsBean);
             session.setUser(credentialsBean);
             goToHomepage(event);
-        } catch (MailAlreadyExistsException | WrongEmailOrPasswordException exception){
-            showAlert(exception.getMessage());
+        } catch (MailAlreadyExistsException | WrongEmailOrPasswordException | EmptyFieldException exception){
+            errorMessage.setText(exception.getMessage());
+            errorMessage.setVisible(true);
         }
 
     }

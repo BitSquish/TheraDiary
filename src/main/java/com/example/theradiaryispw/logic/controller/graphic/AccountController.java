@@ -1,8 +1,5 @@
 package com.example.theradiaryispw.logic.controller.graphic;
 
-import com.example.theradiaryispw.logic.controller.graphic.login.LoginController;
-import com.example.theradiaryispw.logic.controller.graphic.login.PatientRegistrationController;
-import com.example.theradiaryispw.logic.model.LoggedUser;
 import com.example.theradiaryispw.logic.otherClasses.other.Session;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

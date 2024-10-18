@@ -37,16 +37,9 @@ public class PsychologistRegistrationController extends UserRegistrationControll
     }
 
     @FXML
-    private void registerPsychologist(MouseEvent event) throws EmptyFieldException, MailAlreadyExistsException {
-        try{
-            TextField[] fields = {nome, cognome, citta, mail, descrizione};
-            checkFields(fields);
-            CredentialsBean credentialsBean = new CredentialsBean(mail.getText(), password.getText(), Role.valueOf("PATIENT"));
-            PsychologistBean psychologistBean = new PsychologistBean(credentialsBean, nome.getText(), cognome.getText(), citta.getText(), descrizione.getText(), inPresenza.isSelected(), online.isSelected(), pag.isSelected(), null);
-            registerGenericUser(event, credentialsBean, psychologistBean);
-        } catch (EmptyFieldException exception){
-            showAlert(exception.getMessage());
-        }
-
+    private void registerPsychologist(MouseEvent event) {
+        CredentialsBean credentialsBean = new CredentialsBean(mail.getText(), password.getText(), Role.valueOf("PATIENT"));
+        PsychologistBean psychologistBean = new PsychologistBean(credentialsBean, nome.getText(), cognome.getText(), citta.getText(), descrizione.getText(), inPresenza.isSelected(), online.isSelected(), pag.isSelected(), null);
+        registerGenericUser(event, credentialsBean, psychologistBean);
     }
 }
