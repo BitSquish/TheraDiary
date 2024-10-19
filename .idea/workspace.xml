@@ -4,16 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c77d5b2c-72bb-41b5-8004-61d1cfae9b40" name="Changes" comment="Gestione messaggi di errore: invece degli alert, si usano delle label che vengono rese visibili al momento opportuno. Modifica fatta per il login, le registrazioni e la ricerca">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_10_2024_19_44_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_10_2024_19_44__Changes_.xml" beforeDir="false" />
+    <list default="true" id="c77d5b2c-72bb-41b5-8004-61d1cfae9b40" name="Changes" comment="Pulsanti modifica, logout e indietro per i due account">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/account/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/account/AccountController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/account/PsychologistAccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/account/PsychologistAccountController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/modify/ModifyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/modify/ModifyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/modify/ModifyPatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/modify/ModifyPatientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/modify/ModifyPsychologistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/modify/ModifyPsychologistController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/res/view/PatientAccount.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/res/view/PatientAccount.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/res/view/ModifyPatient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/res/view/ModifyPatient.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/res/view/ModifyPsychologist.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/res/view/ModifyPsychologist.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/res/view/PsychologistAccount.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/res/view/PsychologistAccount.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -177,7 +174,7 @@
       <workItem from="1729238353537" duration="143000" />
       <workItem from="1729239162624" duration="598000" />
       <workItem from="1728988204193" duration="2749000" />
-      <workItem from="1729331629364" duration="2219000" />
+      <workItem from="1729331629364" duration="7001000" />
     </task>
     <task id="LOCAL-00001" summary="Versione con stored procedure, no prepared statement">
       <option name="closed" value="true" />
@@ -331,7 +328,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728995261149</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Pulsanti modifica, logout e indietro per i due account">
+      <option name="closed" value="true" />
+      <created>1729336431898</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1729336431899</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -370,7 +375,8 @@
     <MESSAGE value="sistemato le versioni, ora il pulsante modifica di account porta a modifica" />
     <MESSAGE value="pulsati di account controller comentati" />
     <MESSAGE value="Gestione messaggi di errore: invece degli alert, si usano delle label che vengono rese visibili al momento opportuno. Modifica fatta per il login, le registrazioni e la ricerca" />
-    <option name="LAST_COMMIT_MESSAGE" value="Gestione messaggi di errore: invece degli alert, si usano delle label che vengono rese visibili al momento opportuno. Modifica fatta per il login, le registrazioni e la ricerca" />
+    <MESSAGE value="Pulsanti modifica, logout e indietro per i due account" />
+    <option name="LAST_COMMIT_MESSAGE" value="Pulsanti modifica, logout e indietro per i due account" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

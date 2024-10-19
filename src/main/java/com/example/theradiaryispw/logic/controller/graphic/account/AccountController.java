@@ -5,6 +5,8 @@ import com.example.theradiaryispw.logic.controller.graphic.HomepageLoggedPsContr
 import com.example.theradiaryispw.logic.controller.graphic.HomepagePtLoggedController;
 import com.example.theradiaryispw.logic.controller.graphic.ModifyController;
 import com.example.theradiaryispw.logic.controller.graphic.login.LoginController;
+import com.example.theradiaryispw.logic.controller.graphic.modify.ModifyPatientController;
+import com.example.theradiaryispw.logic.controller.graphic.modify.ModifyPsychologistController;
 import com.example.theradiaryispw.logic.otherClasses.other.Session;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -31,17 +33,18 @@ public abstract class AccountController extends CommonController {
     protected void goToModifyScreen(MouseEvent event) throws IOException {
         try {
             FXMLLoader loader;
-            if (session.getUser().getRole().equals("PATIENT")) {
+            if(session.getUser()==null){
+                loader = new FXMLLoader(getClass().getResource("/com/example/res/view/Login.fxml"));
+                loader.setControllerFactory(c -> new LoginController(session));
+            }else if (session.getUser().getRole().toString().equals("PATIENT")) {
                 loader = new FXMLLoader(getClass().getResource("/com/example/res/view/ModifyPatient.fxml"));
-                loader.setControllerFactory(c -> new ModifyController(session));
-            } else {
+                loader.setControllerFactory(c -> new ModifyPatientController(session));
+            } else  {
                 loader = new FXMLLoader(getClass().getResource("/com/example/res/view/ModifyPsychologist.fxml"));
-                loader.setControllerFactory(c -> new ModifyController(session));
+                loader.setControllerFactory(c -> new ModifyPsychologistController(session));
             }
             Parent root = loader.load();
-            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.show();
+            changeScene(root,event);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -72,7 +75,10 @@ public abstract class AccountController extends CommonController {
     protected void goBack(MouseEvent event) throws IOException {
         try {
             FXMLLoader loader;
-            if (session.getUser().getRole().equals("PATIENT")) {
+            if(session.getUser()==null){
+                loader = new FXMLLoader(getClass().getResource("/com/example/res/view/Login.fxml"));
+                loader.setControllerFactory(c -> new LoginController(session));
+            }else if (session.getUser().getRole().toString().equals("PATIENT")) {
                 loader = new FXMLLoader(getClass().getResource("/com/example/res/view/HomepageLoggedPt.fxml"));
                 loader.setControllerFactory(c -> new HomepagePtLoggedController(session));
             } else {
@@ -80,9 +86,7 @@ public abstract class AccountController extends CommonController {
                 loader.setControllerFactory(c -> new HomepageLoggedPsController(session));
             }
             Parent root = loader.load();
-            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.show();
+            changeScene(root,event);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
