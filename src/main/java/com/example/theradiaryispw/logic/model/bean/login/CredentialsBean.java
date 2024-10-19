@@ -7,6 +7,7 @@ public class CredentialsBean {
     private String mail;
     private String password;
     private Role role;
+    private boolean pag;
 
     //costruttore
     public CredentialsBean(String mail, String password, Role role){
@@ -36,5 +37,12 @@ public class CredentialsBean {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public void setPag(boolean pag) {
+        this.pag=pag;
+    }
+    public boolean isPag() {
+        return pag;
     }
 }

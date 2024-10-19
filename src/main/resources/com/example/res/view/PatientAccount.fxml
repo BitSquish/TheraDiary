@@ -20,7 +20,7 @@
          <image>
             <Image url="@images/commonPanel/account.png" />
          </image></ImageView>
-      <VBox layoutX="477.0" layoutY="204.0" prefHeight="318.0" prefWidth="306.0">
+      <VBox fx:id="box" layoutX="477.0" layoutY="204.0" prefHeight="318.0" prefWidth="306.0">
          <children>
             <CheckBox fx:id="neuro" mnemonicParsing="false" text="Disturbo del neurosviluppo" textFill="#231f36">
                <padding>

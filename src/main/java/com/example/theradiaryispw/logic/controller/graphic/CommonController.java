@@ -141,7 +141,7 @@ public abstract class CommonController {
     }
 
     @FXML
-    private void goToPAG(MouseEvent event){
+    private void goToPAG(MouseEvent event){//sull'account se clicchi sulla scritta vai a PAG
         try {
             FXMLLoader loader;
             if(session.getUser()==null){

@@ -8,6 +8,7 @@ public class Credentials {
     private final String password;
     private Role role;
 
+
     //costruttore
     public Credentials(String mail, String password, Role role){
         this.mail = mail;
@@ -28,4 +29,5 @@ public class Credentials {
     public void setRole(Role role){
         this.role = role;
     }
+
 }
