@@ -14,7 +14,7 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.theradiaryispw.logic.controller.graphic.account.PatientAccountController">
    <children>
       <fx:include source="CommonPanel.fxml" />
-      <ImageView fx:id="image" fitHeight="94.0" fitWidth="94.0" layoutX="31.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="account" fitHeight="94.0" fitWidth="94.0" layoutX="31.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/commonPanel/account.png" />
          </image>

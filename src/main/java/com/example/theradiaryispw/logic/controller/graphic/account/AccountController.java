@@ -1,7 +1,10 @@
 package com.example.theradiaryispw.logic.controller.graphic.account;
 
 import com.example.theradiaryispw.logic.controller.graphic.CommonController;
+import com.example.theradiaryispw.logic.controller.graphic.HomepageLoggedPsController;
+import com.example.theradiaryispw.logic.controller.graphic.HomepagePtLoggedController;
 import com.example.theradiaryispw.logic.controller.graphic.ModifyController;
+import com.example.theradiaryispw.logic.controller.graphic.login.LoginController;
 import com.example.theradiaryispw.logic.otherClasses.other.Session;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,8 +23,8 @@ public abstract class AccountController extends CommonController {
     protected AccountController(Session session) {
         super(session);
     }
-}
-   /* @FXML
+
+    @FXML
     ImageView account;
 
     @FXML
@@ -30,8 +33,10 @@ public abstract class AccountController extends CommonController {
             FXMLLoader loader;
             if (session.getUser().getRole().equals("PATIENT")) {
                 loader = new FXMLLoader(getClass().getResource("/com/example/res/view/ModifyPatient.fxml"));
+                loader.setControllerFactory(c -> new ModifyController(session));
             } else {
                 loader = new FXMLLoader(getClass().getResource("/com/example/res/view/ModifyPsychologist.fxml"));
+                loader.setControllerFactory(c -> new ModifyController(session));
             }
             Parent root = loader.load();
             Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
@@ -51,6 +56,7 @@ public abstract class AccountController extends CommonController {
     protected void logout(MouseEvent event) throws IOException {
         session.setUser(null);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/res/view/Login.fxml"));
+        loader.setControllerFactory(c -> new LoginController(session));
         Parent root = loader.load();
         Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));
@@ -68,8 +74,10 @@ public abstract class AccountController extends CommonController {
             FXMLLoader loader;
             if (session.getUser().getRole().equals("PATIENT")) {
                 loader = new FXMLLoader(getClass().getResource("/com/example/res/view/HomepageLoggedPt.fxml"));
+                loader.setControllerFactory(c -> new HomepagePtLoggedController(session));
             } else {
                 loader = new FXMLLoader(getClass().getResource("/com/example/res/view/HomepageLoggedPs.fxml"));
+                loader.setControllerFactory(c -> new HomepageLoggedPsController(session));
             }
             Parent root = loader.load();
             Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
@@ -79,5 +87,6 @@ public abstract class AccountController extends CommonController {
             throw new RuntimeException(e);
         }
     }
-}*/
+}
+
 
