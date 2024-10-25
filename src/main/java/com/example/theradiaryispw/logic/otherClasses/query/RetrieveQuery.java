@@ -5,9 +5,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class SearchQuery {
+public class RetrieveQuery {
 
-    private SearchQuery(){}
+    private RetrieveQuery(){}
 
     public static ResultSet searchPsychologist(Connection conn, String name, String surname, String city, boolean inPerson, boolean online, boolean pag) throws SQLException {
         String query = "SELECT mail, name, surname, city, description, inPerson, online, pag  FROM psychologist WHERE 1=1";
@@ -67,6 +67,13 @@ public class SearchQuery {
 
     public static ResultSet retrievePatient(Connection conn, String mail) throws SQLException {
         String query = "SELECT name, surname, city, description, inPerson, online, pag FROM patient WHERE mail = ?";
+        PreparedStatement pstmt = conn.prepareStatement(query);
+        pstmt.setString(1, mail);
+        return pstmt.executeQuery();
+    }
+
+    public static ResultSet retrieveMedicalOffice(Connection conn, String mail) throws SQLException {
+        String query = "SELECT mail, city, postCode, address, otherInfo FROM medicaloffice WHERE mail = ?";
         PreparedStatement pstmt = conn.prepareStatement(query);
         pstmt.setString(1, mail);
         return pstmt.executeQuery();

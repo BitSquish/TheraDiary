@@ -65,14 +65,14 @@ public class LoginAndRegistrationQuery {
         }
     }
 
-    public static void registerMedicalOffice(Connection conn, MedicalOffice medicalOffice) throws SQLException {
+    public static void registerMedicalOffice(Connection conn, String mail, String city, String postCode, String address, String otherInfo) throws SQLException {
         String query = "INSERT INTO medicaloffice (mail, city, postCode, address, otherInfo) VALUES (?,?,?,?,?)";
         PreparedStatement pstmt = conn.prepareStatement(query);
-        pstmt.setString(1, medicalOffice.getMail());
-        pstmt.setString(2, medicalOffice.getCity());
-        pstmt.setString(3, medicalOffice.getPostCode());
-        pstmt.setString(4, medicalOffice.getAddress());
-        pstmt.setString(5, medicalOffice.getOtherInfo());
+        pstmt.setString(1, mail);
+        pstmt.setString(2, city);
+        pstmt.setString(3, postCode);
+        pstmt.setString(4, address);
+        pstmt.setString(5, otherInfo);
         pstmt.executeUpdate();
         //Possono esserci problemi da gestire?
     }

@@ -1,24 +1,25 @@
 package com.example.theradiaryispw.logic.otherClasses.dao;
 
 import com.example.theradiaryispw.logic.model.Credentials;
+import com.example.theradiaryispw.logic.model.MedicalOffice;
 import com.example.theradiaryispw.logic.model.Psychologist;
 import com.example.theradiaryispw.logic.otherClasses.exceptions.NoResultException;
 import com.example.theradiaryispw.logic.otherClasses.other.ConnectionFactory;
 import com.example.theradiaryispw.logic.otherClasses.other.Role;
-import com.example.theradiaryispw.logic.otherClasses.query.SearchQuery;
+import com.example.theradiaryispw.logic.otherClasses.query.RetrieveQuery;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-public class SearchDAO {
-    private SearchDAO(){}
+public class RetrieveDAO {
+    private RetrieveDAO(){}
 
-    public static void searchDao(List<Psychologist> psychologists, String name, String surname, String city, boolean inPerson, boolean online, boolean pag) throws NoResultException{
+    public static void searchPsychologists(List<Psychologist> psychologists, String name, String surname, String city, boolean inPerson, boolean online, boolean pag) throws NoResultException{
 
         try (Connection conn = ConnectionFactory.getConnection();
-             ResultSet rs = SearchQuery.searchPsychologist(conn, name, surname, city, inPerson, online, pag)) {
+             ResultSet rs = RetrieveQuery.searchPsychologist(conn, name, surname, city, inPerson, online, pag)) {
             if(!rs.next())
                 throw new NoResultException("La ricerca non ha prodotto risultati");
              do{
@@ -40,5 +41,24 @@ public class SearchDAO {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static boolean retrieveMedicalOffice(MedicalOffice medicalOffice) throws SQLException {
+        try(Connection conn = ConnectionFactory.getConnection();
+            ResultSet rs = RetrieveQuery.retrieveMedicalOffice(conn, medicalOffice.getMail())){
+            if(rs.next()){
+                medicalOffice.setCity(rs.getString("city"));
+                medicalOffice.setPostCode(rs.getString("postCode"));
+                medicalOffice.setAddress(rs.getString("address"));
+                medicalOffice.setOtherInfo(rs.getString("otherInfo"));
+                return true;
+            }
+            else
+                return false;
+        }
+        catch (SQLException e) {
+            throw new RuntimeException(e); //DA VERIFICARE ECCEZIONE
+        }
+
     }
 }

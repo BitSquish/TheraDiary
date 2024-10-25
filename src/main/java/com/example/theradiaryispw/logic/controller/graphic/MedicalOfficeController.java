@@ -20,6 +20,24 @@ public class MedicalOfficeController extends CommonController{
     TextField citta, cap, via, altreInfo;
     @FXML
     Label errorMessage;
+    Boolean medOffAlreadyInserted;
+
+
+    //Questo metodo fa sì che le textfield siano inizializzate con i dati dello studio medico se esso è già stato inserito
+    @FXML
+    protected void initializeTextFields() throws SQLException {
+        MedicalOfficeBean medicalOfficeBean = new MedicalOfficeBean(session.getUser().getMail(), null, null, null, null);
+        MedicalOfficeRegistration medicalOfficeRegistration = new MedicalOfficeRegistration();
+        if (medicalOfficeRegistration.retrieveMedicalOffice(medicalOfficeBean)) {
+            medOffAlreadyInserted = true;
+            citta.setText(medicalOfficeBean.getCity());
+            cap.setText(medicalOfficeBean.getPostCode());
+            via.setText(medicalOfficeBean.getAddress());
+            altreInfo.setText(medicalOfficeBean.getOtherInfo());
+        }
+        else
+            medOffAlreadyInserted = false;
+    }
 
     @FXML
     private void register(MouseEvent event){
@@ -29,9 +47,12 @@ public class MedicalOfficeController extends CommonController{
             TextField[] fields = {citta, cap, via};
             checkFields(fields);
             MedicalOfficeBean medicalOfficeBean = new MedicalOfficeBean(session.getUser().getMail(), citta.getText(), cap.getText(), via.getText(), altreInfo.getText());
-            MedicalOfficeRegistration medicalOffice = new MedicalOfficeRegistration();
-            medicalOffice.register(medicalOfficeBean);
-            System.out.println("Registrato con successo"); //DA IMPLEMENTARE INTERFACCIA GRAFICA
+            MedicalOfficeRegistration medicalOfficeRegistration = new MedicalOfficeRegistration();
+            if(medOffAlreadyInserted)
+                medicalOfficeRegistration.modify(medicalOfficeBean);
+            else
+                medicalOfficeRegistration.register(medicalOfficeBean);
+            System.out.println("Registrazione/modifica effettuata con successo"); //DA IMPLEMENTARE INTERFACCIA GRAFICA
         }catch(EmptyFieldException exception){
             errorMessage.setText(exception.getMessage());
             errorMessage.setVisible(true);

@@ -17,6 +17,7 @@ import javafx.scene.shape.Line;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public abstract class CommonController {
     protected Session session;
@@ -176,8 +177,13 @@ public abstract class CommonController {
                 loader.setControllerFactory(c -> new MedicalOfficeController(session));
             }
             Parent root = loader.load();
+            if (loader.getController() instanceof MedicalOfficeController medicalOfficeController) {
+                medicalOfficeController.initializeTextFields(); // Chiamata al metodo per caricare i dati
+            }
             changeScene(root, event);
         } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }

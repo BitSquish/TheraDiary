@@ -86,6 +86,6 @@
             </font>
         </Button>
         <Label fx:id="infoPAG" layoutX="598.0" layoutY="289.0" prefHeight="181.0" prefWidth="160.0" style="-fx-background-color: #ffffff; -fx-border-color: #111111; -fx-border-radius: 10px;" text="Aderendo al PA.G. (Programma di Assistenza Gratuita), potrai aiutare pazienti con problemi economici a ricevere il giusto supporto mentale a titolo gratuito. Aiutaci a rendere il mondo un posto migliore!" textAlignment="CENTER" visible="false" wrapText="true" />
-      <Button fx:id="indietro" layoutX="735.0" layoutY="129.0" mnemonicParsing="false" onMouseClicked="#Back" style="-fx-background-color: #9067C6; -fx-background-radius: 20px;" text="Indietro" textFill="WHITE" />
+      <Button fx:id="indietro" layoutX="735.0" layoutY="129.0" mnemonicParsing="false" onMouseClicked="#back" style="-fx-background-color: #9067C6; -fx-background-radius: 20px;" text="Indietro" textFill="WHITE" />
     </children>
 </AnchorPane>

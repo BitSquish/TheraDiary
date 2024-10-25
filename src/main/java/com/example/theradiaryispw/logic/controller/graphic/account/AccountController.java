@@ -3,7 +3,6 @@ package com.example.theradiaryispw.logic.controller.graphic.account;
 import com.example.theradiaryispw.logic.controller.graphic.CommonController;
 import com.example.theradiaryispw.logic.controller.graphic.HomepageLoggedPsController;
 import com.example.theradiaryispw.logic.controller.graphic.HomepagePtLoggedController;
-import com.example.theradiaryispw.logic.controller.graphic.ModifyController;
 import com.example.theradiaryispw.logic.controller.graphic.login.LoginController;
 import com.example.theradiaryispw.logic.controller.graphic.modify.ModifyPatientController;
 import com.example.theradiaryispw.logic.controller.graphic.modify.ModifyPsychologistController;

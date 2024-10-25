@@ -9,17 +9,17 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.theradiaryispw.logic.controller.graphic.HomepageLoggedPsController">
     <fx:include source="CommonPanel.fxml" />
-    <Button fx:id="iniziamo" layoutX="55.0" layoutY="194.0" mnemonicParsing="false" prefHeight="130.0" prefWidth="219.0" style="-fx-background-color: #9067C6; -fx-background-radius: 15px;" textFill="WHITE">
+    <Button fx:id="iniziamo" layoutX="55.0" layoutY="194.0" mnemonicParsing="false" onMouseClicked="#goToAccountPage" prefHeight="130.0" prefWidth="219.0" style="-fx-background-color: #9067C6; -fx-background-radius: 15px;" textFill="WHITE">
         <font>
             <Font size="18.0" />
         </font>
     </Button>
-    <Button fx:id="iniziamo1" layoutX="328.0" layoutY="194.0" mnemonicParsing="false" prefHeight="130.0" prefWidth="219.0" style="-fx-background-color: #9067C6; -fx-background-radius: 15px;" textFill="WHITE">
+    <Button fx:id="iniziamo1" layoutX="328.0" layoutY="194.0" mnemonicParsing="false" onMouseClicked="#goToTasks" prefHeight="130.0" prefWidth="219.0" style="-fx-background-color: #9067C6; -fx-background-radius: 15px;" textFill="WHITE">
         <font>
             <Font size="18.0" />
         </font>
     </Button>
-    <Button fx:id="iniziamo2" layoutX="606.0" layoutY="194.0" mnemonicParsing="false" prefHeight="130.0" prefWidth="219.0" style="-fx-background-color: #9067C6; -fx-background-radius: 15px;" textFill="WHITE">
+    <Button fx:id="iniziamo2" layoutX="606.0" layoutY="194.0" mnemonicParsing="false" onMouseClicked="#goToDashboard" prefHeight="130.0" prefWidth="219.0" style="-fx-background-color: #9067C6; -fx-background-radius: 15px;" textFill="WHITE">
         <font>
             <Font size="18.0" />
         </font>
@@ -29,22 +29,22 @@
             <Image url="@images/commonPanel/account.png" />
         </image>
     </ImageView>
-    <Button fx:id="iniziamo11" layoutX="328.0" layoutY="358.0" mnemonicParsing="false" prefHeight="130.0" prefWidth="219.0" style="-fx-background-color: #9067C6; -fx-background-radius: 15px;" textFill="WHITE">
+    <Button fx:id="iniziamo11" layoutX="328.0" layoutY="358.0" mnemonicParsing="false" onMouseClicked="#goToSearch" prefHeight="130.0" prefWidth="219.0" style="-fx-background-color: #9067C6; -fx-background-radius: 15px;" textFill="WHITE">
         <font>
             <Font size="18.0" />
         </font>
     </Button>
-    <Button fx:id="iniziamo12" layoutX="606.0" layoutY="357.0" mnemonicParsing="false" prefHeight="130.0" prefWidth="219.0" style="-fx-background-color: #9067C6; -fx-background-radius: 15px;" textFill="WHITE">
+    <Button fx:id="iniziamo12" layoutX="606.0" layoutY="357.0" mnemonicParsing="false" onMouseClicked="#goToAppointment" prefHeight="130.0" prefWidth="219.0" style="-fx-background-color: #9067C6; -fx-background-radius: 15px;" textFill="WHITE">
         <font>
             <Font size="18.0" />
         </font>
     </Button>
-    <Button fx:id="iniziamo13" layoutX="55.0" layoutY="357.0" mnemonicParsing="false" prefHeight="130.0" prefWidth="219.0" style="-fx-background-color: #9067C6; -fx-background-radius: 15px;" textFill="WHITE">
+    <Button fx:id="iniziamo13" layoutX="55.0" layoutY="357.0" mnemonicParsing="false" onMouseClicked="#goToPAG" prefHeight="130.0" prefWidth="219.0" style="-fx-background-color: #9067C6; -fx-background-radius: 15px;" textFill="WHITE">
         <font>
             <Font size="18.0" />
         </font>
     </Button>
-    <Text fill="WHITE" layoutX="404.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Diario e task">
+    <Text fill="WHITE" layoutX="404.0" layoutY="224.0" onMouseClicked="#goToTasks" strokeType="OUTSIDE" strokeWidth="0.0" text="Diario e task">
         <font>
             <Font name="System Bold" size="14.0" />
         </font>
@@ -54,7 +54,7 @@
             <Image url="@images/commonPanel/diarioTask.png" />
         </image>
     </ImageView>
-    <Text fill="WHITE" layoutX="404.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Visualizza o assegna task ai tuoi pazienti o leggi i loro diari" wrappingWidth="124.5367431640625">
+    <Text fill="WHITE" layoutX="404.0" layoutY="244.0" onMouseClicked="#goToTasks" strokeType="OUTSIDE" strokeWidth="0.0" text="Visualizza o assegna task ai tuoi pazienti o leggi i loro diari" wrappingWidth="124.5367431640625">
         <font>
             <Font size="14.0" />
         </font>
@@ -64,52 +64,52 @@
             <Font name="System Bold" size="30.0" />
         </font>
     </Text>
-    <Text fill="WHITE" layoutX="142.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account:">
+    <Text fill="WHITE" layoutX="142.0" layoutY="225.0" onMouseClicked="#goToAccountPage" strokeType="OUTSIDE" strokeWidth="0.0" text="Account:">
         <font>
             <Font name="System Bold" size="14.0" />
         </font>
     </Text>
-    <Text fill="WHITE" layoutX="141.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Visualizza o modifica i tuoi dati personali" wrappingWidth="116.5367431640625">
+    <Text fill="WHITE" layoutX="141.0" layoutY="246.0" onMouseClicked="#goToAccountPage" strokeType="OUTSIDE" strokeWidth="0.0" text="Visualizza o modifica i tuoi dati personali" wrappingWidth="116.5367431640625">
         <font>
             <Font size="14.0" />
         </font>
     </Text>
-    <Text fill="WHITE" layoutX="682.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pazienti e note">
+    <Text fill="WHITE" layoutX="682.0" layoutY="224.0" onMouseClicked="#goToDashboard" strokeType="OUTSIDE" strokeWidth="0.0" text="Pazienti e note">
         <font>
             <Font name="System Bold" size="14.0" />
         </font>
     </Text>
-    <Text fill="WHITE" layoutX="681.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Visualizza il riepilogo suoi tuoi pazienti e aggiungi delle note" wrappingWidth="134.93685913085938">
+    <Text fill="WHITE" layoutX="681.0" layoutY="251.0" onMouseClicked="#goToDashboard" strokeType="OUTSIDE" strokeWidth="0.0" text="Visualizza il riepilogo suoi tuoi pazienti e aggiungi delle note" wrappingWidth="134.93685913085938">
         <font>
             <Font size="14.0" />
         </font>
     </Text>
-    <Text fill="WHITE" layoutX="137.0" layoutY="390.0" strokeType="OUTSIDE" strokeWidth="0.0" text="P.A.G.">
+    <Text fill="WHITE" layoutX="137.0" layoutY="390.0" onMouseClicked="#goToPAG" strokeType="OUTSIDE" strokeWidth="0.0" text="P.A.G.">
         <font>
             <Font name="System Bold" size="14.0" />
         </font>
     </Text>
-    <Text fill="WHITE" layoutX="137.0" layoutY="410.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Scopri le agevolazioni del Programma di Assistenza Gratuito" wrappingWidth="124.5367431640625">
+    <Text fill="WHITE" layoutX="137.0" layoutY="410.0" onMouseClicked="#goToPAG" strokeType="OUTSIDE" strokeWidth="0.0" text="Scopri le agevolazioni del Programma di Assistenza Gratuito" wrappingWidth="124.5367431640625">
         <font>
             <Font size="14.0" />
         </font>
     </Text>
-    <Text fill="WHITE" layoutX="404.0" layoutY="426.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Visualizza, modifica o elimina i dati sui tuoi studi medici" wrappingWidth="124.5367431640625">
+    <Text fill="WHITE" layoutX="404.0" layoutY="426.0" onMouseClicked="#goToSearch" strokeType="OUTSIDE" strokeWidth="0.0" text="Visualizza, modifica o elimina i dati sui tuoi studi medici" wrappingWidth="124.5367431640625">
         <font>
             <Font size="14.0" />
         </font>
     </Text>
-    <Text fill="WHITE" layoutX="404.0" layoutY="388.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gestisci studio medico" wrappingWidth="124.53674316406256">
+    <Text fill="WHITE" layoutX="404.0" layoutY="388.0" onMouseClicked="#goToSearch" strokeType="OUTSIDE" strokeWidth="0.0" text="Gestisci studio medico" wrappingWidth="124.53674316406256">
         <font>
             <Font name="System Bold" size="14.0" />
         </font>
     </Text>
-    <Text fill="WHITE" layoutX="681.0" layoutY="392.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Appuntamenti">
+    <Text fill="WHITE" layoutX="681.0" layoutY="392.0" onMouseClicked="#goToAppointment" strokeType="OUTSIDE" strokeWidth="0.0" text="Appuntamenti">
         <font>
             <Font name="System Bold" size="14.0" />
         </font>
     </Text>
-    <Text fill="WHITE" layoutX="681.0" layoutY="414.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aggiorna i tuoi orari e gestisci i tuoi appuntamenti" wrappingWidth="134.93685913085938">
+    <Text fill="WHITE" layoutX="681.0" layoutY="414.0" onMouseClicked="#goToAppointment" strokeType="OUTSIDE" strokeWidth="0.0" text="Aggiorna i tuoi orari e gestisci i tuoi appuntamenti" wrappingWidth="134.93685913085938">
         <font>
             <Font size="14.0" />
         </font>

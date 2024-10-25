@@ -18,7 +18,7 @@ import javafx.scene.input.MouseEvent;
 import java.io.IOException;
 
 public abstract class ModifyController extends CommonController {
-    public ModifyController(Session session) {
+    protected ModifyController(Session session) {
         super(session);
     }
 
@@ -30,7 +30,7 @@ public abstract class ModifyController extends CommonController {
     CheckBox inPresenza, online;
 
     @FXML
-    protected void Back(MouseEvent event) throws IOException {
+    protected void back(MouseEvent event) {
         try {
             FXMLLoader loader;
             if(session.getUser()==null){

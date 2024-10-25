@@ -7,7 +7,7 @@ public class MedicalOfficeBean {
     private String city;
     private String otherInfo;
 
-    public MedicalOfficeBean (String mail, String postCode, String address, String city, String otherInfo){
+    public MedicalOfficeBean (String mail, String city, String postCode, String address, String otherInfo){
         this.mail = mail;
         this.postCode = postCode;
         this.address = address;

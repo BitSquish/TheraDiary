@@ -69,7 +69,7 @@ public class RegistrationDAO {
 
     public static void registerMedicalOffice(MedicalOffice medicalOffice) throws SQLException {
         try(Connection conn = ConnectionFactory.getConnection()){
-            LoginAndRegistrationQuery.registerMedicalOffice(conn, medicalOffice);
+            LoginAndRegistrationQuery.registerMedicalOffice(conn, medicalOffice.getMail(), medicalOffice.getCity(), medicalOffice.getPostCode(), medicalOffice.getAddress(), medicalOffice.getOtherInfo());
         } catch(SQLException e){
             throw new SQLException(e.getMessage());
         }
