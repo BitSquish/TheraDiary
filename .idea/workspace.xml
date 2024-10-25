@@ -4,27 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c77d5b2c-72bb-41b5-8004-61d1cfae9b40" name="Changes" comment="Implementata la registrazione dello studio medico e create le corrispondenti classi model e bean">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/dao/UpdateDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/query/UpdateQuery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_10_2024_11_15_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_10_2024_11_15__Changes_.xml" beforeDir="false" />
+    <list default="true" id="c77d5b2c-72bb-41b5-8004-61d1cfae9b40" name="Changes" comment="Implementata modifica studio medico se già presente. I bottoni dell'homepage paziente sono stati resi coerenti con quelli di homepage psicologo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/application/MedicalOfficeRegistration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/application/MedicalOfficeRegistration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/application/Search.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/application/Search.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/CommonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/CommonController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/MedicalOfficeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/MedicalOfficeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/ModifyController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/account/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/account/AccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/account/PatientAccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/account/PatientAccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/modify/ModifyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/modify/ModifyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/model/bean/generic/MedicalOfficeBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/model/bean/generic/MedicalOfficeBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/dao/RegistrationDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/dao/RegistrationDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/dao/SearchDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/dao/RetrieveDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/query/LoginAndRegistrationQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/query/LoginAndRegistrationQuery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/query/SearchQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/query/RetrieveQuery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/res/view/ModifyPatient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/res/view/ModifyPatient.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/res/view/ModifyPsychologist.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/res/view/ModifyPsychologist.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/res/view/MedicalOffice.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/res/view/MedicalOffice.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -365,7 +348,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729853405334</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Implementata modifica studio medico se già presente. I bottoni dell'homepage paziente sono stati resi coerenti con quelli di homepage psicologo">
+      <option name="closed" value="true" />
+      <created>1729891288097</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1729891288098</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -407,7 +398,8 @@
     <MESSAGE value="Pulsanti modifica, logout e indietro per i due account" />
     <MESSAGE value="Risolte problematiche sui pulsanti degli account ora funzionano tutti" />
     <MESSAGE value="Implementata la registrazione dello studio medico e create le corrispondenti classi model e bean" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementata la registrazione dello studio medico e create le corrispondenti classi model e bean" />
+    <MESSAGE value="Implementata modifica studio medico se già presente. I bottoni dell'homepage paziente sono stati resi coerenti con quelli di homepage psicologo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementata modifica studio medico se già presente. I bottoni dell'homepage paziente sono stati resi coerenti con quelli di homepage psicologo" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

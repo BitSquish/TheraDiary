@@ -19,7 +19,7 @@ public class MedicalOfficeController extends CommonController{
     @FXML
     TextField citta, cap, via, altreInfo;
     @FXML
-    Label errorMessage;
+    Label errorMessage, successMessage;
     Boolean medOffAlreadyInserted;
 
 
@@ -43,6 +43,7 @@ public class MedicalOfficeController extends CommonController{
     private void register(MouseEvent event){
         //VA GESTITO IL CASO DI MODIFICA DEI DATI
         errorMessage.setVisible(false);
+        successMessage.setVisible(false);
         try{
             TextField[] fields = {citta, cap, via};
             checkFields(fields);
@@ -52,7 +53,7 @@ public class MedicalOfficeController extends CommonController{
                 medicalOfficeRegistration.modify(medicalOfficeBean);
             else
                 medicalOfficeRegistration.register(medicalOfficeBean);
-            System.out.println("Registrazione/modifica effettuata con successo"); //DA IMPLEMENTARE INTERFACCIA GRAFICA
+            successMessage.setVisible(true);
         }catch(EmptyFieldException exception){
             errorMessage.setText(exception.getMessage());
             errorMessage.setVisible(true);

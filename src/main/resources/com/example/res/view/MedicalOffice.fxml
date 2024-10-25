@@ -43,7 +43,7 @@
          <Font size="14.0" />
       </font>
    </Text>
-   <Button layoutX="369.0" layoutY="456.0" mnemonicParsing="false" onMouseClicked="#register" prefHeight="48.0" prefWidth="136.0" style="-fx-background-color: #9067C6;" text="Registra" textFill="WHITE">
+   <Button layoutX="369.0" layoutY="464.0" mnemonicParsing="false" onMouseClicked="#register" prefHeight="48.0" prefWidth="136.0" style="-fx-background-color: #9067C6;" text="Registra" textFill="WHITE">
       <font>
          <Font size="18.0" />
       </font>
@@ -55,6 +55,15 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
+   </HBox>
+   <HBox alignment="CENTER" layoutX="241.0" layoutY="430.0" prefHeight="18.0" prefWidth="390.0" spacing="10" style="-fx-alignment: center;">
+      <children>
+         <Label fx:id="successMessage" layoutX="140.0" layoutY="342.0" prefHeight="18.0" prefWidth="508.0" style="-fx-alignment: center;" text="Registrazione/modifica avvenuta con successo!" textFill="#31a639" visible="false">
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font>
+         </Label>
+      </children>
    </HBox>
 
 
