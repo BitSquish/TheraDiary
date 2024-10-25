@@ -1,12 +1,12 @@
 package com.example.theradiaryispw.logic.otherClasses.dao;
 
 import com.example.theradiaryispw.logic.model.Credentials;
+import com.example.theradiaryispw.logic.model.MedicalOffice;
 import com.example.theradiaryispw.logic.model.Patient;
 import com.example.theradiaryispw.logic.model.Psychologist;
-import com.example.theradiaryispw.logic.model.bean.generic.PsychologistBean;
 import com.example.theradiaryispw.logic.otherClasses.exceptions.MailAlreadyExistsException;
 import com.example.theradiaryispw.logic.otherClasses.other.ConnectionFactory;
-import com.example.theradiaryispw.logic.otherClasses.query.LoginQuery;
+import com.example.theradiaryispw.logic.otherClasses.query.LoginAndRegistrationQuery;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -15,7 +15,7 @@ public class RegistrationDAO {
     //controllo se l'email è presente o meno
     private static boolean emailExists(String mail) throws SQLException {
         try (Connection conn = ConnectionFactory.getConnection()){
-            int rs = LoginQuery.checkMail(conn, mail);
+            int rs = LoginAndRegistrationQuery.checkMail(conn, mail);
              if (rs != 0)
                     return true;
         }
@@ -24,7 +24,7 @@ public class RegistrationDAO {
     //inserisco l'utente (credenziali) nel database
     public static boolean insertUser(Credentials credentials) throws SQLException {
         try (Connection conn = ConnectionFactory.getConnection()) {
-            int rs = LoginQuery.registerUser(conn, credentials);
+            int rs = LoginAndRegistrationQuery.registerUser(conn, credentials);
             return rs != 0;
         }
     }
@@ -39,7 +39,7 @@ public class RegistrationDAO {
         boolean flag = insertUser(patient.getCredentials());
         if(flag){
             try (Connection conn = ConnectionFactory.getConnection()){
-                LoginQuery.registerPatient(conn, patient);
+                LoginAndRegistrationQuery.registerPatient(conn, patient);
             }
             catch(SQLException e){
                 throw new SQLException(e.getMessage());
@@ -57,7 +57,7 @@ public class RegistrationDAO {
         boolean flag = insertUser(psychologist.getCredentials());
         if(flag){
             try (Connection conn = ConnectionFactory.getConnection()) {
-                LoginQuery.registerPsychologist(conn, psychologist);
+                LoginAndRegistrationQuery.registerPsychologist(conn, psychologist);
             }
             catch(SQLException e){
                     throw new SQLException(e.getMessage()); //DA SOSTITUIRE CON ECCEZIONE SPECIFICA PER INSERIMENTO SU PSICOLOGI NON A BUON FINE (O FORSE NO?)
@@ -65,6 +65,14 @@ public class RegistrationDAO {
         }
         else
             throw new SQLException(); //DA SOSTITUIRE CON ECCEZIONE SPECIFICA PER INSERIMENTO SU UTENTI NON A BUON FINE (O FORSE NO?)
+    }
+
+    public static void registerMedicalOffice(MedicalOffice medicalOffice) throws SQLException {
+        try(Connection conn = ConnectionFactory.getConnection()){
+            LoginAndRegistrationQuery.registerMedicalOffice(conn, medicalOffice);
+        } catch(SQLException e){
+            throw new SQLException(e.getMessage());
+        }
     }
 }
 

@@ -4,7 +4,7 @@ import com.example.theradiaryispw.logic.model.Credentials;
 import com.example.theradiaryispw.logic.otherClasses.exceptions.WrongEmailOrPasswordException;
 import com.example.theradiaryispw.logic.otherClasses.other.ConnectionFactory;
 import com.example.theradiaryispw.logic.otherClasses.other.Role;
-import com.example.theradiaryispw.logic.otherClasses.query.LoginQuery;
+import com.example.theradiaryispw.logic.otherClasses.query.LoginAndRegistrationQuery;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -19,7 +19,7 @@ public class LoginDAO {
 
     public static void login(Credentials credentials) throws SQLException, WrongEmailOrPasswordException {
         try (Connection conn = ConnectionFactory.getConnection();
-             ResultSet rs = LoginQuery.logQuery(conn, credentials)) {
+             ResultSet rs = LoginAndRegistrationQuery.logQuery(conn, credentials)) {
             if (rs.next()) {
                 credentials.setRole(Role.valueOf(rs.getString("role")));
             }

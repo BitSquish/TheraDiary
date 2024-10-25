@@ -8,14 +8,12 @@ import com.example.theradiaryispw.logic.otherClasses.exceptions.NoResultExceptio
 import com.example.theradiaryispw.logic.otherClasses.other.Session;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Alert;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class SearchController extends CommonController{
@@ -58,13 +56,11 @@ public class SearchController extends CommonController{
 
     @FXML
     protected void checkFields(TextField[] fields) throws EmptyFieldException {
-        //Da modificare, devono essere tutti vuoti
         for(TextField field:fields){
             if (!(field.getText().isEmpty()))
                 return;
         }
         throw new EmptyFieldException("Inserisci almeno almeno un campo tra cognome e città");
-
     }
 
 }

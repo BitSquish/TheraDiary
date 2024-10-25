@@ -167,9 +167,13 @@ public abstract class CommonController {
                 loader = new FXMLLoader(getClass().getResource("/com/example/res/view/Login.fxml"));
                 loader.setControllerFactory(c -> new LoginController(session));
             }
-            else{
+            else if(session.getUser().getRole().toString().equals("PATIENT")){
                 loader = new FXMLLoader(getClass().getResource("/com/example/res/view/Search.fxml"));
                 loader.setControllerFactory(c -> new SearchController(session));
+            }
+            else{
+                loader = new FXMLLoader(getClass().getResource("/com/example/res/view/MedicalOffice.fxml"));
+                loader.setControllerFactory(c -> new MedicalOfficeController(session));
             }
             Parent root = loader.load();
             changeScene(root, event);

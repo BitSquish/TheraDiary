@@ -1,6 +1,7 @@
 package com.example.theradiaryispw.logic.otherClasses.query;
 
 import com.example.theradiaryispw.logic.model.Credentials;
+import com.example.theradiaryispw.logic.model.MedicalOffice;
 import com.example.theradiaryispw.logic.model.Patient;
 import com.example.theradiaryispw.logic.model.Psychologist;
 import com.example.theradiaryispw.logic.otherClasses.exceptions.MailAlreadyExistsException;
@@ -9,7 +10,7 @@ import java.sql.*;
 
 //NOTA: conviene usare Statement per query senza input, per query con input si usa PreparedStatement
 
-public class LoginQuery {
+public class LoginAndRegistrationQuery {
     public static ResultSet logQuery(Connection conn, Credentials credentialsBean) throws SQLException {
         String query = "SELECT mail, password, role FROM users WHERE mail = ? AND password = ?";
         PreparedStatement pstmt = conn.prepareStatement(query);
@@ -18,20 +19,7 @@ public class LoginQuery {
         return pstmt.executeQuery();
     }
 
-    public static ResultSet retrievePsychologist(Connection conn, String mail) throws SQLException {
 
-        String query = "SELECT name, surname, city, description, inPerson, online, pag FROM psychologist WHERE mail = ?";
-        PreparedStatement pstmt = conn.prepareStatement(query);
-        pstmt.setString(1, mail);
-        return pstmt.executeQuery();
-    }
-
-    public static ResultSet retrievePatient(Connection conn, String mail) throws SQLException {
-        String query = "SELECT name, surname, city, description, inPerson, online, pag FROM patient WHERE mail = ?";
-        PreparedStatement pstmt = conn.prepareStatement(query);
-        pstmt.setString(1, mail);
-        return pstmt.executeQuery();
-    }
 
     //QUERY REGISTRAZIONE
     public static int registerUser(Connection conn, Credentials credentialsBean) throws SQLException{
@@ -75,6 +63,18 @@ public class LoginQuery {
         if(rs == 0){
             throw new MailAlreadyExistsException("Mail già esistente");
         }
+    }
+
+    public static void registerMedicalOffice(Connection conn, MedicalOffice medicalOffice) throws SQLException {
+        String query = "INSERT INTO medicaloffice (mail, city, postCode, address, otherInfo) VALUES (?,?,?,?,?)";
+        PreparedStatement pstmt = conn.prepareStatement(query);
+        pstmt.setString(1, medicalOffice.getMail());
+        pstmt.setString(2, medicalOffice.getCity());
+        pstmt.setString(3, medicalOffice.getPostCode());
+        pstmt.setString(4, medicalOffice.getAddress());
+        pstmt.setString(5, medicalOffice.getOtherInfo());
+        pstmt.executeUpdate();
+        //Possono esserci problemi da gestire?
     }
 
     public static int checkMail(Connection conn, String mail) throws SQLException {

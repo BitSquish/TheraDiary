@@ -5,13 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c77d5b2c-72bb-41b5-8004-61d1cfae9b40" name="Changes" comment="Risolte problematiche sui pulsanti degli account ora funzionano tutti">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/application/AccountService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/other/Major.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/application/MedicalOfficeRegistration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/MedicalOfficeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/model/MedicalOffice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/model/bean/generic/MedicalOfficeBean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/res/view/MedicalOffice.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_10_2024_11_40_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_10_2024_11_40__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_10_2024_11_15__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_10_2024_11_15__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/account/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/account/AccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/modify/ModifyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/modify/ModifyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/model/Credentials.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/model/Credentials.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/model/bean/login/CredentialsBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/model/bean/login/CredentialsBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/application/AccountService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/application/Registration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/application/UserRegistration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/CommonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/CommonController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/SearchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/SearchController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/login/PatientRegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/login/PatientRegistrationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/login/UserRegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/controller/graphic/login/UserRegistrationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/dao/LoginDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/dao/LoginDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/dao/RegistrationDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/dao/RegistrationDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/exceptions/MailAlreadyExistsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/exceptions/MailAlreadyExistsException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/query/LoginQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/query/LoginAndRegistrationQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/query/SearchQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/theradiaryispw/logic/otherClasses/query/SearchQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/res/view/PsychologistRegistration.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/res/view/PsychologistRegistration.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,8 +38,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="FxmlFile" />
         <option value="Enum" />
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -86,7 +102,7 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.43908045&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.importing&quot;,

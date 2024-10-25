@@ -93,19 +93,17 @@
             <Font size="18.0" />
         </font>
     </Button>
-   <ImageView fx:id="infoButton" fitHeight="18.0" fitWidth="17.0" layoutX="773.0" layoutY="365.0" onMouseClicked="#clickInfoButton" pickOnBounds="true" preserveRatio="true">
-      <image>
-         <Image url="@images/commonPanel/info.png" />
-      </image>
-   </ImageView>
+    <ImageView fx:id="infoButton" fitHeight="18.0" fitWidth="17.0" layoutX="773.0" layoutY="365.0"
+               onMouseClicked="#clickInfoButton" pickOnBounds="true" preserveRatio="true">
+        <Image url="@images/commonPanel/info.png"/>
+    </ImageView>
    <Label fx:id="infoPAG" layoutX="701.0" layoutY="180.0" prefHeight="181.0" prefWidth="160.0" style="-fx-background-color: #ffffff; -fx-border-color: #111111; -fx-border-radius: 10px;" text="Aderendo al PA.G. (Programma di Assistenza Gratuita), potrai aiutare pazienti con problemi economici a ricevere il giusto supporto mentale a titolo gratuito. Aiutaci a rendere il mondo un posto migliore!" textAlignment="CENTER" visible="false" wrapText="true" />
-   <HBox alignment="CENTER" layoutX="576.0" layoutY="429.0" spacing="10" style="-fx-alignment: center;">
-      <children>
-         <Label fx:id="errorMessage" layoutX="140.0" layoutY="342.0" prefHeight="18.0" prefWidth="170.0" style="-fx-alignment: center;" text="   " textFill="#ec4747">
-            <font>
-               <Font name="System Bold" size="12.0" />
-            </font>
-         </Label>
-      </children>
-   </HBox>
+    <HBox alignment="CENTER" layoutX="576.0" layoutY="429.0" spacing="10" style="-fx-alignment: center;">
+        <Label fx:id="errorMessage" layoutX="140.0" layoutY="342.0" prefHeight="18.0" prefWidth="170.0"
+               style="-fx-alignment: center;" text="   " textFill="#ec4747">
+           <font>
+               <Font name="System Bold" size="12.0"/>
+           </font>
+        </Label>
+    </HBox>
 </AnchorPane>

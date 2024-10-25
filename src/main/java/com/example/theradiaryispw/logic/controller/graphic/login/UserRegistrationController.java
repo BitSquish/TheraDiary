@@ -1,12 +1,10 @@
 package com.example.theradiaryispw.logic.controller.graphic.login;
 
 import com.example.theradiaryispw.logic.controller.application.Login;
-import com.example.theradiaryispw.logic.controller.application.Registration;
+import com.example.theradiaryispw.logic.controller.application.UserRegistration;
 import com.example.theradiaryispw.logic.controller.graphic.CommonController;
-import com.example.theradiaryispw.logic.model.bean.generic.PsychologistBean;
 import com.example.theradiaryispw.logic.model.bean.login.CredentialsBean;
 import com.example.theradiaryispw.logic.otherClasses.exceptions.*;
-import com.example.theradiaryispw.logic.otherClasses.other.Role;
 import com.example.theradiaryispw.logic.otherClasses.other.Session;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -41,7 +39,7 @@ public abstract class UserRegistrationController extends CommonController {
         try{
             TextField[] fields = {nome, cognome, citta, mail, descrizione};
             checkFields(fields);
-            Registration registration = new Registration(bean);
+            UserRegistration registration = new UserRegistration(bean);
             // Pop-up che segnala successo registrazione
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Registrazione");

@@ -1,12 +1,9 @@
 package com.example.theradiaryispw.logic.controller.graphic.login;
 import com.example.theradiaryispw.logic.model.bean.generic.PatientBean;
 import com.example.theradiaryispw.logic.model.bean.login.CredentialsBean;
-import com.example.theradiaryispw.logic.otherClasses.exceptions.EmptyFieldException;
-import com.example.theradiaryispw.logic.otherClasses.exceptions.MailAlreadyExistsException;
 import com.example.theradiaryispw.logic.otherClasses.other.Role;
 import com.example.theradiaryispw.logic.otherClasses.other.Session;
 import javafx.fxml.FXML;
-import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
 
