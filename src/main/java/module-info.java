@@ -3,7 +3,6 @@ module com.example.theradiaryispw {
     requires javafx.fxml;
     requires java.sql;
 
-
     exports com.example.theradiaryispw.logic.view;
     opens com.example.theradiaryispw.logic.view to javafx.fxml;
     exports com.example.theradiaryispw.test;
